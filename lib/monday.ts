@@ -37,6 +37,7 @@ const COL = {
   date: "date4",
   social: "text_mm5h4cfx",
   hear: "color_mm5jzc8v",
+  note: "long_text_mm5jfjb3",
 } as const;
 
 /**
@@ -151,6 +152,7 @@ export async function pushApplicantToMonday(
   }
   if (a.social) columnValues[COL.social] = a.social;
   if (a.hear) columnValues[COL.hear] = { label: a.hear };
+  if (a.message) columnValues[COL.note] = { text: a.message };
 
   // 1) Create the item.
   const createQuery = `
@@ -221,25 +223,9 @@ export async function pushApplicantToMonday(
     }
   }
 
-  // 3) Post the applicant's note as an update (best-effort).
-  if (a.message) {
-    try {
-      const noteQuery = `mutation ($itemId: ID!, $body: String!) {
-        create_update(item_id: $itemId, body: $body) { id }
-      }`;
-      const body = a.roleTitle
-        ? `Applied for: ${a.roleTitle}\n\n${a.message}`
-        : a.message;
-      const json = await mondayGraphQL(token, noteQuery, { itemId, body });
-      if (json.errors?.length) {
-        console.error("[Monday] create_update errors:", json.errors);
-        warnings.push("note not posted");
-      }
-    } catch (err) {
-      console.error("[Monday] create_update failed:", err);
-      warnings.push("note not posted");
-    }
-  }
+  // The applicant's note now lands directly in the "Applicant Note"
+  // long-text column (set in columnValues above), so there's no longer a
+  // separate update to post.
 
   return { ok: true, itemId, warnings: warnings.length ? warnings : undefined };
 }

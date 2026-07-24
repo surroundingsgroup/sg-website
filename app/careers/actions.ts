@@ -64,6 +64,22 @@ async function verifyTurnstile(token: string): Promise<boolean> {
   }
 }
 
+/**
+ * Ensures a user-entered link has a scheme so it works as a real,
+ * clickable URL in the Monday link columns and the email. Accepts bare
+ * domains ("yoursite.com" → "https://yoursite.com") and repairs a
+ * mistyped single-slash scheme ("https:/foo" → "https://foo"). Empty in,
+ * empty out.
+ */
+function normalizeUrl(value: string): string {
+  const s = value.trim();
+  if (!s) return "";
+  if (/^https?:\/\//i.test(s)) return s;
+  const m = s.match(/^(https?):\/{0,2}(.+)$/i);
+  if (m) return `${m[1].toLowerCase()}://${m[2]}`;
+  return `https://${s}`;
+}
+
 function parseRecipients(value: string | undefined): string[] {
   const raw = (value ?? DEFAULT_TO).split(",");
   const list = raw.map((s) => s.trim()).filter(Boolean);
@@ -109,8 +125,8 @@ export async function submitApplication(
   const email = String(formData.get("email") ?? "").trim();
   const phone = String(formData.get("phone") ?? "").trim();
   const city = String(formData.get("city") ?? "").trim();
-  const portfolio = String(formData.get("portfolio") ?? "").trim();
-  const linkedin = String(formData.get("linkedin") ?? "").trim();
+  const portfolio = normalizeUrl(String(formData.get("portfolio") ?? ""));
+  const linkedin = normalizeUrl(String(formData.get("linkedin") ?? ""));
   const instagram = String(formData.get("instagram") ?? "").trim();
   const tiktok = String(formData.get("tiktok") ?? "").trim();
   const hear = String(formData.get("hear") ?? "").trim();

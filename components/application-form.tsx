@@ -194,8 +194,9 @@ export function ApplicationForm({
         <input
           id="portfolio"
           name="portfolio"
-          type="url"
-          placeholder="https:// — a link to your work"
+          type="text"
+          inputMode="url"
+          placeholder="A link to your work — e.g. yoursite.com"
           className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
         />
       </div>
@@ -209,9 +210,10 @@ export function ApplicationForm({
           <input
             id="linkedin"
             name="linkedin"
-            type="url"
-            aria-label="LinkedIn profile URL"
-            placeholder="LinkedIn — profile URL"
+            type="text"
+            inputMode="url"
+            aria-label="LinkedIn profile"
+            placeholder="LinkedIn — linkedin.com/in/you"
             className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

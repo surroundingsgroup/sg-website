@@ -35,7 +35,9 @@ const COL = {
   link: "link__1",
   resume: "files__1",
   date: "date4",
-  social: "text_mm5h4cfx",
+  linkedin: "link_mm5j6trz",
+  instagram: "text_mm5h4cfx",
+  tiktok: "text_mm5j75kz",
   hear: "color_mm5jzc8v",
   note: "long_text_mm5jfjb3",
 } as const;
@@ -64,8 +66,12 @@ export interface MondayApplicant {
   phone?: string;
   city?: string;
   portfolio?: string;
-  /** Social handles (Instagram / TikTok / LinkedIn), free text. */
-  social?: string;
+  /** LinkedIn profile URL. */
+  linkedin?: string;
+  /** Instagram handle or URL. */
+  instagram?: string;
+  /** TikTok handle or URL. */
+  tiktok?: string;
   /** "How did you hear about us?" — maps to a status label. */
   hear?: string;
   /** Website job slug — used to map to the board's position label. */
@@ -150,7 +156,11 @@ export async function pushApplicantToMonday(
   if (a.portfolio) {
     columnValues[COL.link] = { url: a.portfolio, text: a.portfolio };
   }
-  if (a.social) columnValues[COL.social] = a.social;
+  if (a.linkedin) {
+    columnValues[COL.linkedin] = { url: a.linkedin, text: a.linkedin };
+  }
+  if (a.instagram) columnValues[COL.instagram] = a.instagram;
+  if (a.tiktok) columnValues[COL.tiktok] = a.tiktok;
   if (a.hear) columnValues[COL.hear] = { label: a.hear };
   if (a.message) columnValues[COL.note] = { text: a.message };
 

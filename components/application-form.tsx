@@ -189,28 +189,50 @@ export function ApplicationForm({
 
       <div>
         <label htmlFor="portfolio" className="caption text-neutral-600 mb-2 block">
-          Portfolio or LinkedIn (optional)
+          Portfolio (optional)
         </label>
         <input
           id="portfolio"
           name="portfolio"
           type="url"
-          placeholder="https://"
+          placeholder="https:// — a link to your work"
           className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
         />
       </div>
 
+      {/* Social accounts — all optional, fill in whichever apply */}
       <div>
-        <label htmlFor="social" className="caption text-neutral-600 mb-2 block">
-          Social accounts (optional)
-        </label>
-        <input
-          id="social"
-          name="social"
-          type="text"
-          placeholder="@instagram, @tiktok, LinkedIn — anything you'd want us to see"
-          className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
-        />
+        <p className="caption text-neutral-600 mb-2">
+          Social accounts <span className="text-neutral-500">(optional — whichever apply)</span>
+        </p>
+        <div className="space-y-4">
+          <input
+            id="linkedin"
+            name="linkedin"
+            type="url"
+            aria-label="LinkedIn profile URL"
+            placeholder="LinkedIn — profile URL"
+            className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input
+              id="instagram"
+              name="instagram"
+              type="text"
+              aria-label="Instagram handle"
+              placeholder="Instagram — @handle"
+              className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
+            />
+            <input
+              id="tiktok"
+              name="tiktok"
+              type="text"
+              aria-label="TikTok handle"
+              placeholder="TikTok — @handle"
+              className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
+            />
+          </div>
+        </div>
       </div>
 
       <div>

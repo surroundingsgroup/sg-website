@@ -134,13 +134,6 @@ export const team: TeamMember[] = [
     // photo: add headshot at /images/team/loic-gergaud.png when ready
   },
   {
-    slug: "noah-rahman",
-    name: "Noah Rahman",
-    role: "Account Manager",
-    department: "Client Services",
-    // photo: add headshot at /images/team/noah-rahman.png when ready
-  },
-  {
     slug: "nicholas-nunez",
     name: "Nick Nunez",
     role: "Creator",

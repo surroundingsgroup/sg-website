@@ -10,8 +10,9 @@
   /* Brand */
   --color-canvas: #f7f4f0;
   --color-ink: #0f0f0f;
-  --color-gold: #ffbd84;        /* primary gold — use on DARK backgrounds */
-  --color-gold-deep: #6e4d12;   /* darker amber — use on LIGHT backgrounds (cream) for readability (~7:1 contrast) */
+  --color-gold: #ffbd83;        /* Signature Amber (brand kit) — use on DARK backgrounds */
+  --color-gold-deep: #6e4d12;   /* deep amber — for amber TEXT on LIGHT backgrounds (cream) for readability (~7:1 contrast) */
+  --color-taupe: #bca988;       /* Taupe (brand kit) — secondary / quiet accent */
   --color-deep: #1a2a3a;
 
   /* Neutral scale (warm-tinted, complements cream canvas) */
@@ -34,6 +35,7 @@
   /* Typography families */
   --font-sans: var(--font-archivo), system-ui, -apple-system, sans-serif;
   --font-serif: var(--font-castoro), Georgia, serif;
+  --font-body: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
 
   /* Display type scale (Castoro serif, for editorial moments) */
   --text-display-xl: 6rem;
@@ -51,13 +53,25 @@
 body {
   background: var(--color-canvas);
   color: var(--color-ink);
-  font-family: var(--font-sans);
-  /* Archivo's wide cut (125%) — the expanded-grotesque look, applied
-     across all type the way Diamond View runs Owners Wide. */
+  /* Body + labels run DM Sans (the brand body face). Headlines are Archivo,
+     set on h1–h3 below and via the `font-sans` utility. */
+  font-family: var(--font-body);
+  /* Archivo's wide cut (125%) drives the expanded-grotesque headline look and
+     is inherited by the Archivo headings. DM Sans has no width axis, so body
+     text ignores this and renders at normal width. */
   font-stretch: 125%;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headlines stay Archivo even where a heading tag doesn't carry the
+   `font-sans` utility, so DM Sans never leaks into a headline.
+   (font-stretch is inherited from body at 125%.) */
+h1,
+h2,
+h3 {
+  font-family: var(--font-sans);
 }
 
 /* Display headlines run ALL CAPS — the wide grotesque's capitals are
@@ -80,4 +94,11 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   line-height: 1.4;
+}
+
+/* Amber highlighter — accents a single phrase on light grounds. The brand's
+   amber works as an instrument here, not as a full-section slab. */
+.amber-underline {
+  background-image: linear-gradient(transparent 62%, rgba(255, 189, 131, 0.55) 62%);
+  padding: 0 0.05em;
 }

@@ -48,7 +48,7 @@ export function AboutSummary() {
       };
 
   return (
-    <section className="bg-gold text-ink py-24 lg:py-36 px-6 lg:px-12">
+    <section className="bg-canvas text-ink py-24 lg:py-36 px-6 lg:px-12 border-b border-neutral-200">
       <div className="max-w-[1200px] mx-auto">
         <motion.div
           {...containerProps}
@@ -57,7 +57,7 @@ export function AboutSummary() {
           <div className="lg:col-span-4">
             <motion.p
               variants={variants}
-              className="caption text-ink mb-6"
+              className="caption text-neutral-500 mb-6"
             >
               ◆ ABOUT
             </motion.p>
@@ -67,7 +67,7 @@ export function AboutSummary() {
             >
               Fluent in the world&apos;s premium markets.
             </motion.h2>
-            <Rule className="bg-ink mt-6" />
+            <Rule className="bg-gold mt-6" />
           </div>
 
           <div className="lg:col-span-8 space-y-6">
@@ -76,8 +76,9 @@ export function AboutSummary() {
               className="text-2xl lg:text-4xl text-ink leading-[1.2] font-light text-balance"
             >
               Surroundings Group is a creative agency for premium brands. One
-              in-house team, focused on the premium verticals we know inside
-              out.{" "}
+              in-house team, focused on the{" "}
+              <span className="amber-underline">premium verticals</span> we know
+              inside out.{" "}
               <span className="text-ink/55">
                 Our clients collaborate across categories to produce work no
                 single-vertical agency could match.

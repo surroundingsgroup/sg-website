@@ -165,15 +165,15 @@ export default async function ServiceDetailPage({ params }: RouteParams) {
       </section>
 
       {/* Who it's for */}
-      <section className="bg-gold text-ink py-16 lg:py-24 px-6 lg:px-12">
+      <section className="bg-canvas text-ink py-16 lg:py-24 px-6 lg:px-12 border-t border-neutral-200">
         <div className="max-w-[1000px] mx-auto">
-          <p className="caption text-ink mb-6">◆ WHO IT&apos;S FOR</p>
+          <p className="caption text-neutral-500 mb-6">◆ WHO IT&apos;S FOR</p>
           <p className="font-sans font-light text-2xl md:text-3xl lg:text-4xl text-ink leading-[1.25] text-balance">
             {service.bestForCopy}
           </p>
           <Link
             href={site.cta.primary.href}
-            className="inline-block mt-10 bg-ink text-canvas px-8 py-4 text-sm font-medium tracking-wide hover:bg-neutral-800 transition-colors duration-300"
+            className="inline-block mt-10 bg-gold text-ink px-8 py-4 text-sm font-medium tracking-wide hover:bg-ink hover:text-canvas transition-colors duration-300"
           >
             {site.cta.primary.label}
           </Link>

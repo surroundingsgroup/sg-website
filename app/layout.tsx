@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Archivo, Castoro } from "next/font/google";
+import { Archivo, Castoro, DM_Sans } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { site } from "@/lib/site";
@@ -23,6 +23,15 @@ const castoro = Castoro({
   variable: "--font-castoro",
   subsets: ["latin"],
   weight: ["400"],
+  display: "swap",
+});
+
+// DM Sans — brand body + label face (headlines stay Archivo). Body text
+// inherits this via globals.css; the Archivo `font-sans` heading class is
+// untouched, so headlines keep their wide grotesque cut.
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -58,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${castoro.variable} antialiased`}
+      className={`${archivo.variable} ${castoro.variable} ${dmSans.variable} antialiased`}
     >
       <GoogleTagManager gtmId={site.gtm} />
       <body className="min-h-screen flex flex-col bg-canvas text-ink">

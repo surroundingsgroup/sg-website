@@ -305,22 +305,22 @@ export function CareersCta() {
   const { child, container } = useReveal(0.12);
 
   return (
-    <section className="bg-gold text-ink py-20 lg:py-28 px-6 lg:px-12">
+    <section className="bg-canvas text-ink py-20 lg:py-28 px-6 lg:px-12 border-t border-neutral-200">
       <motion.div
         {...container}
         className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-10"
       >
         <motion.div variants={child} className="max-w-2xl">
-          <p className="caption text-ink/70 mb-5">◆ JOIN US</p>
+          <p className="caption text-neutral-500 mb-5">◆ JOIN US</p>
           <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-ink text-balance">
             Sound like your kind of room?
           </h2>
-          <Rule className="bg-ink" />
+          <Rule className="bg-gold" />
         </motion.div>
         <motion.div variants={child} className="shrink-0">
           <a
             href="#roles"
-            className="inline-block bg-ink text-canvas px-8 py-4 text-sm font-medium tracking-wide hover:bg-neutral-800 transition-colors duration-300 text-center"
+            className="inline-block bg-gold text-ink px-8 py-4 text-sm font-medium tracking-wide hover:bg-ink hover:text-canvas transition-colors duration-300 text-center"
           >
             See the roles
           </a>

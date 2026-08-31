@@ -82,13 +82,13 @@ export default async function JournalEntryPage({ params }: RouteParams) {
 
           {/* Outcomes band */}
           {entry.content.outcomes && entry.content.outcomes.length > 0 && (
-            <section className="bg-gold text-ink py-16 lg:py-20 px-6 lg:px-12">
+            <section className="bg-ink text-canvas py-16 lg:py-20 px-6 lg:px-12">
               <div className="max-w-[1200px] mx-auto">
-                <p className="caption text-ink mb-10 lg:mb-12 text-center">
+                <p className="caption text-canvas/60 mb-10 lg:mb-12 text-center">
                   OUTCOMES
                 </p>
                 <ul
-                  className={`grid gap-px bg-ink/10 ${
+                  className={`grid gap-px bg-canvas/10 ${
                     entry.content.outcomes.length === 4
                       ? "grid-cols-2 md:grid-cols-4"
                       : entry.content.outcomes.length === 3
@@ -99,12 +99,12 @@ export default async function JournalEntryPage({ params }: RouteParams) {
                   {entry.content.outcomes.map((o, i) => (
                     <li
                       key={i}
-                      className="bg-gold px-6 py-10 lg:py-12 text-center"
+                      className="bg-ink px-6 py-10 lg:py-12 text-center"
                     >
-                      <p className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl text-ink leading-none mb-3 tracking-tight">
+                      <p className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl text-gold leading-none mb-3 tracking-tight">
                         {o.value}
                       </p>
-                      <p className="text-sm lg:text-base text-ink/70 leading-snug max-w-[240px] mx-auto">
+                      <p className="text-sm lg:text-base text-canvas/70 leading-snug max-w-[240px] mx-auto">
                         {o.label}
                       </p>
                     </li>

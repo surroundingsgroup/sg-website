@@ -101,20 +101,20 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership perspective — pull-quote moment */}
-      <section className="bg-gold text-ink py-20 lg:py-28 px-6 lg:px-12">
+      <section className="bg-ink text-canvas py-20 lg:py-28 px-6 lg:px-12">
         <div className="max-w-[1000px] mx-auto text-center">
-          <p className="caption text-ink mb-8 tracking-[0.28em]">
+          <p className="caption text-gold mb-8 tracking-[0.28em]">
             ◆ FROM THE STUDIO
           </p>
-          <blockquote className="font-sans font-extrabold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-[1.15] tracking-tight text-ink text-balance">
-            <span aria-hidden className="text-ink/40 mr-1">&ldquo;</span>
+          <blockquote className="font-sans font-extrabold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-[1.15] tracking-tight text-canvas text-balance">
+            <span aria-hidden className="text-gold/50 mr-1">&ldquo;</span>
             The agencies that win at the premium end aren&apos;t the loudest.
             They&apos;re the ones who understand the category, make the work
             in-house from start to finish, and own the channels that reach
             the audience. That&apos;s the model.
-            <span aria-hidden className="text-ink/40 ml-1">&rdquo;</span>
+            <span aria-hidden className="text-gold/50 ml-1">&rdquo;</span>
           </blockquote>
-          <div className="mt-10 caption text-ink/70 tracking-[0.22em]">
+          <div className="mt-10 caption text-canvas/55 tracking-[0.22em]">
             BILLY PAVLOCK · FOUNDER
           </div>
         </div>

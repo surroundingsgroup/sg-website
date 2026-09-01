@@ -152,28 +152,66 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
         </div>
       </section>
 
-      {/* Social cuts — vertical 9:16 films in a horizontal reel shelf */}
-      {collection.socialCuts && collection.socialCuts.length > 0 && (
-        <section className="bg-ink text-canvas py-16 lg:py-24 px-6 lg:px-12">
-          <div className="max-w-[1200px] mx-auto">
-            <header className="mb-8 lg:mb-10">
+      {/* Social cuts — vertical films + stills as a social-feed wall */}
+      {((collection.socialCuts?.length ?? 0) > 0 ||
+        (collection.verticalImages?.length ?? 0) > 0) && (
+        <section className="relative overflow-hidden bg-ink text-canvas py-20 lg:py-28 px-6 lg:px-12">
+          {/* ambient glow — warm amber + taupe, low opacity */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            aria-hidden
+            style={{
+              background:
+                "radial-gradient(55% 45% at 15% 22%, rgba(255,189,131,0.12), transparent 70%), radial-gradient(45% 42% at 92% 82%, rgba(188,169,136,0.10), transparent 72%)",
+            }}
+          />
+          <div className="relative max-w-[1280px] mx-auto">
+            <header className="mb-10 lg:mb-14 max-w-2xl">
               <p className="caption text-gold mb-3">◆ SOCIAL CUTS</p>
-              <h2 className="font-sans font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight text-canvas text-balance">
+              <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-canvas text-balance">
                 Built for the feed.
               </h2>
+              <p className="text-base lg:text-lg text-canvas/60 mt-4 leading-relaxed">
+                Vertical films and stills cut for Instagram, TikTok, and
+                YouTube Shorts, the format the buyer actually scrolls.
+              </p>
             </header>
-            <ul className="flex gap-4 lg:gap-6 overflow-x-auto pb-4 -mx-6 px-6 lg:-mx-2 lg:px-2 snap-x snap-mandatory">
-              {collection.socialCuts.map((cut, i) => (
+            <ul className="flex gap-5 lg:gap-6 overflow-x-auto pb-6 -mx-6 px-6 lg:-mx-2 lg:px-2 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {collection.socialCuts?.map((cut, i) => (
                 <li
-                  key={cut.vimeoId + i}
-                  className="shrink-0 w-[240px] sm:w-[260px] lg:w-[280px] snap-start"
+                  key={"cut-" + cut.vimeoId + i}
+                  className="group shrink-0 w-[250px] sm:w-[270px] lg:w-[290px] snap-start"
                 >
-                  <VimeoEmbed
-                    vimeoId={cut.vimeoId}
-                    vimeoHash={cut.vimeoHash}
-                    title={cut.title ?? `${collection.title} social cut ${i + 1}`}
-                    vertical
-                  />
+                  <div className="rounded-2xl overflow-hidden border border-canvas/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85)] ring-1 ring-transparent transition duration-500 group-hover:-translate-y-1.5 group-hover:ring-gold/40">
+                    <VimeoEmbed
+                      vimeoId={cut.vimeoId}
+                      vimeoHash={cut.vimeoHash}
+                      title={
+                        cut.title ?? `${collection.title} social cut ${i + 1}`
+                      }
+                      vertical
+                    />
+                  </div>
+                </li>
+              ))}
+              {collection.verticalImages?.map((img, i) => (
+                <li
+                  key={"vimg-" + i}
+                  className="group shrink-0 w-[250px] sm:w-[270px] lg:w-[290px] snap-start"
+                >
+                  <div className="relative aspect-[9/16] rounded-2xl overflow-hidden border border-canvas/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85)] ring-1 ring-transparent transition duration-500 group-hover:-translate-y-1.5 group-hover:ring-gold/40">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="290px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div
+                      className="absolute top-0 right-0 w-12 h-px bg-gold/60"
+                      aria-hidden
+                    />
+                  </div>
                 </li>
               ))}
             </ul>

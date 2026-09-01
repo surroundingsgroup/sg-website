@@ -44,6 +44,8 @@ export interface WorkCollection {
   video?: VimeoRef;
   /** Vertical (9:16) social cuts, shown as a horizontal reel shelf. */
   socialCuts?: VimeoRef[];
+  /** Vertical (portrait) stills, shown in the feed shelf beside the cuts. */
+  verticalImages?: WorkImage[];
 }
 
 export const workCollections: WorkCollection[] = [
@@ -865,6 +867,26 @@ export const workCollections: WorkCollection[] = [
         title: "Gulfstream G650ER — social cut",
       },
     ],
+    verticalImages: [
+      {
+        src: "/images/work/gulfstream-g650er/gulfstream-g650er-v01.jpg",
+        alt: "Gulfstream G650ER executive seat and entertainment monitor, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/gulfstream-g650er/gulfstream-g650er-v02.jpg",
+        alt: "Gulfstream G650ER nose and cockpit windows from the ramp, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/gulfstream-g650er/gulfstream-g650er-v03.jpg",
+        alt: "Gulfstream G650ER engine and winglet against blue sky, vertical",
+        width: 1200,
+        height: 1800,
+      },
+    ],
     images: [
       {
         src: "/images/work/gulfstream-g650er/gulfstream-g650er-01.jpg",
@@ -958,6 +980,26 @@ export const workCollections: WorkCollection[] = [
         vimeoId: "1223053232",
         vimeoHash: "7306f29382",
         title: "Gulfstream G450 — social cut",
+      },
+    ],
+    verticalImages: [
+      {
+        src: "/images/work/gulfstream-g450/gulfstream-g450-v01.jpg",
+        alt: "Gulfstream G450 cabin aisle looking aft, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/gulfstream-g450/gulfstream-g450-v02.jpg",
+        alt: "Gulfstream G450 engine and winglet against blue sky, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/gulfstream-g450/gulfstream-g450-v03.jpg",
+        alt: "Gulfstream G450 rear three-quarter view with sun flare, vertical",
+        width: 1201,
+        height: 1800,
       },
     ],
     images: [

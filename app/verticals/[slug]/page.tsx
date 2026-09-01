@@ -79,13 +79,22 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
   // Portfolio collections shot for this vertical (uniform card grid)
   const verticalWork = getWorkForVertical(vertical.slug);
   const galleryCollections = verticalWork.slice(0, 8);
-  // Balance the grid to the count so the last row never orphans a card.
-  const portfolioCols =
-    galleryCollections.length <= 2
-      ? "grid-cols-1 sm:grid-cols-2"
-      : galleryCollections.length === 3
-        ? "grid-cols-2 sm:grid-cols-3"
-        : "grid-cols-2 lg:grid-cols-4";
+  // Balance the grid to the count so the last row never orphans a single
+  // card: single row for 3–5 collections, tidy multi-row (3s/4s) above that.
+  const collectionCount = galleryCollections.length;
+  const lgColsClass =
+    collectionCount <= 2
+      ? "lg:grid-cols-2"
+      : collectionCount === 3
+        ? "lg:grid-cols-3"
+        : collectionCount === 4
+          ? "lg:grid-cols-4"
+          : collectionCount === 5
+            ? "lg:grid-cols-5"
+            : collectionCount === 6
+              ? "lg:grid-cols-3"
+              : "lg:grid-cols-4";
+  const portfolioCols = `${collectionCount <= 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2"} ${lgColsClass}`;
 
   const fullUrl = `${site.url.replace(/\/$/, "")}${vertical.href}`;
 

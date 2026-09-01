@@ -1202,6 +1202,15 @@ export const workCollections: WorkCollection[] = [
     description:
       "A listing shoot for a Boeing Business Jet (BBJ). Exterior on the ramp, engine and winglet detail, the flight deck, and a wide-body VVIP interior: multiple lounges, a formal dining and conference cabin, a private stateroom, and a marble lavatory. Captured for the sale campaign and paid promotion to qualified buyers.",
     href: "/work/boeing-bbj",
+    video: {
+      vimeoId: "1223146243",
+      title: "Boeing Business Jet — walkthrough film",
+    },
+    socialCuts: [
+      { vimeoId: "1223145896", title: "Boeing Business Jet — social cut" },
+      { vimeoId: "1223145897", title: "Boeing Business Jet — social cut" },
+      { vimeoId: "1223145898", title: "Boeing Business Jet — social cut" },
+    ],
     verticalImages: [
       {
         src: "/images/work/boeing-bbj/boeing-bbj-v01.jpg",

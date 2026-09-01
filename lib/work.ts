@@ -1214,19 +1214,37 @@ export const workCollections: WorkCollection[] = [
     verticalImages: [
       {
         src: "/images/work/boeing-bbj/boeing-bbj-v01.jpg",
-        alt: "Boeing Business Jet nose head-on, vertical",
+        alt: "Boeing Business Jet private stateroom, vertical",
         width: 1200,
         height: 1800,
       },
       {
         src: "/images/work/boeing-bbj/boeing-bbj-v02.jpg",
-        alt: "Boeing Business Jet winglet against the sky, vertical",
+        alt: "Boeing Business Jet lounge with a large screen, vertical",
         width: 1200,
         height: 1800,
       },
       {
         src: "/images/work/boeing-bbj/boeing-bbj-v03.jpg",
-        alt: "Boeing Business Jet lounge, vertical",
+        alt: "Boeing Business Jet club seats in golden light, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/boeing-bbj/boeing-bbj-v04.jpg",
+        alt: "Boeing Business Jet main cabin looking aft, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/boeing-bbj/boeing-bbj-v05.jpg",
+        alt: "Boeing Business Jet tail and winglet against a clear sky, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/boeing-bbj/boeing-bbj-v06.jpg",
+        alt: "Boeing Business Jet winglet and engine, vertical",
         width: 1200,
         height: 1800,
       },

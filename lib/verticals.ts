@@ -404,7 +404,7 @@ export const verticals: Vertical[] = [
       stats: [
         { value: "8", label: "premium markets we work inside" },
         { value: "255M+", label: "reached a year across our network" },
-        { value: "10", label: "editorial channels we own" },
+        { value: "25+", label: "aircraft shot and captured" },
       ],
     },
     faqs: [

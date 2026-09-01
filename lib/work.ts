@@ -946,8 +946,20 @@ export const workCollections: WorkCollection[] = [
     title: "Gulfstream G450",
     vertical: "Private Aviation",
     description:
-      "A brokerage listing shoot for a Gulfstream G450. Exterior airframe studies on the ramp, engine and livery detail, and a full cabin with a private aft bedroom, captured for the sale campaign and paid promotion to qualified buyers.",
+      "A brokerage listing shoot for a 2007 Gulfstream G450. Exterior airframe studies on the ramp, engine and livery detail, and a full cabin with a private aft bedroom, captured for the sale campaign and paid promotion to qualified buyers.",
     href: "/work/gulfstream-g450",
+    video: {
+      vimeoId: "1223053877",
+      vimeoHash: "3a53ce9655",
+      title: "Gulfstream G450 — walkthrough film",
+    },
+    socialCuts: [
+      {
+        vimeoId: "1223053232",
+        vimeoHash: "7306f29382",
+        title: "Gulfstream G450 — social cut",
+      },
+    ],
     images: [
       {
         src: "/images/work/gulfstream-g450/gulfstream-g450-01.jpg",

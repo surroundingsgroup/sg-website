@@ -292,7 +292,7 @@ export const verticals: Vertical[] = [
     slug: "private-aviation",
     name: "Private Aviation",
     tagline:
-      "Cinematic brand content for charter operators, OEMs, and FBOs.",
+      "Content and campaigns for jet brokerages, charter, FBOs, and OEMs.",
     description:
       "Production and distribution for the brands and terminals serving private flight — captured at the standard the category requires.",
     href: "/verticals/private-aviation",
@@ -306,37 +306,45 @@ export const verticals: Vertical[] = [
     image: "/images/verticals/private-aviation.jpg",
     imageAlt: "Private jet on tarmac with airstairs down and red carpet",
     intro:
-      "Cinematic content for the brands and terminals serving private flight, ads that reach real charter buyers and owners, and editorial coverage that connects aviation to the rest of the luxury lifestyle.",
+      "We make the content and run the campaigns that move private aviation, from the jet on the market to the terminal that receives it. Listing packages that sell aircraft, brand films for charter and FBOs, launch work for OEMs, demand programs for service companies, all captured in-house. Then we put it in front of real buyers through the largest owned audience in premium lifestyle.",
     audienceSegments: [
+      {
+        name: "Aircraft brokerages & jet listings",
+        copy: "Brand marketing for brokerages, plus listing-level content that sells the aircraft: aerial exteriors, cabin walkthroughs, spec-driven edits, and paid promotion aimed at qualified buyers. The system that moves yacht listings in marine, tuned for jets.",
+      },
       {
         name: "Charter operators",
         copy: "Brand films, fleet content, route campaigns, and member-acquisition systems for the operators serving the top end of the on-demand market.",
+      },
+      {
+        name: "FBOs & private terminals",
+        copy: "Brand work and film for terminals, hangars, and member spaces, plus the local paid and social presence that keeps them top of mind for based and transient traffic.",
       },
       {
         name: "Aircraft OEMs",
         copy: "Launch campaigns for new models, ongoing brand presence, and dealer-network content programs for the manufacturers shaping the category.",
       },
       {
-        name: "FBOs + terminals",
-        copy: "Brand work and film for terminals, hangars, and member spaces.",
-      },
-      {
-        name: "Aviation service brands",
-        copy: "Brand work for management companies, jet card programs, and training operations.",
+        name: "Aviation service companies",
+        copy: "Brand and demand work for management companies, MRO and maintenance operations, jet-card programs, and training brands.",
       },
     ],
     signaturePlays: [
+      {
+        title: "Listing content that sells the aircraft",
+        copy: "A cinematic listing package per jet: aerial exteriors, cabin walkthroughs, and spec-driven edits cut for brokerage sites, YouTube, and paid. Built to move the aircraft, not just look good. The jet version of the yacht-listing work we run in marine.",
+      },
       {
         title: "Fleet + terminal films",
         copy: "Cinematic capture of aircraft, terminals, and member spaces. Aerial cinematography, interior coverage, and brand storytelling at the standard private aviation buyers expect.",
       },
       {
         title: "New-model + route launches",
-        copy: "Campaign builds tied to a specific event: a new aircraft entering service, a new route opening, a new terminal coming online. Cinematic asset capture plus paid + PR + owned distribution.",
+        copy: "Campaign builds tied to a specific event: a new aircraft entering service, a new route opening, a new terminal coming online. Cinematic asset capture plus paid, PR, and owned distribution.",
       },
       {
-        title: "Member-acquisition programs",
-        copy: "Paid campaigns and lead systems aimed at real charter and jet-card buyers.",
+        title: "Buyer + member acquisition",
+        copy: "Paid campaigns and lead systems aimed at real aircraft buyers, charter members, and jet-card prospects.",
       },
       {
         title: "Cross-category integration",
@@ -350,16 +358,18 @@ export const verticals: Vertical[] = [
       title:
         "Private Aviation Marketing Agency — Charter, OEMs & FBOs | Surroundings Group",
       description:
-        "Full-service marketing and cinematic content for private aviation: charter operators, aircraft OEMs, FBOs, and jet-card programs. In-house production and owned-media distribution from the team behind Nautical Network's 255M+ audience.",
+        "Marketing and cinematic content for private aviation: jet listings and brokerages, charter, FBOs, OEMs, and service companies. In-house production plus owned-media distribution from the team behind Nautical Network's 255M+ audience.",
       keywords: [
         "private aviation marketing",
         "aviation marketing agency",
+        "aircraft brokerage marketing",
+        "jet listing marketing",
+        "aircraft sales marketing",
         "charter marketing",
         "private jet marketing",
         "aircraft OEM marketing",
         "FBO branding",
         "jet card marketing",
-        "private aviation content production",
       ],
     },
     heroHeadline: "Marketing & content for private aviation.",
@@ -385,8 +395,12 @@ export const verticals: Vertical[] = [
     },
     faqs: [
       {
-        q: "Do you work with charter operators, or only large aviation brands?",
-        a: "Both. We work with charter and on-demand operators, aircraft OEMs, FBOs and private terminals, aircraft management companies, and jet-card and fractional programs, from single-aircraft operators to category leaders.",
+        q: "Who do you work with in private aviation?",
+        a: "Aircraft brokerages and jet-listing teams, charter and on-demand operators, FBOs and private terminals, aircraft OEMs, and service companies like management, MRO, jet-card, and training brands, from single-aircraft operators to category leaders.",
+      },
+      {
+        q: "Do you produce content for individual aircraft listings?",
+        a: "Yes. We build a listing package per aircraft: aerial exteriors, cabin walkthroughs, and spec-driven edits cut for brokerage sites, YouTube, and paid promotion to qualified buyers. It's the jet version of the yacht-listing work we've done in marine for years.",
       },
       {
         q: "What kind of content do you produce for private aviation?",

@@ -1085,6 +1085,20 @@ export const workCollections: WorkCollection[] = [
     description:
       "A brokerage listing shoot for a Gulfstream G650. Exterior airframe studies on the ramp, engine and wing detail, a cream-leather cabin with a private aft bedroom, and the flight deck, captured for the sale campaign and paid promotion to qualified buyers.",
     href: "/work/gulfstream-g650",
+    video: {
+      vimeoId: "1223117805",
+      title: "Gulfstream G650 — walkthrough film",
+    },
+    socialCuts: [
+      {
+        vimeoId: "1223119310",
+        title: "Gulfstream G650 — social cut",
+      },
+      {
+        vimeoId: "1223119485",
+        title: "Gulfstream G650 — behind the scenes",
+      },
+    ],
     images: [
       {
         src: "/images/work/gulfstream-g650/gulfstream-g650-01.jpg",

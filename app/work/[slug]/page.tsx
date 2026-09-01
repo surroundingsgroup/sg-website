@@ -6,6 +6,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { PageHero } from "@/components/page-hero";
 import { CtaBanner } from "@/components/cta-banner";
+import { VimeoEmbed } from "@/components/vimeo-embed";
 import { workCollections, collectionCover } from "@/lib/work";
 
 interface RouteParams {
@@ -52,6 +53,19 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
         title={collection.title}
         subhead={collection.description}
       />
+
+      {/* Walkthrough / brand film — cinematic 16:9, on-demand playback */}
+      {collection.video && (
+        <section className="bg-canvas px-6 lg:px-12 pt-12 lg:pt-16 pb-10 lg:pb-14">
+          <div className="max-w-[1200px] mx-auto">
+            <VimeoEmbed
+              vimeoId={collection.video.vimeoId}
+              vimeoHash={collection.video.vimeoHash}
+              title={collection.video.title ?? `${collection.title} film`}
+            />
+          </div>
+        </section>
+      )}
 
       {/* Masonry gallery — CSS columns preserve each image's aspect ratio */}
       <section className="bg-canvas pb-16 lg:pb-24 px-6 lg:px-12">

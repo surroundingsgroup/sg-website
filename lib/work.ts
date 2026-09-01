@@ -32,6 +32,13 @@ export interface WorkCollection {
   location?: string;
   href: string;
   images: WorkImage[];
+  /** Optional walkthrough / brand film, shown above the gallery. */
+  video?: {
+    vimeoId: string;
+    /** Unlisted videos need the `h=` hash from the Vimeo share URL. */
+    vimeoHash?: string;
+    title?: string;
+  };
 }
 
 export const workCollections: WorkCollection[] = [
@@ -841,6 +848,11 @@ export const workCollections: WorkCollection[] = [
     description:
       "A brokerage listing shoot for a 2013 Gulfstream G650ER. Exterior airframe studies on the ramp, engine and winglet detail, and a cream-leather cabin with high-gloss wood, captured for the sale campaign and paid promotion to qualified buyers.",
     href: "/work/gulfstream-g650er",
+    video: {
+      vimeoId: "1223046177",
+      vimeoHash: "3b57a19084",
+      title: "Gulfstream G650ER — walkthrough film",
+    },
     images: [
       {
         src: "/images/work/gulfstream-g650er/gulfstream-g650er-01.jpg",

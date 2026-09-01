@@ -1099,6 +1099,26 @@ export const workCollections: WorkCollection[] = [
         title: "Gulfstream G650 — behind the scenes",
       },
     ],
+    verticalImages: [
+      {
+        src: "/images/work/gulfstream-g650/gulfstream-g650-v01.jpg",
+        alt: "Gulfstream G650 nose and cockpit windows from the ramp, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/gulfstream-g650/gulfstream-g650-v02.jpg",
+        alt: "Gulfstream G650 engine and winglet detail, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/gulfstream-g650/gulfstream-g650-v03.jpg",
+        alt: "Gulfstream G650 side profile on the ramp, vertical",
+        width: 1200,
+        height: 1800,
+      },
+    ],
     images: [
       {
         src: "/images/work/gulfstream-g650/gulfstream-g650-01.jpg",

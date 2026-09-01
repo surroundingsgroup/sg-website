@@ -32,12 +32,13 @@ export interface VerticalSeo {
   keywords?: string[];
 }
 
-/** Proof band — real, defensible credibility points (no invented figures). */
+/** "Why Surroundings" statement — market fluency + network, per vertical. */
 export interface VerticalProof {
   eyebrow?: string;
   headline: string;
   body: string;
-  stats: { value: string; label: string }[];
+  /** Optional stat band. Omit for a copy-only statement. */
+  stats?: { value: string; label: string }[];
 }
 
 /** A buyer FAQ. Rendered as an accordion + emitted as FAQPage schema. */
@@ -110,7 +111,10 @@ export interface Vertical {
   heroHeadline?: string;
   /** A phrase within `intro` to accent with the amber underline. */
   introHighlight?: string;
-  /** Proof band shown high on the page (real, transferable credibility). */
+  /** Per-service note on how that capability applies to this vertical.
+   *  Keyed by service slug; falls back to the service tagline when absent. */
+  serviceNotes?: Record<string, string>;
+  /** "Why Surroundings" statement (market fluency + network). */
   proof?: VerticalProof;
   /** Buyer FAQ — accordion + FAQPage structured data. */
   faqs?: VerticalFaq[];
@@ -379,25 +383,24 @@ export const verticals: Vertical[] = [
       ],
     },
     heroHeadline: "Marketing + content for private aviation.",
+    serviceNotes: {
+      studio:
+        "Cinematic listing films, fleet and terminal shoots, and aerial work at the standard aviation buyers expect.",
+      social:
+        "Always-on vertical content and cuts for the platforms where charter and jet-card buyers actually scroll.",
+      digital:
+        "Brokerage and operator sites built to turn listing traffic into qualified inquiries.",
+      growth:
+        "Paid campaigns aimed at real aircraft buyers and members, plus earned press across aviation and lifestyle.",
+      experiences:
+        "Debuts, open houses, and static displays that put the aircraft in front of buyers in person.",
+      intelligence:
+        "Lead capture, follow-up, and reporting systems that keep a lean aviation team moving fast.",
+    },
     proof: {
       eyebrow: "◆ WHY SURROUNDINGS",
-      headline:
-        "We built the largest audience in premium marine. Aviation is the same buyer.",
-      body: "We didn't rent our reach. We built Nautical Network into the largest multi-platform boating outlet, then turned that same system on the categories that share the buyer: in-house production, paid precision, and owned distribution. The person who charters the jet owns the boat, drives the car, and books the resort. We already have their attention.",
-      stats: [
-        {
-          value: "255M+",
-          label: "owned-media viewers a year across our editorial network",
-        },
-        {
-          value: "In-house",
-          label: "strategy, film, paid, and PR under one roof",
-        },
-        {
-          value: "8",
-          label: "premium verticals, one high-net-worth buyer",
-        },
-      ],
+      headline: "We know private aviation because we're surrounded by it.",
+      body: "The audience, the brokers and operators, the OEMs, the terminals and ramps we shoot on. This is the world we work in, not a category we picked up. That fluency runs through every service we bring, from production to paid to PR, all under one in-house roof. We don't learn your market on your budget. We're already in it.",
     },
     faqs: [
       {

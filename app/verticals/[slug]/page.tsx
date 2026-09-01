@@ -76,21 +76,9 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
   const currentIndex = verticals.findIndex((v) => v.slug === slug);
   const next = verticals[(currentIndex + 1) % verticals.length];
 
-  // Filter services to only the ones most relevant to this vertical
-  const relatedServices = vertical.relatedServiceSlugs
-    .map((s) => services.find((svc) => svc.slug === s))
-    .filter((svc): svc is NonNullable<typeof svc> => Boolean(svc));
-
-  // Portfolio work shot for this vertical
+  // Portfolio collections shot for this vertical (featured card wall)
   const verticalWork = getWorkForVertical(vertical.slug);
-  const featureWork = verticalWork[0];
-  // Use the 2nd image (or fall back to the cover) for the editorial
-  // image-break so it isn't identical to the gallery thumbnail below
-  const featureBreakImage = featureWork
-    ? featureWork.images[1] ?? collectionCover(featureWork)
-    : null;
-  // Show up to 6 collections in the gallery grid
-  const galleryCollections = verticalWork.slice(0, 6);
+  const galleryCollections = verticalWork.slice(0, 7);
 
   const fullUrl = `${site.url.replace(/\/$/, "")}${vertical.href}`;
 
@@ -223,151 +211,12 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
         </div>
       </section>
 
-      {/* Editorial image break — full-bleed shot from a vertical
-          work collection to break the text-heavy rhythm */}
-      {featureBreakImage && featureWork && (
-        <section className="bg-ink relative w-full overflow-hidden">
-          <div className="relative aspect-[16/9] md:aspect-[21/8] lg:aspect-[21/7]">
-            <Image
-              src={featureBreakImage.src}
-              alt={featureBreakImage.alt}
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent pointer-events-none"
-              aria-hidden
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 lg:px-12 py-6 lg:py-10 text-canvas">
-              <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
-                <p className="caption text-gold">FROM THE STUDIO</p>
-                <p className="text-sm lg:text-base text-canvas/85 sm:text-right">
-                  {featureWork.title}
-                  {featureWork.location && ` · ${featureWork.location}`}
-                </p>
-              </div>
-            </div>
-            <div
-              className="absolute top-0 left-0 w-24 h-px bg-gold/60"
-              aria-hidden
-            />
-          </div>
-        </section>
-      )}
-
-      {/* Signature work — recurring plays */}
+      {/* Portfolio — recent work as a standout, featured card wall */}
       <section className="bg-canvas py-20 lg:py-28 px-6 lg:px-12">
         <div className="max-w-[1200px] mx-auto">
-          <header className="mb-12 lg:mb-16 max-w-3xl">
-            <p className="caption text-neutral-500 mb-4">◆ SIGNATURE WORK</p>
-            <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-ink leading-[1.1] text-balance">
-              {vertical.headlines.work}
-            </h2>
-          </header>
-
-          <ul className="border-t border-neutral-200">
-            {vertical.signaturePlays.map((play, i) => (
-              <li key={i} className="border-b border-neutral-200">
-                <div className="py-8 lg:py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
-                  <div className="lg:col-span-1">
-                    <span className="caption text-neutral-500">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <div className="lg:col-span-4">
-                    <h3 className="font-sans font-extrabold text-xl lg:text-2xl text-ink leading-tight text-balance">
-                      {play.title}
-                    </h3>
-                  </div>
-                  <div className="lg:col-span-7">
-                    <p className="text-base lg:text-lg text-neutral-700 leading-relaxed">
-                      {play.copy}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Proof band — real, transferable credibility (renders when set) */}
-      {vertical.proof && (
-        <section className="bg-ink text-canvas py-20 lg:py-28 px-6 lg:px-12">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-              <div className="lg:col-span-6">
-                {vertical.proof.eyebrow && (
-                  <p className="caption text-gold mb-5">
-                    {vertical.proof.eyebrow}
-                  </p>
-                )}
-                <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-canvas leading-[1.1] text-balance">
-                  {vertical.proof.headline}
-                </h2>
-              </div>
-              <div className="lg:col-span-6">
-                <p className="text-lg lg:text-xl text-canvas/80 leading-relaxed font-light">
-                  {vertical.proof.body}
-                </p>
-              </div>
-            </div>
-            <ul className="mt-14 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-px bg-canvas/10 border border-canvas/10">
-              {vertical.proof.stats.map((stat, i) => (
-                <li key={i} className="bg-ink px-6 py-10 lg:py-12 text-center">
-                  <p className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl text-gold leading-none mb-3 tracking-tight">
-                    {stat.value}
-                  </p>
-                  <p className="text-sm lg:text-base text-canvas/70 leading-snug max-w-[240px] mx-auto">
-                    {stat.label}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
-      {/* Capabilities tuned to this category */}
-      <section className="bg-[#EFE7DA] py-20 lg:py-28 px-6 lg:px-12">
-        <div className="max-w-[1200px] mx-auto">
-          <header className="mb-10 lg:mb-12 max-w-2xl">
-            <p className="caption text-neutral-500 mb-4">◆ CAPABILITIES</p>
-            <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-ink text-balance">
-              {vertical.headlines.capabilities}
-            </h2>
-          </header>
-
-          <ul className="border-t border-ink/15">
-            {relatedServices.map((s) => (
-              <li key={s.slug}>
-                <Link
-                  href={s.href}
-                  className="group grid grid-cols-1 md:grid-cols-12 md:items-baseline gap-x-6 gap-y-1 py-5 lg:py-6 border-b border-ink/10 hover:border-ink/40 transition-colors duration-300"
-                >
-                  <h3 className="md:col-span-4 font-sans font-extrabold text-xl lg:text-2xl text-ink group-hover:text-neutral-500 transition-colors duration-300 text-balance">
-                    {s.name}
-                  </h3>
-                  <p className="md:col-span-7 text-sm lg:text-base text-neutral-600 leading-snug">
-                    {s.tagline}
-                  </p>
-                  <span className="hidden md:flex md:col-span-1 justify-end text-neutral-400 group-hover:text-ink transition-colors duration-300">
-                    <Arrow />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Selected work — real portfolio collections from this vertical */}
-      <section className="bg-canvas py-20 lg:py-28 px-6 lg:px-12">
-        <div className="max-w-[1200px] mx-auto">
-          <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 lg:mb-14">
             <div>
-              <p className="caption text-neutral-500 mb-4">◆ SELECTED WORK</p>
+              <p className="caption text-neutral-500 mb-4">◆ PORTFOLIO</p>
               <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-ink text-balance">
                 Recent {vertical.name.toLowerCase()} work.
               </h2>
@@ -382,48 +231,94 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           </header>
 
           {galleryCollections.length > 0 ? (
-            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-              {galleryCollections.map((c) => {
+            <div className="space-y-6 lg:space-y-8">
+              {/* Featured collection */}
+              {(() => {
+                const c = galleryCollections[0];
                 const cover = collectionCover(c);
                 return (
-                  <li key={c.slug}>
-                    <Link
-                      href={c.href}
-                      className="group block relative overflow-hidden bg-ink aspect-[4/3]"
-                    >
-                      <Image
-                        src={cover.src}
-                        alt={cover.alt}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                      />
-                      <div
-                        className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-ink/5 group-hover:from-ink group-hover:via-ink/50 transition-all duration-500"
-                        aria-hidden
-                      />
-                      <div
-                        className="absolute top-0 right-0 w-12 h-px bg-gold/60"
-                        aria-hidden
-                      />
-                      <div className="absolute inset-0 flex flex-col justify-end p-5 lg:p-6 text-canvas">
-                        <p className="caption text-gold mb-2">{c.vertical}</p>
-                        <h3 className="font-sans font-extrabold text-xl lg:text-2xl leading-[1.1] text-balance group-hover:text-gold transition-colors duration-300">
-                          {c.title}
-                        </h3>
-                        {c.location && (
-                          <p className="text-xs lg:text-sm text-canvas/70 mt-1">
-                            {c.location}
-                          </p>
-                        )}
-                      </div>
-                    </Link>
-                  </li>
+                  <Link
+                    href={c.href}
+                    className="group block relative overflow-hidden rounded-xl bg-ink aspect-[16/10] sm:aspect-[16/9] lg:aspect-[21/9] shadow-[0_30px_70px_-30px_rgba(15,15,15,0.55)]"
+                  >
+                    <Image
+                      src={cover.src}
+                      alt={cover.alt}
+                      fill
+                      sizes="(min-width: 1024px) 1200px, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent"
+                      aria-hidden
+                    />
+                    <div
+                      className="absolute top-0 right-0 w-16 h-px bg-gold/70"
+                      aria-hidden
+                    />
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-10 text-canvas">
+                      <p className="caption text-gold mb-2">
+                        FEATURED · {c.vertical}
+                      </p>
+                      <h3 className="font-sans font-extrabold text-3xl lg:text-5xl leading-[1.05] text-balance group-hover:text-gold transition-colors duration-300">
+                        {c.title}
+                      </h3>
+                      {c.location && (
+                        <p className="text-sm lg:text-base text-canvas/70 mt-2">
+                          {c.location}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
                 );
-              })}
-            </ul>
+              })()}
+
+              {/* Remaining collections */}
+              {galleryCollections.length > 1 && (
+                <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                  {galleryCollections.slice(1).map((c) => {
+                    const cover = collectionCover(c);
+                    return (
+                      <li key={c.slug}>
+                        <Link
+                          href={c.href}
+                          className="group block relative overflow-hidden rounded-xl bg-ink aspect-[4/3] shadow-[0_20px_50px_-25px_rgba(15,15,15,0.5)]"
+                        >
+                          <Image
+                            src={cover.src}
+                            alt={cover.alt}
+                            fill
+                            sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                          />
+                          <div
+                            className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-ink/5 group-hover:from-ink group-hover:via-ink/50 transition-all duration-500"
+                            aria-hidden
+                          />
+                          <div
+                            className="absolute top-0 right-0 w-12 h-px bg-gold/60"
+                            aria-hidden
+                          />
+                          <div className="absolute inset-0 flex flex-col justify-end p-5 lg:p-6 text-canvas">
+                            <p className="caption text-gold mb-2">{c.vertical}</p>
+                            <h3 className="font-sans font-extrabold text-xl lg:text-2xl leading-[1.1] text-balance group-hover:text-gold transition-colors duration-300">
+                              {c.title}
+                            </h3>
+                            {c.location && (
+                              <p className="text-xs lg:text-sm text-canvas/70 mt-1">
+                                {c.location}
+                              </p>
+                            )}
+                          </div>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
           ) : (
-            <div className="bg-neutral-100 border border-neutral-200 p-12 lg:p-20 text-center">
+            <div className="bg-neutral-100 border border-neutral-200 rounded-xl p-12 lg:p-20 text-center">
               <p className="caption text-neutral-500 mb-4">◆ IN PRODUCTION</p>
               <p className="font-sans font-extrabold text-2xl lg:text-3xl text-ink mb-4 text-balance">
                 {vertical.name} work is being packaged.
@@ -440,6 +335,75 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
               </p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Why Surroundings — market-fluency statement (renders when set) */}
+      {vertical.proof && (
+        <section className="bg-ink text-canvas py-20 lg:py-28 px-6 lg:px-12">
+          <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              {vertical.proof.eyebrow && (
+                <p className="caption text-gold mb-5">{vertical.proof.eyebrow}</p>
+              )}
+              <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-canvas leading-[1.1] text-balance">
+                {vertical.proof.headline}
+              </h2>
+              <Rule className="bg-gold mt-6" />
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-xl lg:text-2xl font-light text-canvas leading-[1.4] text-balance">
+                {vertical.proof.body}
+              </p>
+              {vertical.proof.stats && vertical.proof.stats.length > 0 && (
+                <ul className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px bg-canvas/10 border border-canvas/10">
+                  {vertical.proof.stats.map((stat, i) => (
+                    <li key={i} className="bg-ink px-5 py-8 text-center">
+                      <p className="font-sans font-extrabold text-3xl lg:text-4xl text-gold leading-none mb-2 tracking-tight">
+                        {stat.value}
+                      </p>
+                      <p className="text-xs lg:text-sm text-canvas/70 leading-snug">
+                        {stat.label}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Capabilities tuned to this category */}
+      <section className="bg-[#EFE7DA] py-20 lg:py-28 px-6 lg:px-12">
+        <div className="max-w-[1200px] mx-auto">
+          <header className="mb-10 lg:mb-12 max-w-2xl">
+            <p className="caption text-neutral-500 mb-4">◆ CAPABILITIES</p>
+            <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-ink text-balance">
+              {vertical.headlines.capabilities}
+            </h2>
+          </header>
+
+          <ul className="border-t border-ink/15">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  href={s.href}
+                  className="group grid grid-cols-1 md:grid-cols-12 md:items-baseline gap-x-6 gap-y-1 py-5 lg:py-6 border-b border-ink/10 hover:border-ink/40 transition-colors duration-300"
+                >
+                  <h3 className="md:col-span-4 font-sans font-extrabold text-xl lg:text-2xl text-ink group-hover:text-neutral-500 transition-colors duration-300 text-balance">
+                    {s.name}
+                  </h3>
+                  <p className="md:col-span-7 text-sm lg:text-base text-neutral-600 leading-snug">
+                    {vertical.serviceNotes?.[s.slug] ?? s.tagline}
+                  </p>
+                  <span className="hidden md:flex md:col-span-1 justify-end text-neutral-400 group-hover:text-ink transition-colors duration-300">
+                    <Arrow />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

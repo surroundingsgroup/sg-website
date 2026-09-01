@@ -315,7 +315,7 @@ export const verticals: Vertical[] = [
     introHighlight: "the jet on the market",
     audienceSegments: [
       {
-        name: "Aircraft brokerages & jet listings",
+        name: "Aircraft brokerages + jet listings",
         copy: "Brand marketing for brokerages, plus listing-level content that sells the aircraft: aerial exteriors, cabin walkthroughs, spec-driven edits, and paid promotion aimed at qualified buyers. The system that moves yacht listings in marine, tuned for jets.",
       },
       {
@@ -323,7 +323,7 @@ export const verticals: Vertical[] = [
         copy: "Brand films, fleet content, route campaigns, and member-acquisition systems for the operators serving the top end of the on-demand market.",
       },
       {
-        name: "FBOs & private terminals",
+        name: "FBOs + private terminals",
         copy: "Brand work and film for terminals, hangars, and member spaces, plus the local paid and social presence that keeps them top of mind for based and transient traffic.",
       },
       {
@@ -362,7 +362,7 @@ export const verticals: Vertical[] = [
     // ---- Traffic + conversion (Private Aviation is the push vertical) ----
     seo: {
       title:
-        "Private Aviation Marketing Agency — Charter, OEMs & FBOs | Surroundings Group",
+        "Private Aviation Marketing Agency — Charter, OEMs + FBOs | Surroundings Group",
       description:
         "Marketing and cinematic content for private aviation: jet listings and brokerages, charter, FBOs, OEMs, and service companies. In-house production plus owned-media distribution from the team behind Nautical Network's 255M+ audience.",
       keywords: [
@@ -378,7 +378,7 @@ export const verticals: Vertical[] = [
         "jet card marketing",
       ],
     },
-    heroHeadline: "Marketing & content for private aviation.",
+    heroHeadline: "Marketing + content for private aviation.",
     proof: {
       eyebrow: "◆ WHY SURROUNDINGS",
       headline:

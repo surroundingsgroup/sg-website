@@ -401,6 +401,11 @@ export const verticals: Vertical[] = [
       eyebrow: "◆ WHY SURROUNDINGS",
       headline: "We know private aviation because we're surrounded by it.",
       body: "The audience, the brokers and operators, the OEMs, the terminals and ramps we shoot on. This is the world we work in, not a category we picked up. That fluency runs through every service we bring, from production to paid to PR, all under one in-house roof. We don't learn your market on your budget. We're already in it.",
+      stats: [
+        { value: "8", label: "premium markets we work inside" },
+        { value: "255M+", label: "reached a year across our network" },
+        { value: "10", label: "editorial channels we own" },
+      ],
     },
     faqs: [
       {

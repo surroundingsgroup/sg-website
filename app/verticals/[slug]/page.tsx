@@ -297,35 +297,39 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
       {/* Why Surroundings — market-fluency statement (renders when set) */}
       {vertical.proof && (
         <section className="bg-ink text-canvas py-20 lg:py-28 px-6 lg:px-12">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-            <div className="lg:col-span-5">
-              {vertical.proof.eyebrow && (
-                <p className="caption text-gold mb-5">{vertical.proof.eyebrow}</p>
-              )}
-              <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-canvas leading-[1.1] text-balance">
-                {vertical.proof.headline}
-              </h2>
-              <Rule className="bg-gold mt-6" />
+          <div className="max-w-[1200px] mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+              <div className="lg:col-span-5">
+                {vertical.proof.eyebrow && (
+                  <p className="caption text-gold mb-5">
+                    {vertical.proof.eyebrow}
+                  </p>
+                )}
+                <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-canvas leading-[1.1] text-balance">
+                  {vertical.proof.headline}
+                </h2>
+                <Rule className="bg-gold mt-6" />
+              </div>
+              <div className="lg:col-span-7">
+                <p className="text-xl lg:text-2xl font-light text-canvas leading-[1.4] text-balance">
+                  {vertical.proof.body}
+                </p>
+              </div>
             </div>
-            <div className="lg:col-span-7">
-              <p className="text-xl lg:text-2xl font-light text-canvas leading-[1.4] text-balance">
-                {vertical.proof.body}
-              </p>
-              {vertical.proof.stats && vertical.proof.stats.length > 0 && (
-                <ul className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px bg-canvas/10 border border-canvas/10">
-                  {vertical.proof.stats.map((stat, i) => (
-                    <li key={i} className="bg-ink px-5 py-8 text-center">
-                      <p className="font-sans font-extrabold text-3xl lg:text-4xl text-gold leading-none mb-2 tracking-tight">
-                        {stat.value}
-                      </p>
-                      <p className="text-xs lg:text-sm text-canvas/70 leading-snug">
-                        {stat.label}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            {vertical.proof.stats && vertical.proof.stats.length > 0 && (
+              <ul className="mt-14 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-px bg-canvas/10 border border-canvas/10">
+                {vertical.proof.stats.map((stat, i) => (
+                  <li key={i} className="bg-ink px-6 py-10 lg:py-12 text-center">
+                    <p className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl text-gold leading-none mb-3 tracking-tight">
+                      {stat.value}
+                    </p>
+                    <p className="text-sm lg:text-base text-canvas/70 leading-snug max-w-[240px] mx-auto">
+                      {stat.label}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </section>
       )}
@@ -338,6 +342,11 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
             <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-ink text-balance">
               {vertical.headlines.capabilities}
             </h2>
+            <p className="text-base lg:text-lg text-neutral-600 leading-relaxed mt-5">
+              The services we run in {vertical.name.toLowerCase()}. Bring us in
+              as an extension of your team, or hand the whole thing to us as
+              your full-service partner.
+            </p>
           </header>
 
           <ul className="border-t border-ink/15">
@@ -407,36 +416,32 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
         </section>
       )}
 
-      {/* Next vertical */}
-      <section className="bg-canvas py-16 lg:py-20 px-6 lg:px-12 border-t border-neutral-200">
-        <div className="max-w-[1200px] mx-auto">
-          <Link href={next.href} className="group block">
-            <p className="caption text-neutral-500 mb-4">◆ NEXT VERTICAL</p>
-            <div className="flex items-baseline justify-between gap-6">
-              <h3 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl text-ink leading-tight tracking-tight group-hover:text-neutral-500 transition-colors duration-300 text-balance">
-                {next.name}
-              </h3>
-              <svg
-                width="32"
-                height="20"
-                viewBox="0 0 14 10"
-                fill="none"
-                className="text-ink group-hover:text-neutral-500 transition-all duration-300 group-hover:translate-x-2 shrink-0"
-                aria-hidden
-              >
-                <path
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="square"
-                />
-              </svg>
-            </div>
-            <p className="text-base lg:text-lg text-neutral-600 mt-3 max-w-2xl">
+      {/* Next vertical — centered full-bleed banner over the next category image */}
+      <section className="relative overflow-hidden border-t border-neutral-200">
+        <Link href={next.href} className="group block relative">
+          <Image
+            src={`/images/verticals/${next.slug}.jpg`}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-ink/65" aria-hidden />
+          <div className="relative max-w-[900px] mx-auto px-6 lg:px-12 py-24 lg:py-32 text-center text-canvas">
+            <p className="caption text-gold mb-5">◆ NEXT VERTICAL</p>
+            <h3 className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-balance">
+              {next.name}
+            </h3>
+            <p className="text-base lg:text-lg text-canvas/80 mt-4 max-w-xl mx-auto">
               {next.tagline}
             </p>
-          </Link>
-        </div>
+            <span className="mt-9 inline-flex items-center gap-2 bg-gold text-ink px-7 py-3.5 text-sm font-medium tracking-wide group-hover:bg-canvas transition-colors duration-300">
+              Explore {next.name}
+              <Arrow />
+            </span>
+          </div>
+        </Link>
       </section>
 
       {vertical.cta ? (

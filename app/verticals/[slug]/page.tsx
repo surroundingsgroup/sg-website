@@ -76,9 +76,16 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
   const currentIndex = verticals.findIndex((v) => v.slug === slug);
   const next = verticals[(currentIndex + 1) % verticals.length];
 
-  // Portfolio collections shot for this vertical (featured card wall)
+  // Portfolio collections shot for this vertical (uniform card grid)
   const verticalWork = getWorkForVertical(vertical.slug);
-  const galleryCollections = verticalWork.slice(0, 7);
+  const galleryCollections = verticalWork.slice(0, 8);
+  // Balance the grid to the count so the last row never orphans a card.
+  const portfolioCols =
+    galleryCollections.length <= 2
+      ? "grid-cols-1 sm:grid-cols-2"
+      : galleryCollections.length === 3
+        ? "grid-cols-2 sm:grid-cols-3"
+        : "grid-cols-2 lg:grid-cols-4";
 
   const fullUrl = `${site.url.replace(/\/$/, "")}${vertical.href}`;
 
@@ -231,7 +238,7 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           </header>
 
           {galleryCollections.length > 0 ? (
-            <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-5">
+            <ul className={`grid ${portfolioCols} gap-4 lg:gap-5`}>
               {galleryCollections.map((c) => {
                 const cover = collectionCover(c);
                 return (

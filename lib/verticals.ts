@@ -108,6 +108,8 @@ export interface Vertical {
   seo?: VerticalSeo;
   /** Search-intent H1 for the hero (defaults to `name`). */
   heroHeadline?: string;
+  /** A phrase within `intro` to accent with the amber underline. */
+  introHighlight?: string;
   /** Proof band shown high on the page (real, transferable credibility). */
   proof?: VerticalProof;
   /** Buyer FAQ — accordion + FAQPage structured data. */
@@ -136,6 +138,7 @@ export const verticals: Vertical[] = [
     imageAlt: "Sport-fish yacht running across calm coastal water",
     intro:
       "Marine is our deepest category. We've worked in it for years, and we own Nautical Network — a marine media network reaching 180M+ viewers a year. Every marine client gets that distribution included.",
+    introHighlight: "our deepest category",
     audienceSegments: [
       {
         name: "Boat builders + OEMs",
@@ -193,6 +196,7 @@ export const verticals: Vertical[] = [
     imageAlt: "Luxury estate at night — illuminated pool, waterfall feature, dramatic landscape lighting",
     intro:
       "We work across everything around the luxury home: developers building flagship projects, the brokerages selling them, the builders shaping them, and the design and service brands around them.",
+    introHighlight: "the luxury home",
     audienceSegments: [
       {
         name: "Developers",
@@ -250,6 +254,7 @@ export const verticals: Vertical[] = [
     imageAlt: "Mid-rise residential building at sunset with pool deck below",
     intro:
       "The properties that lease fastest are the ones people can already picture living in. We build the content, social presence, and paid ads that take a property from announcement to full occupancy.",
+    introHighlight: "lease fastest",
     audienceSegments: [
       {
         name: "Lease-up properties",
@@ -307,6 +312,7 @@ export const verticals: Vertical[] = [
     imageAlt: "Private jet on tarmac with airstairs down and red carpet",
     intro:
       "We make the content and run the campaigns that move private aviation, from the jet on the market to the terminal that receives it. Listing packages that sell aircraft, brand films for charter and FBOs, launch work for OEMs, demand programs for service companies, all captured in-house. Then we put it in front of real buyers through the largest owned audience in premium lifestyle.",
+    introHighlight: "the jet on the market",
     audienceSegments: [
       {
         name: "Aircraft brokerages & jet listings",
@@ -450,6 +456,7 @@ export const verticals: Vertical[] = [
     imageAlt: "Eye-level view of a Caribbean luxury villa — infinity pool, loungers, dramatic sky",
     intro:
       "The places that get booked are the places that look incredible online. We shoot properties at that standard, run campaigns timed to booking seasons, and put them in front of the people who actually book.",
+    introHighlight: "look incredible online",
     audienceSegments: [
       {
         name: "Boutique resorts + villas",
@@ -499,6 +506,7 @@ export const verticals: Vertical[] = [
     imageAlt: "Premium event hospitality activation — branded bar setup at a luxury concours",
     intro:
       "We work with hotels, restaurants, member clubs, and spas — daily content, opening and seasonal campaigns, and on-site event coverage.",
+    introHighlight: "member clubs",
     audienceSegments: [
       {
         name: "Boutique hotels",
@@ -552,6 +560,7 @@ export const verticals: Vertical[] = [
     imageAlt: "Mercedes G-Wagen Brabus parked on a coastal road",
     intro:
       "We make the films and photography, and we bring the distribution: paid campaigns that reach real buyers, plus placement across our hospitality and aviation rosters, where the same customer lives.",
+    introHighlight: "reach real buyers",
     audienceSegments: [
       {
         name: "OEMs + performance brands",
@@ -605,6 +614,7 @@ export const verticals: Vertical[] = [
     imageAlt: "Silver Rolex Day-Date watch on cream backdrop",
     intro:
       "Campaigns for timepieces, fashion, fine spirits, and craftsmanship-led brands — shot and written at the standard of the magazines your customers already read.",
+    introHighlight: "craftsmanship-led brands",
     audienceSegments: [
       {
         name: "Timepieces + jewelry",

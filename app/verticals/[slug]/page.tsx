@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { CtaBanner } from "@/components/cta-banner";
+import { Rule } from "@/components/rule";
 import Image from "next/image";
 import { verticals } from "@/lib/verticals";
 import { services } from "@/lib/services";
@@ -21,6 +22,21 @@ import {
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
+}
+
+/** Wrap the first occurrence of `phrase` within `text` in the amber
+ *  underline accent (matches the homepage About treatment). */
+function withHighlight(text: string, phrase?: string) {
+  if (!phrase) return text;
+  const idx = text.indexOf(phrase);
+  if (idx === -1) return text;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <span className="amber-underline">{phrase}</span>
+      {text.slice(idx + phrase.length)}
+    </>
+  );
 }
 
 export function generateStaticParams() {
@@ -144,14 +160,17 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
               <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-ink leading-[1.1] text-balance">
                 {vertical.headlines.intro}
               </h2>
+              <Rule className="bg-gold mt-6" />
             </div>
             <div className="lg:col-span-7 space-y-6">
               <p className="text-xl lg:text-2xl font-light text-ink leading-[1.4] text-balance">
-                {introFirst}
+                {withHighlight(introFirst, vertical.introHighlight)}
                 {introRest ? (
                   <>
                     .{" "}
-                    <span className="text-ink/55">{introRest}</span>
+                    <span className="text-ink/55">
+                      {withHighlight(introRest, vertical.introHighlight)}
+                    </span>
                   </>
                 ) : null}
               </p>

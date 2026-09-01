@@ -11,15 +11,24 @@ interface VimeoEmbedProps {
   /** Unlisted-video hash (the `h=` value). Omit for public videos. */
   vimeoHash?: string;
   title?: string;
+  /** 9:16 framing for vertical social cuts (defaults to 16:9). */
+  vertical?: boolean;
 }
 
-export function VimeoEmbed({ vimeoId, vimeoHash, title }: VimeoEmbedProps) {
+export function VimeoEmbed({
+  vimeoId,
+  vimeoHash,
+  title,
+  vertical,
+}: VimeoEmbedProps) {
   const hash = vimeoHash ? `h=${vimeoHash}&` : "";
   // Clean player chrome + Do Not Track.
   const src = `https://player.vimeo.com/video/${vimeoId}?${hash}title=0&byline=0&portrait=0&dnt=1`;
 
   return (
-    <div className="relative w-full aspect-video bg-ink overflow-hidden">
+    <div
+      className={`relative w-full ${vertical ? "aspect-[9/16]" : "aspect-video"} bg-ink overflow-hidden`}
+    >
       <iframe
         src={src}
         title={title ?? "Film"}

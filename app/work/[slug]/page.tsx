@@ -152,6 +152,35 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
         </div>
       </section>
 
+      {/* Social cuts — vertical 9:16 films in a horizontal reel shelf */}
+      {collection.socialCuts && collection.socialCuts.length > 0 && (
+        <section className="bg-ink text-canvas py-16 lg:py-24 px-6 lg:px-12">
+          <div className="max-w-[1200px] mx-auto">
+            <header className="mb-8 lg:mb-10">
+              <p className="caption text-gold mb-3">◆ SOCIAL CUTS</p>
+              <h2 className="font-sans font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight text-canvas text-balance">
+                Built for the feed.
+              </h2>
+            </header>
+            <ul className="flex gap-4 lg:gap-6 overflow-x-auto pb-4 -mx-6 px-6 lg:-mx-2 lg:px-2 snap-x snap-mandatory">
+              {collection.socialCuts.map((cut, i) => (
+                <li
+                  key={cut.vimeoId + i}
+                  className="shrink-0 w-[240px] sm:w-[260px] lg:w-[280px] snap-start"
+                >
+                  <VimeoEmbed
+                    vimeoId={cut.vimeoId}
+                    vimeoHash={cut.vimeoHash}
+                    title={cut.title ?? `${collection.title} social cut ${i + 1}`}
+                    vertical
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <CtaBanner />
       <Footer />
     </>

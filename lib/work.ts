@@ -18,6 +18,14 @@ export interface WorkImage {
   cover?: boolean;
 }
 
+/** Reference to a Vimeo video — a hero film or a vertical social cut. */
+export interface VimeoRef {
+  vimeoId: string;
+  /** Unlisted videos need the `h=` hash from the Vimeo share URL. */
+  vimeoHash?: string;
+  title?: string;
+}
+
 export interface WorkCollection {
   slug: string;
   /** Display title, e.g. "M/Y Skyfall" */
@@ -32,13 +40,10 @@ export interface WorkCollection {
   location?: string;
   href: string;
   images: WorkImage[];
-  /** Optional walkthrough / brand film, shown above the gallery. */
-  video?: {
-    vimeoId: string;
-    /** Unlisted videos need the `h=` hash from the Vimeo share URL. */
-    vimeoHash?: string;
-    title?: string;
-  };
+  /** Optional walkthrough / brand film (16:9), shown above the gallery. */
+  video?: VimeoRef;
+  /** Vertical (9:16) social cuts, shown as a horizontal reel shelf. */
+  socialCuts?: VimeoRef[];
 }
 
 export const workCollections: WorkCollection[] = [

@@ -858,6 +858,13 @@ export const workCollections: WorkCollection[] = [
       vimeoHash: "3b57a19084",
       title: "Gulfstream G650ER — walkthrough film",
     },
+    socialCuts: [
+      {
+        vimeoId: "1223051530",
+        vimeoHash: "e29e20bdf4",
+        title: "Gulfstream G650ER — social cut",
+      },
+    ],
     images: [
       {
         src: "/images/work/gulfstream-g650er/gulfstream-g650er-01.jpg",

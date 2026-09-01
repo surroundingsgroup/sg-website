@@ -93,6 +93,25 @@ export function serviceSchema(params: {
 }
 
 /**
+ * FAQ schema. Pass question/answer pairs. Eligible for the FAQ rich
+ * result in Google, and helps the page rank for long-tail buyer queries.
+ */
+export function faqSchema(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+}
+
+/**
  * Breadcrumb schema. Pass ordered list of breadcrumbs from root down.
  * Search engines render these as the breadcrumb trail in result pages.
  */

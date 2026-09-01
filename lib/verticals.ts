@@ -22,6 +22,39 @@ export interface SignaturePlay {
   copy: string;
 }
 
+/** Search-engine overrides for a vertical's detail page. */
+export interface VerticalSeo {
+  /** Full <title>, used absolute (no "— Surroundings Group" suffix appended). */
+  title: string;
+  /** Meta description (~150–160 chars, keyword-rich but natural). */
+  description: string;
+  /** Optional keyword list for the meta keywords tag. */
+  keywords?: string[];
+}
+
+/** Proof band — real, defensible credibility points (no invented figures). */
+export interface VerticalProof {
+  eyebrow?: string;
+  headline: string;
+  body: string;
+  stats: { value: string; label: string }[];
+}
+
+/** A buyer FAQ. Rendered as an accordion + emitted as FAQPage schema. */
+export interface VerticalFaq {
+  q: string;
+  a: string;
+}
+
+/** Vertical-specific closing CTA (overrides the generic site CTA banner). */
+export interface VerticalCta {
+  eyebrow?: string;
+  headline: string;
+  body?: string;
+  buttonLabel: string;
+  buttonHref: string;
+}
+
 export interface Vertical {
   slug: string;
   name: string;
@@ -65,6 +98,22 @@ export interface Vertical {
    */
   image?: string;
   imageAlt?: string;
+
+  /* ---- Optional traffic + conversion fields (per vertical) ------------
+     When present, the detail-page template renders the richer, SEO-tuned
+     experience: custom metadata, a search-intent H1, a proof band, an FAQ
+     (with FAQ schema), and a vertical-specific CTA. Verticals without
+     these fields fall back to the standard template. */
+  /** SEO overrides — keyword-tuned <title>, description, keywords. */
+  seo?: VerticalSeo;
+  /** Search-intent H1 for the hero (defaults to `name`). */
+  heroHeadline?: string;
+  /** Proof band shown high on the page (real, transferable credibility). */
+  proof?: VerticalProof;
+  /** Buyer FAQ — accordion + FAQPage structured data. */
+  faqs?: VerticalFaq[];
+  /** Vertical-specific closing CTA (falls back to the generic banner). */
+  cta?: VerticalCta;
 }
 
 export const verticals: Vertical[] = [
@@ -295,6 +344,79 @@ export const verticals: Vertical[] = [
       },
     ],
     relatedServiceSlugs: ["studio", "growth", "social", "experiences"],
+
+    // ---- Traffic + conversion (Private Aviation is the push vertical) ----
+    seo: {
+      title:
+        "Private Aviation Marketing Agency — Charter, OEMs & FBOs | Surroundings Group",
+      description:
+        "Full-service marketing and cinematic content for private aviation: charter operators, aircraft OEMs, FBOs, and jet-card programs. In-house production and owned-media distribution from the team behind Nautical Network's 255M+ audience.",
+      keywords: [
+        "private aviation marketing",
+        "aviation marketing agency",
+        "charter marketing",
+        "private jet marketing",
+        "aircraft OEM marketing",
+        "FBO branding",
+        "jet card marketing",
+        "private aviation content production",
+      ],
+    },
+    heroHeadline: "Marketing & content for private aviation.",
+    proof: {
+      eyebrow: "◆ WHY SURROUNDINGS",
+      headline:
+        "We built the largest audience in premium marine. Aviation is the same buyer.",
+      body: "We didn't rent our reach. We built Nautical Network into the largest multi-platform boating outlet, then turned that same system on the categories that share the buyer: in-house production, paid precision, and owned distribution. The person who charters the jet owns the boat, drives the car, and books the resort. We already have their attention.",
+      stats: [
+        {
+          value: "255M+",
+          label: "owned-media viewers a year across our editorial network",
+        },
+        {
+          value: "In-house",
+          label: "strategy, film, paid, and PR under one roof",
+        },
+        {
+          value: "8",
+          label: "premium verticals, one high-net-worth buyer",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Do you work with charter operators, or only large aviation brands?",
+        a: "Both. We work with charter and on-demand operators, aircraft OEMs, FBOs and private terminals, aircraft management companies, and jet-card and fractional programs, from single-aircraft operators to category leaders.",
+      },
+      {
+        q: "What kind of content do you produce for private aviation?",
+        a: "Cinematic fleet and terminal films, aerial cinematography, interior and detail coverage, brand films, new-model and route-launch campaigns, and always-on social content, all captured in-house at the standard private-aviation buyers expect.",
+      },
+      {
+        q: "How do you reach real charter and jet-card buyers, not just aviation fans?",
+        a: "Two ways. Paid campaigns targeted to the income, travel, and ownership signals of real buyers, and owned editorial distribution across our network of 255M+ high-net-worth viewers a year, the same audience that charters jets, buys boats, and stays at luxury resorts.",
+      },
+      {
+        q: "Can you run a new-aircraft or new-route launch end to end?",
+        a: "Yes. We build the campaign around a specific moment: an aircraft entering service, a route opening, or a terminal coming online, with cinematic asset capture plus paid, PR, and owned-media distribution, all managed by one team.",
+      },
+      {
+        q: "Is everything done in-house?",
+        a: "Yes. Strategy, production, paid media, and PR all run under one roof, by senior people who have spent their careers in premium markets. No outsourcing, no handoffs.",
+      },
+      {
+        q: "Where are you based and who do you serve?",
+        a: "We're based in Tampa, Florida and work with private-aviation brands across the United States. Book a discovery call and we'll scope the work to your operation.",
+      },
+    ],
+    cta: {
+      eyebrow: "◆ PRIVATE AVIATION",
+      headline:
+        "Put your aircraft in front of the people who actually charter.",
+      body: "Book a discovery call and we'll map the content, the campaigns, and the distribution for your operation.",
+      buttonLabel: "Book an aviation discovery call",
+      buttonHref: "/contact#book",
+    },
   },
   {
     slug: "resorts-travel",

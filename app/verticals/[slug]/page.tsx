@@ -12,7 +12,12 @@ import {
   collectionCover,
 } from "@/lib/work";
 import { site } from "@/lib/site";
-import { JsonLd, breadcrumbSchema } from "@/components/json-ld";
+import {
+  JsonLd,
+  breadcrumbSchema,
+  serviceSchema,
+  faqSchema,
+} from "@/components/json-ld";
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -28,10 +33,22 @@ export async function generateMetadata({
   const { slug } = await params;
   const vertical = verticals.find((v) => v.slug === slug);
   if (!vertical) return {};
+  const url = `${site.url.replace(/\/$/, "")}${vertical.href}`;
+  const title = vertical.seo?.title ?? vertical.name;
+  const description = vertical.seo?.description ?? vertical.tagline;
   return {
-    title: vertical.name,
-    description: vertical.tagline,
+    // A vertical with its own SEO title uses it verbatim (absolute) so the
+    // layout's "— Surroundings Group" suffix isn't appended twice.
+    title: vertical.seo ? { absolute: vertical.seo.title } : vertical.name,
+    description,
+    keywords: vertical.seo?.keywords,
     alternates: { canonical: vertical.href },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+    },
   };
 }
 
@@ -70,11 +87,24 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
       <Nav />
 
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", url: site.url },
-          { name: "Industries", url: `${site.url.replace(/\/$/, "")}/verticals` },
-          { name: vertical.name, url: fullUrl },
-        ])}
+        data={[
+          breadcrumbSchema([
+            { name: "Home", url: site.url },
+            {
+              name: "Industries",
+              url: `${site.url.replace(/\/$/, "")}/verticals`,
+            },
+            { name: vertical.name, url: fullUrl },
+          ]),
+          serviceSchema({
+            name: `${vertical.name} Marketing`,
+            description: vertical.seo?.description ?? vertical.description,
+            url: fullUrl,
+          }),
+          ...(vertical.faqs && vertical.faqs.length > 0
+            ? [faqSchema(vertical.faqs)]
+            : []),
+        ]}
       />
 
       {/* Hero — full-bleed category imagery under an ink gradient */}
@@ -97,7 +127,7 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
             ◆ VERTICAL / {String(currentIndex + 1).padStart(2, "0")}
           </p>
           <h1 className="font-sans font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight max-w-4xl text-balance">
-            {vertical.name}
+            {vertical.heroHeadline ?? vertical.name}
           </h1>
           <p className="text-lg lg:text-xl mt-6 max-w-2xl leading-relaxed text-canvas/85 font-light">
             {vertical.tagline}
@@ -243,6 +273,43 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
         </div>
       </section>
 
+      {/* Proof band — real, transferable credibility (renders when set) */}
+      {vertical.proof && (
+        <section className="bg-ink text-canvas py-20 lg:py-28 px-6 lg:px-12">
+          <div className="max-w-[1200px] mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+              <div className="lg:col-span-6">
+                {vertical.proof.eyebrow && (
+                  <p className="caption text-gold mb-5">
+                    {vertical.proof.eyebrow}
+                  </p>
+                )}
+                <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-canvas leading-[1.1] text-balance">
+                  {vertical.proof.headline}
+                </h2>
+              </div>
+              <div className="lg:col-span-6">
+                <p className="text-lg lg:text-xl text-canvas/80 leading-relaxed font-light">
+                  {vertical.proof.body}
+                </p>
+              </div>
+            </div>
+            <ul className="mt-14 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-px bg-canvas/10 border border-canvas/10">
+              {vertical.proof.stats.map((stat, i) => (
+                <li key={i} className="bg-ink px-6 py-10 lg:py-12 text-center">
+                  <p className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl text-gold leading-none mb-3 tracking-tight">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm lg:text-base text-canvas/70 leading-snug max-w-[240px] mx-auto">
+                    {stat.label}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* Capabilities tuned to this category */}
       <section className="bg-[#EFE7DA] py-20 lg:py-28 px-6 lg:px-12">
         <div className="max-w-[1200px] mx-auto">
@@ -357,6 +424,50 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
         </div>
       </section>
 
+      {/* FAQ — buyer questions (accordion; FAQPage schema emitted above) */}
+      {vertical.faqs && vertical.faqs.length > 0 && (
+        <section className="bg-canvas py-20 lg:py-28 px-6 lg:px-12 border-t border-neutral-200">
+          <div className="max-w-[900px] mx-auto">
+            <header className="mb-10 lg:mb-14">
+              <p className="caption text-neutral-500 mb-4">
+                ◆ COMMON QUESTIONS
+              </p>
+              <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-ink text-balance">
+                {vertical.name} marketing, answered.
+              </h2>
+            </header>
+            <ul className="border-t border-neutral-200">
+              {vertical.faqs.map((faq, i) => (
+                <li key={i} className="border-b border-neutral-200">
+                  <details className="group">
+                    <summary className="flex items-start justify-between gap-6 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                      <h3 className="font-sans font-extrabold text-lg lg:text-xl text-ink leading-snug text-balance">
+                        {faq.q}
+                      </h3>
+                      <span
+                        className="shrink-0 mt-1 text-neutral-400 transition-transform duration-300 group-open:rotate-45"
+                        aria-hidden
+                      >
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                          <path
+                            d="M9 1v16M1 9h16"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </summary>
+                    <p className="text-base lg:text-lg text-neutral-700 leading-relaxed pb-7 max-w-[70ch]">
+                      {faq.a}
+                    </p>
+                  </details>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* Next vertical */}
       <section className="bg-canvas py-16 lg:py-20 px-6 lg:px-12 border-t border-neutral-200">
         <div className="max-w-[1200px] mx-auto">
@@ -389,7 +500,35 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
         </div>
       </section>
 
-      <CtaBanner />
+      {vertical.cta ? (
+        <section className="bg-ink text-canvas py-24 lg:py-32 px-6 lg:px-12 border-t border-canvas/10">
+          <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+            <div className="max-w-2xl">
+              {vertical.cta.eyebrow && (
+                <p className="caption text-gold mb-5">{vertical.cta.eyebrow}</p>
+              )}
+              <h2 className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-canvas leading-[1.1] text-balance">
+                {vertical.cta.headline}
+              </h2>
+              {vertical.cta.body && (
+                <p className="text-lg text-canvas/75 mt-5 leading-relaxed max-w-xl">
+                  {vertical.cta.body}
+                </p>
+              )}
+            </div>
+            <div className="shrink-0">
+              <Link
+                href={vertical.cta.buttonHref}
+                className="inline-block bg-gold text-ink px-8 py-4 text-sm font-medium tracking-wide hover:bg-canvas transition-colors duration-300 text-center"
+              >
+                {vertical.cta.buttonLabel}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <CtaBanner />
+      )}
       <Footer />
     </>
   );

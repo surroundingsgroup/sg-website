@@ -1339,6 +1339,26 @@ export const workCollections: WorkCollection[] = [
       { vimeoId: "1223439249", title: "Flexjet — social cut" },
       { vimeoId: "1223439269", title: "Flexjet — social cut" },
     ],
+    verticalImages: [
+      {
+        src: "/images/work/flexjet/flexjet-v01.jpg",
+        alt: "Flexjet principal walking to the aircraft on the ramp, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/flexjet/flexjet-v02.jpg",
+        alt: "Boarding the Flexjet aircraft up the airstairs, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/flexjet/flexjet-v03.jpg",
+        alt: "Flexjet cabin cowhide accent chair, vertical",
+        width: 1200,
+        height: 1800,
+      },
+    ],
     images: [
       {
         src: "/images/work/flexjet/flexjet-01.jpg",
@@ -1382,6 +1402,42 @@ export const workCollections: WorkCollection[] = [
         alt: "Flexjet branded mat at jet stairs with helicopter waiting beyond",
         width: 1200,
         height: 1800,
+      },
+      {
+        src: "/images/work/flexjet/flexjet-08.jpg",
+        alt: "Flexjet aircraft on the ramp with a Range Rover and Bentley convertible",
+        width: 2000,
+        height: 1334,
+      },
+      {
+        src: "/images/work/flexjet/flexjet-09.jpg",
+        alt: "Owner in a Bentley convertible beside the Flexjet aircraft",
+        width: 2000,
+        height: 1334,
+      },
+      {
+        src: "/images/work/flexjet/flexjet-10.jpg",
+        alt: "Flexjet aircraft on a wet ramp under a moody sky",
+        width: 2000,
+        height: 1334,
+      },
+      {
+        src: "/images/work/flexjet/flexjet-11.jpg",
+        alt: "Flexjet cabin with cream leather seats and fresh flowers",
+        width: 2000,
+        height: 1334,
+      },
+      {
+        src: "/images/work/flexjet/flexjet-12.jpg",
+        alt: "Flexjet cabin divan and club seating in tan leather",
+        width: 2000,
+        height: 1334,
+      },
+      {
+        src: "/images/work/flexjet/flexjet-13.jpg",
+        alt: "View through a Flexjet cabin window to the aircraft and mountains",
+        width: 2000,
+        height: 1334,
       },
     ],
   },

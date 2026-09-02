@@ -92,34 +92,31 @@ export function PortfolioGrid({
       </ul>
 
       {hasMore && !expanded && (
-        <button
-          type="button"
-          onClick={() => setExpanded(true)}
-          aria-expanded={false}
-          className="group mt-4 lg:mt-5 w-full flex items-center justify-center gap-3 rounded-lg border border-ink/15 py-5 text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-canvas"
-        >
-          <span className="caption">
-            View all {count} {label} projects
-          </span>
-          <span className="caption text-neutral-400 group-hover:text-gold transition-colors duration-300">
-            +{count - INITIAL}
-          </span>
-          <svg
-            width="14"
-            height="10"
-            viewBox="0 0 14 10"
-            fill="none"
-            aria-hidden
-            className="transition-transform duration-300 group-hover:translate-y-0.5"
+        <div className="mt-10 lg:mt-12 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setExpanded(true)}
+            aria-expanded={false}
+            className="group caption inline-flex items-center gap-2.5 rounded-full border border-ink/20 px-7 py-3.5 text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-canvas"
           >
-            <path
-              d="M1 1l6 6 6-6"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="square"
-            />
-          </svg>
-        </button>
+            View more {label} projects
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              aria-hidden
+              className="text-gold transition-transform duration-300 group-hover:rotate-90"
+            >
+              <path
+                d="M6 1v10M1 6h10"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="square"
+              />
+            </svg>
+          </button>
+        </div>
       )}
     </>
   );

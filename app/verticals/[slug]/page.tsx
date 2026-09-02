@@ -232,7 +232,7 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           {galleryCollections.length > 0 ? (
             <PortfolioGrid
               collections={galleryCollections}
-              label={vertical.name.toLowerCase()}
+              label={vertical.name.toLowerCase().replace(/^private\s+/, "")}
             />
           ) : (
             <div className="bg-neutral-100 border border-neutral-200 rounded-xl p-12 lg:p-20 text-center">

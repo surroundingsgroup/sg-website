@@ -1583,6 +1583,97 @@ export const workCollections: WorkCollection[] = [
     ],
   },
   {
+    slug: "sikorsky-s76",
+    title: "Sikorsky S-76",
+    vertical: "Private Aviation",
+    client: "Flexjet",
+    location: "Miami → Bimini, Bahamas",
+    description:
+      "A charter shoot for Flexjet's Sikorsky S-76 running the Miami-to-Bimini crossing. Editorial airframe studies on the helipad and in flight over the water, a black-leather cabin, and the flight deck, cut for the brand and the social feed.",
+    href: "/work/sikorsky-s76",
+    video: {
+      vimeoId: "1223483742",
+      title: "Sikorsky S-76 — Flexjet charter film",
+    },
+    verticalImages: [
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-v01.jpg",
+        alt: "Flexjet flight crew beside the Sikorsky S-76 on the helipad, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-v02.jpg",
+        alt: "Side profile of the black Sikorsky S-76 on the ramp, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-v03.jpg",
+        alt: "Low-angle nose of the Sikorsky S-76 with sun flare, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-v04.jpg",
+        alt: "Rotor head of the Sikorsky S-76 against a clear sky, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-v05.jpg",
+        alt: "Cabin door open on the Sikorsky S-76 with the Flexjet mat, vertical",
+        width: 1200,
+        height: 1800,
+      },
+    ],
+    images: [
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-01.jpg",
+        alt: "Black Sikorsky S-76 on a waterfront helipad with a yacht beyond",
+        width: 2000,
+        height: 1333,
+        cover: true,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-02.jpg",
+        alt: "Sikorsky S-76 in flight over the water off Miami with a rainbow flare",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-03.jpg",
+        alt: "Side profile of the black-and-gold Sikorsky S-76 on the ramp",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-04.jpg",
+        alt: "Black leather club cabin of the Sikorsky S-76 looking forward",
+        width: 2000,
+        height: 1334,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-05.jpg",
+        alt: "Sikorsky S-76 cabin with the door open and sun flare over the Flexjet mat",
+        width: 2000,
+        height: 1334,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-06.jpg",
+        alt: "Glass flight deck of the Sikorsky S-76",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/sikorsky-s76/sikorsky-s76-07.jpg",
+        alt: "Avionics and center pedestal detail in the Sikorsky S-76 cockpit",
+        width: 2000,
+        height: 1334,
+      },
+    ],
+  },
+  {
     slug: "flexjet",
     title: "Flexjet",
     vertical: "Private Aviation",

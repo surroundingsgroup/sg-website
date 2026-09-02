@@ -12,7 +12,7 @@ import {
 } from "react-simple-maps";
 import {
   audienceHubs,
-  reachLocations,
+  servedAreas,
   studioLocation,
   type PortfolioPin,
 } from "@/lib/locations";
@@ -33,10 +33,13 @@ const geoUrl = "/world-110m.json";
 
 const GOLD = "#FFBD84";
 const CANVAS = "#f7f4f0";
+const TAUPE = "#BCA988";
 
-type Hovered =
-  | { kind: "studio" | "audience" | "reach"; title: string; sub: string }
-  | { kind: "portfolio"; title: string; sub: string };
+type Hovered = {
+  kind: "studio" | "audience" | "served" | "portfolio";
+  title: string;
+  sub: string;
+};
 
 export function GlobalReachMap({ pins }: { pins: PortfolioPin[] }) {
   const router = useRouter();
@@ -169,25 +172,25 @@ export function GlobalReachMap({ pins }: { pins: PortfolioPin[] }) {
             </Marker>
           ))}
 
-          {/* Reach pins — hollow canvas rings, non-clickable */}
-          {reachLocations.map((p) => (
+          {/* Served-area pins — subtle taupe rings, non-clickable */}
+          {servedAreas.map((p) => (
             <Marker
               key={`${p.city}-${p.coordinates[0]}`}
               coordinates={p.coordinates}
               onMouseEnter={() =>
-                setHovered({ kind: "reach", title: p.city, sub: p.region })
+                setHovered({ kind: "served", title: p.city, sub: p.region })
               }
               onMouseLeave={() => setHovered(null)}
             >
               <circle
-                r={4 / z}
+                r={3.5 / z}
                 fill="none"
-                stroke={CANVAS}
-                strokeWidth={1.4 / z}
+                stroke={TAUPE}
+                strokeWidth={1.2 / z}
                 opacity={0.85}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "default" }}
               />
-              <circle r={1.4 / z} fill={CANVAS} opacity={0.85} />
+              <circle r={1.2 / z} fill={TAUPE} opacity={0.85} />
             </Marker>
           ))}
 
@@ -266,8 +269,8 @@ export function GlobalReachMap({ pins }: { pins: PortfolioPin[] }) {
                 ? "STUDIO"
                 : hovered.kind === "portfolio"
                   ? "PROJECT LOCATION"
-                  : hovered.kind === "reach"
-                    ? "ON LOCATION"
+                  : hovered.kind === "served"
+                    ? "AREA SERVED"
                     : "AUDIENCE HUB"}
             </p>
             <p className="font-sans font-extrabold text-base leading-none">
@@ -355,10 +358,10 @@ export function GlobalReachMap({ pins }: { pins: PortfolioPin[] }) {
         </span>
         <span className="caption text-canvas/60 inline-flex items-center gap-2">
           <span
-            className="inline-block w-2.5 h-2.5 rounded-full border border-canvas"
+            className="inline-block w-2.5 h-2.5 rounded-full border border-taupe"
             aria-hidden
           />
-          On location
+          Areas served
         </span>
       </div>
 

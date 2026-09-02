@@ -17,7 +17,7 @@ export interface MapLocation {
   region: string;
   coordinates: [number, number]; // [longitude, latitude]
   weight: 1 | 2 | 3;
-  type: "studio" | "audience" | "project";
+  type: "studio" | "audience" | "project" | "served";
 }
 
 export const studioLocation: MapLocation = {
@@ -54,16 +54,32 @@ export const audienceHubs: MapLocation[] = [
 ];
 
 /**
- * A few key reach pins — notable on-location shoots that don't have a
- * dedicated portfolio page. These stay non-clickable; the clickable
+ * Areas served — places the studio has shot that don't (yet) have a
+ * dedicated portfolio page. Non-clickable coverage markers; the clickable
  * portfolio pins are derived from the work data (see workPinCoords /
- * portfolioPins in lib/work.ts). `region` shows in the hover tooltip.
+ * portfolioPins in lib/work.ts). Only places NOT already marked by a
+ * portfolio pin live here, so the map never double-dots the same spot.
  */
-export const reachLocations: MapLocation[] = [
-  { city: "Cannes", region: "France — on-location production", coordinates: [7.0179, 43.5528], weight: 1, type: "project" },
-  { city: "Saint-Tropez", region: "France — on-location production", coordinates: [6.6407, 43.2727], weight: 1, type: "project" },
-  { city: "Lake Como", region: "Italy — on-location production", coordinates: [9.2572, 45.9876], weight: 1, type: "project" },
-  { city: "Pebble Beach", region: "California — Concours coverage", coordinates: [-121.9508, 36.5725], weight: 1, type: "project" },
+export const servedAreas: MapLocation[] = [
+  // United States
+  { city: "California", region: "United States", coordinates: [-121.9508, 36.5725], weight: 1, type: "served" },
+  { city: "Utah", region: "United States", coordinates: [-111.891, 40.7608], weight: 1, type: "served" },
+  { city: "Michigan", region: "United States", coordinates: [-83.0458, 42.3314], weight: 1, type: "served" },
+  { city: "Lake of the Ozarks", region: "Missouri, United States", coordinates: [-92.6357, 38.135], weight: 1, type: "served" },
+  { city: "North Carolina", region: "United States", coordinates: [-80.8431, 35.2271], weight: 1, type: "served" },
+  { city: "Georgia", region: "United States", coordinates: [-84.388, 33.749], weight: 1, type: "served" },
+  { city: "Tennessee", region: "United States", coordinates: [-86.7816, 36.1627], weight: 1, type: "served" },
+  { city: "Connecticut", region: "United States", coordinates: [-72.6851, 41.7637], weight: 1, type: "served" },
+  // Caribbean + Latin America
+  { city: "Dominican Republic", region: "Caribbean", coordinates: [-68.4055, 18.582], weight: 1, type: "served" },
+  { city: "Puerto Rico", region: "Caribbean", coordinates: [-66.1057, 18.4655], weight: 1, type: "served" },
+  { city: "Antigua", region: "Caribbean", coordinates: [-61.8456, 17.1274], weight: 1, type: "served" },
+  { city: "Cartagena", region: "Colombia", coordinates: [-75.4794, 10.391], weight: 1, type: "served" },
+  { city: "Santa Marta", region: "Colombia", coordinates: [-74.199, 11.2408], weight: 1, type: "served" },
+  // Europe
+  { city: "Lake Como", region: "Italy", coordinates: [9.2572, 45.9876], weight: 1, type: "served" },
+  { city: "Cannes", region: "France", coordinates: [7.0179, 43.5528], weight: 1, type: "served" },
+  { city: "Saint-Tropez", region: "France", coordinates: [6.6407, 43.2727], weight: 1, type: "served" },
 ];
 
 /** One project on the map — a title + link, grouped under a city pin. */

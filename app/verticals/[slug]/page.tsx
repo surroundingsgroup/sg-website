@@ -333,7 +333,7 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
               </div>
             </div>
             {vertical.proof.stats && vertical.proof.stats.length > 0 && (
-              <ul className="mt-14 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-px bg-canvas/10 border border-canvas/10">
+              <ul className={`mt-14 lg:mt-20 grid grid-cols-1 ${vertical.proof.stats.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"} gap-px bg-canvas/10 border border-canvas/10`}>
                 {vertical.proof.stats.map((stat, i) => (
                   <li key={i} className="bg-ink px-6 py-10 lg:py-12 text-center">
                     <p className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl text-gold leading-none mb-3 tracking-tight">

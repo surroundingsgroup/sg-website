@@ -143,6 +143,16 @@ export const verticals: Vertical[] = [
     intro:
       "Marine is our deepest category. We've worked in it for years, and we own Nautical Network — a marine media network reaching 180M+ viewers a year. Every marine client gets that distribution included.",
     introHighlight: "our deepest category",
+    proof: {
+      eyebrow: "◆ WHY SURROUNDINGS",
+      headline: "We know marine because we're surrounded by it.",
+      body: "We own Nautical Network, the largest media outlet in boating. The builders, the brokerages, the marinas, the captains, and the owners: this is the water we work in every day. That fluency runs through every service we bring, from production to paid to PR, all in-house. Nobody knows this market the way we do.",
+      stats: [
+        { value: "8", label: "premium markets we work inside" },
+        { value: "255M+", label: "reached a year across our network" },
+        { value: "800+", label: "boats and yachts filmed" },
+      ],
+    },
     audienceSegments: [
       {
         name: "Boat builders + OEMs",
@@ -201,6 +211,16 @@ export const verticals: Vertical[] = [
     intro:
       "We work across everything around the luxury home: developers building flagship projects, the brokerages selling them, the builders shaping them, and the design and service brands around them.",
     introHighlight: "the luxury home",
+    proof: {
+      eyebrow: "◆ WHY SURROUNDINGS",
+      headline: "We know luxury real estate because we're surrounded by it.",
+      body: "The developers, the brokerages, the builders, and the buyer walking the model home: this is the world we work in. We make the film and photography that sell the property and run the campaigns that fill it, all under one in-house roof. We don't learn luxury real estate on your launch. We already live in it.",
+      stats: [
+        { value: "8", label: "premium markets we work inside" },
+        { value: "255M+", label: "reached a year across our network" },
+        { value: "100+", label: "homes filmed" },
+      ],
+    },
     audienceSegments: [
       {
         name: "Developers",
@@ -259,6 +279,16 @@ export const verticals: Vertical[] = [
     intro:
       "The properties that lease fastest are the ones people can already picture living in. We build the content, social presence, and paid ads that take a property from announcement to full occupancy.",
     introHighlight: "lease fastest",
+    proof: {
+      eyebrow: "◆ WHY SURROUNDINGS",
+      headline: "We know multifamily because we're surrounded by it.",
+      body: "Lease-ups, stabilized assets, owner-operators, and the residents deciding where to sign: we know what moves this market. The content, the social, and the paid that take a property from announcement to full occupancy, all in-house. We speak multifamily because we work in it every day.",
+      stats: [
+        { value: "8", label: "premium markets we work inside" },
+        { value: "255M+", label: "reached a year across our network" },
+        { value: "25+", label: "apartment communities served" },
+      ],
+    },
     audienceSegments: [
       {
         name: "Lease-up properties",
@@ -465,6 +495,16 @@ export const verticals: Vertical[] = [
     intro:
       "The places that get booked are the places that look incredible online. We shoot properties at that standard, run campaigns timed to booking seasons, and put them in front of the people who actually book.",
     introHighlight: "look incredible online",
+    proof: {
+      eyebrow: "◆ WHY SURROUNDINGS",
+      headline: "We know resorts and travel because we're surrounded by it.",
+      body: "The resorts, the villas, the destinations, and the traveler deciding where to book: this is the world we shoot in. We make the imagery that gets a place booked and run the campaigns timed to the season, all in-house. We don't discover your destination on the shoot. We already know it.",
+      stats: [
+        { value: "8", label: "premium markets we work inside" },
+        { value: "255M+", label: "reached a year across our network" },
+        { value: "10+", label: "resort projects filmed" },
+      ],
+    },
     audienceSegments: [
       {
         name: "Boutique resorts + villas",
@@ -515,6 +555,15 @@ export const verticals: Vertical[] = [
     intro:
       "We work with hotels, restaurants, member clubs, and spas — daily content, opening and seasonal campaigns, and on-site event coverage.",
     introHighlight: "member clubs",
+    proof: {
+      eyebrow: "◆ WHY SURROUNDINGS",
+      headline: "We know hospitality because we're surrounded by it.",
+      body: "The hotels, the chef-led rooms, the member clubs, and the guest walking in for the first time: this is the world we work in. Daily content, opening and seasonal campaigns, and on-site coverage, all in-house. We know hospitality because we live in these rooms.",
+      stats: [
+        { value: "8", label: "premium markets we work inside" },
+        { value: "255M+", label: "reached a year across our network" },
+      ],
+    },
     audienceSegments: [
       {
         name: "Boutique hotels",
@@ -569,6 +618,16 @@ export const verticals: Vertical[] = [
     intro:
       "We make the films and photography, and we bring the distribution: paid campaigns that reach real buyers, plus placement across our hospitality and aviation rosters, where the same customer lives.",
     introHighlight: "reach real buyers",
+    proof: {
+      eyebrow: "◆ WHY SURROUNDINGS",
+      headline: "We know exotic automotive because we're surrounded by it.",
+      body: "The OEMs, the dealers, the collectors, and the buyer who already owns the jet and the boat: this is the world we work in. We make the films and photography and run the paid that reaches real buyers, plus placement across our aviation and lifestyle rosters, all in-house. Same customer, and we already have their attention.",
+      stats: [
+        { value: "8", label: "premium markets we work inside" },
+        { value: "255M+", label: "reached a year across our network" },
+        { value: "75+", label: "cars filmed" },
+      ],
+    },
     audienceSegments: [
       {
         name: "OEMs + performance brands",
@@ -623,6 +682,16 @@ export const verticals: Vertical[] = [
     intro:
       "Campaigns for timepieces, fashion, fine spirits, and craftsmanship-led brands — shot and written at the standard of the magazines your customers already read.",
     introHighlight: "craftsmanship-led brands",
+    proof: {
+      eyebrow: "◆ WHY SURROUNDINGS",
+      headline: "We know luxury goods because we're surrounded by it.",
+      body: "Timepieces, jewelry, fashion, and fine spirits, plus the customer who reads the magazines you want to be in: this is the world we work in. We shoot and write at that standard and put it in front of the buyer through our own network, all in-house. We don't learn luxury. We're surrounded by it.",
+      stats: [
+        { value: "8", label: "premium markets we work inside" },
+        { value: "255M+", label: "reached a year across our network" },
+        { value: "$5M+", label: "in luxury goods filmed" },
+      ],
+    },
     audienceSegments: [
       {
         name: "Timepieces + jewelry",

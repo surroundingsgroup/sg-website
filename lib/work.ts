@@ -1472,6 +1472,117 @@ export const workCollections: WorkCollection[] = [
     ],
   },
   {
+    slug: "falcon-2000ex",
+    title: "Falcon 2000EX",
+    vertical: "Private Aviation",
+    description:
+      "A listing package for a Dassault Falcon 2000EX, shot for the sales campaign on the ramp and in the hangar. Exterior airframe studies with mirror-reflection ramp work and a cream-leather, burlwood cabin, cut for brokerage decks, listing sites, and the social feed.",
+    href: "/work/falcon-2000ex",
+    video: {
+      vimeoId: "1223478799",
+      title: "Falcon 2000EX — listing film",
+    },
+    socialCuts: [
+      { vimeoId: "1223478801", title: "Falcon 2000EX — social cut" },
+      { vimeoId: "1223478800", title: "Falcon 2000EX — social cut" },
+    ],
+    verticalImages: [
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-v01.jpg",
+        alt: "Falcon 2000EX nose and open cabin door on the ramp, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-v02.jpg",
+        alt: "Cream leather seat and burlwood trim aboard the Falcon 2000EX, vertical",
+        width: 1200,
+        height: 1800,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-v03.jpg",
+        alt: "Falcon 2000EX mirrored on the wet ramp, vertical",
+        width: 1200,
+        height: 1800,
+      },
+    ],
+    images: [
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-01.jpg",
+        alt: "Falcon 2000EX in full mirror reflection on a wet ramp outside the hangar",
+        width: 2000,
+        height: 1333,
+        cover: true,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-02.jpg",
+        alt: "Falcon 2000EX side profile on the ramp outside the hangar",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-03.jpg",
+        alt: "Falcon 2000EX reflected on the wet ramp against a tree line",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-04.jpg",
+        alt: "Head-on view of the Falcon 2000EX nose and cockpit",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-05.jpg",
+        alt: "Falcon 2000EX with the air-stair down and cabin door open",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-06.jpg",
+        alt: "Rear engine and tail detail of the Falcon 2000EX",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-07.jpg",
+        alt: "Falcon 2000EX inside a bright private hangar",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-08.jpg",
+        alt: "Falcon 2000EX cabin with club seating and a burlwood dining table",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-09.jpg",
+        alt: "Cream leather cabin of the Falcon 2000EX looking forward",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-10.jpg",
+        alt: "Falcon 2000EX cabin seats and burlwood trim in daylight",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-11.jpg",
+        alt: "Detail of a cream leather executive seat aboard the Falcon 2000EX",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/falcon-2000ex/falcon-2000ex-12.jpg",
+        alt: "Burlwood cabinetry and gold hardware detail in the Falcon 2000EX cabin",
+        width: 2000,
+        height: 1333,
+      },
+    ],
+  },
+  {
     slug: "flexjet",
     title: "Flexjet",
     vertical: "Private Aviation",

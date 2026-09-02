@@ -1332,6 +1332,10 @@ export const workCollections: WorkCollection[] = [
     description:
       "A private aviation brand shoot for Flexjet covering a fractional-ownership fleet on the ramp and in the hangar. Exterior airframe studies of an Embraer Praetor-class jet and a Sikorsky S-76 helicopter with warm, editorial cabin interiors and in-flight window views.",
     href: "/work/flexjet",
+    video: {
+      vimeoId: "1223450037",
+      title: "Flexjet — brand film",
+    },
     socialCuts: [
       { vimeoId: "1223439211", title: "Flexjet — social cut" },
       { vimeoId: "1223439248", title: "Flexjet — social cut" },

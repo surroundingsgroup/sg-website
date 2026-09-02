@@ -8,10 +8,8 @@ import { Rule } from "@/components/rule";
 import Image from "next/image";
 import { verticals } from "@/lib/verticals";
 import { services } from "@/lib/services";
-import {
-  getWorkForVertical,
-  collectionCover,
-} from "@/lib/work";
+import { getWorkForVertical } from "@/lib/work";
+import { PortfolioGrid } from "@/components/portfolio-grid";
 import { site } from "@/lib/site";
 import {
   JsonLd,
@@ -78,31 +76,8 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
 
   // Portfolio collections shot for this vertical (uniform card grid)
   const verticalWork = getWorkForVertical(vertical.slug);
+  // Show up to 12; the grid itself renders 8 by default with an expand bar.
   const galleryCollections = verticalWork.slice(0, 12);
-  // Balance the grid to the count so the last row never orphans a single
-  // card: single row for 3–5 collections, tidy multi-row (3s/4s/5s) above.
-  const collectionCount = galleryCollections.length;
-  const lgColsClass =
-    collectionCount <= 2
-      ? "lg:grid-cols-2"
-      : collectionCount === 3
-        ? "lg:grid-cols-3"
-        : collectionCount === 4
-          ? "lg:grid-cols-4"
-          : collectionCount === 5
-            ? "lg:grid-cols-5"
-            : collectionCount === 6
-              ? "lg:grid-cols-3"
-              : collectionCount === 7
-                ? "lg:grid-cols-4" // 4 + 3
-                : collectionCount === 8
-                  ? "lg:grid-cols-4" // 4 + 4
-                  : collectionCount === 9
-                    ? "lg:grid-cols-3" // 3 + 3 + 3
-                    : collectionCount === 10
-                      ? "lg:grid-cols-5" // 5 + 5
-                      : "lg:grid-cols-4"; // 11 → 4+4+3, 12 → 4+4+4
-  const portfolioCols = `${collectionCount <= 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2"} ${lgColsClass}`;
 
   const fullUrl = `${site.url.replace(/\/$/, "")}${vertical.href}`;
 
@@ -255,48 +230,10 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           </header>
 
           {galleryCollections.length > 0 ? (
-            <ul className={`grid ${portfolioCols} gap-4 lg:gap-5`}>
-              {galleryCollections.map((c) => {
-                const cover = collectionCover(c);
-                return (
-                  <li key={c.slug}>
-                    <Link
-                      href={c.href}
-                      className="group block relative overflow-hidden rounded-lg bg-ink aspect-[4/3] shadow-[0_14px_36px_-22px_rgba(15,15,15,0.5)]"
-                    >
-                      <Image
-                        src={cover.src}
-                        alt={cover.alt}
-                        fill
-                        sizes="(min-width: 768px) 33vw, 50vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                      />
-                      <div
-                        className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-ink/5 group-hover:from-ink group-hover:via-ink/50 transition-all duration-500"
-                        aria-hidden
-                      />
-                      <div
-                        className="absolute top-0 right-0 w-10 h-px bg-gold/60"
-                        aria-hidden
-                      />
-                      <div className="absolute inset-0 flex flex-col justify-end p-4 lg:p-5 text-canvas">
-                        <p className="caption text-gold mb-1.5 text-[0.68rem]">
-                          {c.vertical}
-                        </p>
-                        <h3 className="font-sans font-extrabold text-base lg:text-xl leading-[1.1] text-balance group-hover:text-gold transition-colors duration-300">
-                          {c.title}
-                        </h3>
-                        {c.location && (
-                          <p className="text-xs text-canvas/70 mt-1">
-                            {c.location}
-                          </p>
-                        )}
-                      </div>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <PortfolioGrid
+              collections={galleryCollections}
+              label={vertical.name.toLowerCase()}
+            />
           ) : (
             <div className="bg-neutral-100 border border-neutral-200 rounded-xl p-12 lg:p-20 text-center">
               <p className="caption text-neutral-500 mb-4">◆ IN PRODUCTION</p>

@@ -1332,6 +1332,14 @@ export const workCollections: WorkCollection[] = [
     description:
       "A lifestyle brand shoot for Jet HQ: the arrival, the walk to the aircraft, and the details that sell the private-flight experience.",
     href: "/work/jet-hq",
+    video: {
+      vimeoId: "1223458039",
+      title: "Jet HQ — lifestyle film",
+    },
+    socialCuts: [
+      { vimeoId: "1223458038", title: "Jet HQ — social cut" },
+      { vimeoId: "1223458040", title: "Jet HQ — social cut" },
+    ],
     images: [
       {
         src: "/images/work/jet-hq/jet-hq-01.jpg",

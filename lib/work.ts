@@ -1397,6 +1397,12 @@ export const workCollections: WorkCollection[] = [
     ],
     images: [
       {
+        src: "/images/work/hera-flight/hera-flight-08.jpg",
+        alt: "A family walking to the Bombardier Challenger 300 across the ramp",
+        width: 2000,
+        height: 1336,
+      },
+      {
         src: "/images/work/hera-flight/hera-flight-01.jpg",
         alt: "Bombardier Challenger 300 side profile at the hangar",
         width: 2000,
@@ -1404,20 +1410,50 @@ export const workCollections: WorkCollection[] = [
         cover: true,
       },
       {
+        src: "/images/work/hera-flight/hera-flight-09.jpg",
+        alt: "A family boarding the Bombardier Challenger 300 up the airstairs",
+        width: 2000,
+        height: 1336,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-06.jpg",
+        alt: "Bombardier Challenger 300 cabin with white leather seating",
+        width: 2000,
+        height: 1335,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-10.jpg",
+        alt: "Family relaxing in the Challenger 300 cabin over a spread",
+        width: 2000,
+        height: 1336,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-11.jpg",
+        alt: "A father sharing a fruit and veggie tray with his son in the cabin",
+        width: 2000,
+        height: 1336,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-07.jpg",
+        alt: "Bombardier Challenger 300 cabin seats and oval windows",
+        width: 2000,
+        height: 1335,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-12.jpg",
+        alt: "Champagne poured for a mother and baby in the Challenger 300 cabin",
+        width: 2000,
+        height: 1336,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-13.jpg",
+        alt: "Champagne, catering, and fresh flowers set in the Challenger 300 cabin",
+        width: 2000,
+        height: 1336,
+      },
+      {
         src: "/images/work/hera-flight/hera-flight-02.jpg",
         alt: "Bombardier Challenger 300 beside a red Ferrari at the hangar",
-        width: 2000,
-        height: 1335,
-      },
-      {
-        src: "/images/work/hera-flight/hera-flight-03.jpg",
-        alt: "Bombardier Challenger 300 three-quarter view at the hangar",
-        width: 2000,
-        height: 1335,
-      },
-      {
-        src: "/images/work/hera-flight/hera-flight-04.jpg",
-        alt: "Bombardier Challenger 300 head-on on the ramp",
         width: 2000,
         height: 1335,
       },
@@ -1428,14 +1464,8 @@ export const workCollections: WorkCollection[] = [
         height: 1335,
       },
       {
-        src: "/images/work/hera-flight/hera-flight-06.jpg",
-        alt: "Bombardier Challenger 300 cabin with white leather seating",
-        width: 2000,
-        height: 1335,
-      },
-      {
-        src: "/images/work/hera-flight/hera-flight-07.jpg",
-        alt: "Bombardier Challenger 300 cabin seats and oval windows",
+        src: "/images/work/hera-flight/hera-flight-04.jpg",
+        alt: "Bombardier Challenger 300 head-on on the ramp",
         width: 2000,
         height: 1335,
       },

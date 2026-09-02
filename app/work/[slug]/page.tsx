@@ -57,7 +57,7 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
       {/* Walkthrough / brand film — cinematic 16:9, on-demand playback */}
       {collection.video && (
         <section className="bg-canvas px-6 lg:px-12 pt-12 lg:pt-16 pb-10 lg:pb-14">
-          <div className="max-w-[1200px] mx-auto">
+          <div className="max-w-[1200px] mx-auto overflow-hidden rounded-xl shadow-[0_30px_70px_-30px_rgba(15,15,15,0.5)]">
             <VimeoEmbed
               vimeoId={collection.video.vimeoId}
               vimeoHash={collection.video.vimeoHash}
@@ -100,7 +100,7 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
                   width={image.width}
                   height={image.height}
                   sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
-                  className="w-full h-auto"
+                  className="w-full h-auto rounded-lg"
                 />
               </div>
             ))}
@@ -176,7 +176,7 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
                 YouTube Shorts, the format the buyer actually scrolls.
               </p>
             </header>
-            <ul className="flex gap-5 lg:gap-6 overflow-x-auto pb-6 -mx-6 px-6 lg:-mx-2 lg:px-2 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <ul className="flex gap-5 lg:gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory [justify-content:safe_center] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {collection.socialCuts?.map((cut, i) => (
                 <li
                   key={"cut-" + cut.vimeoId + i}

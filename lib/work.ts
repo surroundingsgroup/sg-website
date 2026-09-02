@@ -1381,6 +1381,67 @@ export const workCollections: WorkCollection[] = [
     ],
   },
   {
+    slug: "hera-flight",
+    title: "Hera Flight",
+    vertical: "Private Aviation",
+    description:
+      "A lifestyle brand shoot for Hera Flight onboard a Bombardier Challenger 300: the aircraft at the hangar, the arrival, and a white-leather cabin, cut for brand and social.",
+    href: "/work/hera-flight",
+    video: {
+      vimeoId: "1223450036",
+      title: "Hera Flight — lifestyle film",
+    },
+    socialCuts: [
+      { vimeoId: "1223450035", title: "Hera Flight — social cut" },
+      { vimeoId: "1223450038", title: "Hera Flight — social cut" },
+    ],
+    images: [
+      {
+        src: "/images/work/hera-flight/hera-flight-01.jpg",
+        alt: "Bombardier Challenger 300 side profile at the hangar",
+        width: 2000,
+        height: 1335,
+        cover: true,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-02.jpg",
+        alt: "Bombardier Challenger 300 beside a red Ferrari at the hangar",
+        width: 2000,
+        height: 1335,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-03.jpg",
+        alt: "Bombardier Challenger 300 three-quarter view at the hangar",
+        width: 2000,
+        height: 1335,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-04.jpg",
+        alt: "Bombardier Challenger 300 head-on on the ramp",
+        width: 2000,
+        height: 1335,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-05.jpg",
+        alt: "Bombardier Challenger 300 engine nacelle detail",
+        width: 2000,
+        height: 1335,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-06.jpg",
+        alt: "Bombardier Challenger 300 cabin with white leather seating",
+        width: 2000,
+        height: 1335,
+      },
+      {
+        src: "/images/work/hera-flight/hera-flight-07.jpg",
+        alt: "Bombardier Challenger 300 cabin seats and oval windows",
+        width: 2000,
+        height: 1335,
+      },
+    ],
+  },
+  {
     slug: "flexjet",
     title: "Flexjet",
     vertical: "Private Aviation",

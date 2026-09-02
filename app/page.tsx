@@ -4,12 +4,12 @@ import { Hero } from "@/components/hero";
 import { AboutSummary } from "@/components/about-summary";
 import { VerticalsGrid } from "@/components/verticals-grid";
 import { ServicesGrid } from "@/components/services-grid";
-import { FeaturedWork } from "@/components/featured-work";
+import { InsideStudioReel } from "@/components/inside-studio-reel";
 import { WhatSetsUsApart } from "@/components/what-sets-us-apart";
 import { GlobalReach } from "@/components/global-reach";
 import { CtaBanner } from "@/components/cta-banner";
 import { Footer } from "@/components/footer";
-import { portfolioPins } from "@/lib/work";
+import { portfolioPins, portfolioRail } from "@/lib/work";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
  *   3. VerticalsGrid    — eight vertical cards in a magazine-cover layout
  *                         (4-up tier 1 row, 4-up tier 2 row)
  *   4. ServicesGrid     — six service accordion rows, click to expand (dark)
- *   5. FeaturedWork     — journal feed
+ *   5. InsideStudioReel — pinned, scroll-driven work showcase
  *   6. WhatSetsUsApart  — four-chapter expandable accordion synthesizing
  *                         why-us + crossover advantage + math + numbers
  *   7. GlobalReach      — owned-media reach stat moment + map
@@ -36,6 +36,7 @@ export const metadata: Metadata = {
  */
 export default function Home() {
   const pins = portfolioPins();
+  const rail = portfolioRail();
   return (
     <>
       <Nav />
@@ -43,9 +44,9 @@ export default function Home() {
       <AboutSummary />
       <VerticalsGrid />
       <ServicesGrid />
-      <FeaturedWork />
+      <InsideStudioReel />
       <WhatSetsUsApart />
-      <GlobalReach pins={pins} />
+      <GlobalReach pins={pins} rail={rail} />
       <CtaBanner />
       <Footer />
     </>

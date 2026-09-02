@@ -89,6 +89,19 @@ export interface PortfolioPin {
   projects: { title: string; href: string; vertical: string }[];
 }
 
+/** One project card in the map's synced rail (one per located project). */
+export interface RailItem {
+  slug: string;
+  title: string;
+  vertical: string;
+  href: string;
+  location: string;
+  cover: string;
+  alt: string;
+  /** City labels this project pins to — used to sync rail ↔ map pins. */
+  cities: string[];
+}
+
 // Shared city anchors so projects in the same city cluster onto one pin.
 // Tampa is nudged off the studio marker so both stay clickable when zoomed.
 const TAMPA: [number, number] = [-82.41, 27.9];

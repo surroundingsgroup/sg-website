@@ -9,7 +9,7 @@
  * index grid; all images render on the detail page in array order.
  */
 
-import { workPinCoords, type PortfolioPin } from "./locations";
+import { workPinCoords, type PortfolioPin, type RailItem } from "./locations";
 
 export interface WorkImage {
   src: string;
@@ -2282,4 +2282,30 @@ export function portfolioPins(): PortfolioPin[] {
     }
   }
   return Array.from(byCity.values());
+}
+
+/**
+ * Flat list of located projects for the map's synced rail — one card per
+ * project (deduped across multi-city projects), carrying its cover image
+ * and the city labels it pins to so the rail and map can highlight each
+ * other. Computed on the server, passed to the client map as props.
+ */
+export function portfolioRail(): RailItem[] {
+  const rail: RailItem[] = [];
+  for (const c of workCollections) {
+    const refs = workPinCoords[c.slug];
+    if (!refs) continue;
+    const cover = collectionCover(c);
+    rail.push({
+      slug: c.slug,
+      title: c.title,
+      vertical: c.vertical,
+      href: c.href,
+      location: c.location ?? refs[0].city,
+      cover: cover.src,
+      alt: cover.alt,
+      cities: refs.map((r) => r.city),
+    });
+  }
+  return rail;
 }

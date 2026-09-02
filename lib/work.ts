@@ -9,6 +9,8 @@
  * index grid; all images render on the detail page in array order.
  */
 
+import { workPinCoords, type PortfolioPin } from "./locations";
+
 export interface WorkImage {
   src: string;
   alt: string;
@@ -1797,6 +1799,99 @@ export const workCollections: WorkCollection[] = [
     ],
   },
   {
+    slug: "challenger-300-prague",
+    title: "Challenger 300",
+    vertical: "Private Aviation",
+    client: "Global Jet Sales",
+    location: "Prague, Czech Republic",
+    description:
+      "A listing package for a Bombardier Challenger 300, shot for Global Jet Sales on the ramp in Prague. Clean blue-sky exterior airframe studies and a cream-leather, dark-walnut cabin with the galley and flight deck, cut for brokerage decks, listing sites, and the social feed.",
+    href: "/work/challenger-300-prague",
+    video: {
+      vimeoId: "1223494275",
+      title: "Challenger 300 — listing film",
+    },
+    socialCuts: [
+      { vimeoId: "1223494273", title: "Challenger 300 — social cut" },
+      { vimeoId: "1223494274", title: "Challenger 300 — social cut" },
+    ],
+    images: [
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-01.jpg",
+        alt: "Front three-quarter view of the Challenger 300 on the ramp under a blue sky",
+        width: 2000,
+        height: 1333,
+        cover: true,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-02.jpg",
+        alt: "Full side profile of the Challenger 300 on the ramp in Prague",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-03.jpg",
+        alt: "Head-on view of the Challenger 300 nose and cockpit",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-04.jpg",
+        alt: "Challenger 300 with the air-stair down and cabin door open",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-05.jpg",
+        alt: "Rear engine and tail detail of the Challenger 300",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-06.jpg",
+        alt: "Cream leather cabin of the Challenger 300 looking forward",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-07.jpg",
+        alt: "Cream leather divan in the Challenger 300 cabin",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-08.jpg",
+        alt: "Challenger 300 dining table and club seating with window light",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-09.jpg",
+        alt: "Center console detail with cupholders and touchscreen in the Challenger 300",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-10.jpg",
+        alt: "Galley and refreshment center aboard the Challenger 300",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-11.jpg",
+        alt: "Walnut vanity and lavatory detail in the Challenger 300",
+        width: 2000,
+        height: 1333,
+      },
+      {
+        src: "/images/work/challenger-300-prague/challenger-300-prague-12.jpg",
+        alt: "Glass flight deck of the Challenger 300",
+        width: 2000,
+        height: 1333,
+      },
+    ],
+  },
+  {
     slug: "flexjet",
     title: "Flexjet",
     vertical: "Private Aviation",
@@ -2158,4 +2253,33 @@ export function getCollectionsBySlugs(slugs: string[]): WorkCollection[] {
   return slugs
     .map((slug) => workCollections.find((c) => c.slug === slug))
     .filter((c): c is WorkCollection => Boolean(c));
+}
+
+/**
+ * Clickable portfolio pins for the global-reach map: joins each collection
+ * to its shoot location(s) in workPinCoords and clusters projects that
+ * share a city onto a single pin. Computed on the server and passed to the
+ * client map as props, so the full workCollections array never ships to the
+ * browser bundle.
+ */
+export function portfolioPins(): PortfolioPin[] {
+  const byCity = new Map<string, PortfolioPin>();
+  for (const c of workCollections) {
+    const refs = workPinCoords[c.slug];
+    if (!refs) continue;
+    for (const ref of refs) {
+      const proj = { title: c.title, href: c.href, vertical: c.vertical };
+      const existing = byCity.get(ref.city);
+      if (existing) {
+        existing.projects.push(proj);
+      } else {
+        byCity.set(ref.city, {
+          city: ref.city,
+          coordinates: ref.coordinates,
+          projects: [proj],
+        });
+      }
+    }
+  }
+  return Array.from(byCity.values());
 }

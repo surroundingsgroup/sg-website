@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   ComposableMap,
   Geographies,
@@ -10,36 +12,48 @@ import {
 } from "react-simple-maps";
 import {
   audienceHubs,
-  projectLocations,
+  reachLocations,
   studioLocation,
+  type PortfolioPin,
 } from "@/lib/locations";
 
 /**
- * Premium dark-mode world map showing studio location + global audience hubs.
+ * Premium dark-mode world map — studio + audience hubs + reach pins, plus
+ * clickable portfolio pins tied to the work.
  *
- * Uses react-simple-maps with the standard 110m world-atlas topojson.
- * Tampa is marked as the studio (gold accent + ring); audience cities are
- * gold dots sized by weight (1-3) reflecting the network demographics from
- * the Nautical Network Media Kit 2025.
+ * Portfolio pins (gold dot + canvas ring) are derived from the work data on
+ * the server and passed in as `pins`. Same-city projects cluster onto one
+ * pin: a single project navigates straight to its page on click; a cluster
+ * opens a panel listing each project as a link. Audience hubs are gold dots
+ * sized by weight; reach pins are hollow canvas rings.
  */
 
 // Topojson — bundled in node_modules via the world-atlas package
 const geoUrl = "/world-110m.json";
 
-interface MarkerData {
-  coordinates: [number, number];
-  city: string;
-  region: string;
-  weight: 1 | 2 | 3;
-  type: "studio" | "audience" | "project";
-}
+const GOLD = "#FFBD84";
+const CANVAS = "#f7f4f0";
 
-export function GlobalReachMap() {
-  const [hovered, setHovered] = useState<MarkerData | null>(null);
+type Hovered =
+  | { kind: "studio" | "audience" | "reach"; title: string; sub: string }
+  | { kind: "portfolio"; title: string; sub: string };
+
+export function GlobalReachMap({ pins }: { pins: PortfolioPin[] }) {
+  const router = useRouter();
+  const [hovered, setHovered] = useState<Hovered | null>(null);
+  const [selected, setSelected] = useState<PortfolioPin | null>(null);
   // Zoom level drives inverse marker scaling: pins hold constant
   // screen size while the map expands, so clusters actually separate.
   const [zoom, setZoom] = useState(1);
   const z = Math.max(zoom, 1);
+
+  function onPinClick(pin: PortfolioPin) {
+    if (pin.projects.length === 1) {
+      router.push(pin.projects[0].href);
+    } else {
+      setSelected(pin);
+    }
+  }
 
   return (
     <div className="relative w-full">
@@ -81,26 +95,29 @@ export function GlobalReachMap() {
           <Marker
             coordinates={studioLocation.coordinates}
             onMouseEnter={() =>
-              setHovered({ ...studioLocation, type: "studio" })
+              setHovered({
+                kind: "studio",
+                title: studioLocation.city,
+                sub: studioLocation.region,
+              })
             }
             onMouseLeave={() => setHovered(null)}
           >
-            {/* Outer pulse ring */}
             <circle
               r={12 / z}
               fill="none"
-              stroke="#FFBD84"
+              stroke={GOLD}
               strokeWidth={1 / z}
               opacity={0.4}
             />
             <circle
               r={7 / z}
               fill="none"
-              stroke="#FFBD84"
+              stroke={GOLD}
               strokeWidth={1.2 / z}
               opacity={0.8}
             />
-            <circle r={4 / z} fill="#FFBD84" />
+            <circle r={4 / z} fill={GOLD} />
             <text
               y={-18 / z}
               textAnchor="middle"
@@ -109,7 +126,7 @@ export function GlobalReachMap() {
                 fontSize: 9 / z,
                 fontWeight: 800,
                 letterSpacing: "0.1em",
-                fill: "#FFBD84",
+                fill: GOLD,
                 textTransform: "uppercase",
               }}
             >
@@ -122,19 +139,25 @@ export function GlobalReachMap() {
             <Marker
               key={`${hub.city}-${hub.coordinates[0]}`}
               coordinates={hub.coordinates}
-              onMouseEnter={() => setHovered({ ...hub })}
+              onMouseEnter={() =>
+                setHovered({
+                  kind: "audience",
+                  title: hub.city,
+                  sub: hub.region,
+                })
+              }
               onMouseLeave={() => setHovered(null)}
             >
               <circle
                 r={(hub.weight * 1.5 + 1) / z}
-                fill="#FFBD84"
+                fill={GOLD}
                 opacity={0.85}
                 style={{ transition: "all 200ms ease", cursor: "pointer" }}
               />
               <circle
                 r={(hub.weight * 1.5 + 1) / z}
                 fill="none"
-                stroke="#FFBD84"
+                stroke={GOLD}
                 strokeWidth={1 / z}
                 opacity={0.25}
                 style={{
@@ -146,51 +169,173 @@ export function GlobalReachMap() {
             </Marker>
           ))}
 
-          {/* Project & shoot markers — hollow canvas-white rings so they
-              read distinctly from the gold audience dots */}
-          {projectLocations.map((p) => (
+          {/* Reach pins — hollow canvas rings, non-clickable */}
+          {reachLocations.map((p) => (
             <Marker
               key={`${p.city}-${p.coordinates[0]}`}
               coordinates={p.coordinates}
-              onMouseEnter={() => setHovered({ ...p })}
+              onMouseEnter={() =>
+                setHovered({ kind: "reach", title: p.city, sub: p.region })
+              }
               onMouseLeave={() => setHovered(null)}
             >
               <circle
-                r={(p.weight * 1.5 + 2.5) / z}
+                r={4 / z}
                 fill="none"
-                stroke="#f7f4f0"
+                stroke={CANVAS}
                 strokeWidth={1.4 / z}
-                opacity={0.9}
+                opacity={0.85}
                 style={{ cursor: "pointer" }}
               />
-              <circle r={1.6 / z} fill="#f7f4f0" opacity={0.9} />
+              <circle r={1.4 / z} fill={CANVAS} opacity={0.85} />
             </Marker>
           ))}
+
+          {/* Portfolio pins — gold core + canvas ring, clickable */}
+          {pins.map((pin) => {
+            const n = pin.projects.length;
+            const base = 4.5 + Math.min(n - 1, 4) * 0.5;
+            return (
+              <Marker
+                key={pin.city}
+                coordinates={pin.coordinates}
+                onMouseEnter={() =>
+                  setHovered({
+                    kind: "portfolio",
+                    title: pin.city,
+                    sub:
+                      n === 1
+                        ? pin.projects[0].title
+                        : `${n} projects · click to view`,
+                  })
+                }
+                onMouseLeave={() => setHovered(null)}
+                onClick={() => onPinClick(pin)}
+                style={{
+                  default: { cursor: "pointer" },
+                  hover: { cursor: "pointer" },
+                  pressed: { cursor: "pointer" },
+                }}
+              >
+                <circle
+                  r={(base + 5) / z}
+                  fill="none"
+                  stroke={GOLD}
+                  strokeWidth={1 / z}
+                  opacity={0.35}
+                />
+                <circle r={base / z} fill={GOLD} style={{ cursor: "pointer" }} />
+                <circle
+                  r={base / z}
+                  fill="none"
+                  stroke={CANVAS}
+                  strokeWidth={1.2 / z}
+                  opacity={0.95}
+                />
+                {n > 1 && (
+                  <text
+                    textAnchor="middle"
+                    dy="0.33em"
+                    style={{
+                      fontFamily: "var(--font-dm-sans), system-ui",
+                      fontSize: (base * 1.15) / z,
+                      fontWeight: 800,
+                      fill: "#0f0f0f",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    {n}
+                  </text>
+                )}
+              </Marker>
+            );
+          })}
         </ZoomableGroup>
       </ComposableMap>
 
-      {/* Hover tooltip */}
+      {/* Hover preview */}
       <div
-        className={`absolute top-4 right-4 lg:top-6 lg:right-6 bg-canvas/95 text-ink px-4 py-3 transition-opacity duration-200 pointer-events-none ${
-          hovered ? "opacity-100" : "opacity-0"
+        className={`absolute top-4 right-4 lg:top-6 lg:right-6 max-w-[16rem] bg-canvas/95 text-ink px-4 py-3 transition-opacity duration-200 pointer-events-none ${
+          hovered && !selected ? "opacity-100" : "opacity-0"
         }`}
       >
         {hovered && (
           <>
             <p className="caption text-gold mb-1">
-              {hovered.type === "studio"
+              {hovered.kind === "studio"
                 ? "STUDIO"
-                : hovered.type === "project"
-                  ? "ON LOCATION"
-                  : "AUDIENCE HUB"}
+                : hovered.kind === "portfolio"
+                  ? "PROJECT LOCATION"
+                  : hovered.kind === "reach"
+                    ? "ON LOCATION"
+                    : "AUDIENCE HUB"}
             </p>
             <p className="font-sans font-extrabold text-base leading-none">
-              {hovered.city}
+              {hovered.title}
             </p>
-            <p className="text-xs text-neutral-600 mt-1">{hovered.region}</p>
+            <p className="text-xs text-neutral-600 mt-1">{hovered.sub}</p>
           </>
         )}
       </div>
+
+      {/* Selected cluster panel — clickable project links */}
+      {selected && (
+        <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6 w-[17rem] max-w-[calc(100%-2rem)] bg-canvas text-ink p-5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)]">
+          <button
+            type="button"
+            onClick={() => setSelected(null)}
+            aria-label="Close"
+            className="absolute top-3 right-3 text-neutral-400 hover:text-ink transition-colors"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
+              <path
+                d="M1 1l12 12M13 1L1 13"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="square"
+              />
+            </svg>
+          </button>
+          <p className="caption text-gold mb-1">◆ ON LOCATION</p>
+          <p className="font-sans font-extrabold text-lg leading-none mb-4">
+            {selected.city}
+          </p>
+          <ul className="flex flex-col divide-y divide-neutral-200 -mb-1">
+            {selected.projects.map((p) => (
+              <li key={p.href}>
+                <Link
+                  href={p.href}
+                  className="group flex items-center justify-between gap-3 py-2.5"
+                >
+                  <span>
+                    <span className="caption text-neutral-500 block text-[0.62rem] mb-0.5">
+                      {p.vertical}
+                    </span>
+                    <span className="font-sans font-extrabold text-sm text-ink group-hover:text-gold transition-colors duration-300">
+                      {p.title}
+                    </span>
+                  </span>
+                  <svg
+                    width="13"
+                    height="9"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    aria-hidden
+                    className="shrink-0 text-neutral-400 group-hover:text-gold group-hover:translate-x-0.5 transition-all duration-300"
+                  >
+                    <path
+                      d="M1 5h12m0 0L9 1m4 4L9 9"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="square"
+                    />
+                  </svg>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Marker key */}
       <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
@@ -203,10 +348,17 @@ export function GlobalReachMap() {
         </span>
         <span className="caption text-canvas/60 inline-flex items-center gap-2">
           <span
+            className="inline-block w-2.5 h-2.5 rounded-full bg-gold ring-2 ring-canvas/90"
+            aria-hidden
+          />
+          Portfolio projects
+        </span>
+        <span className="caption text-canvas/60 inline-flex items-center gap-2">
+          <span
             className="inline-block w-2.5 h-2.5 rounded-full border border-canvas"
             aria-hidden
           />
-          Shoots &amp; projects
+          On location
         </span>
       </div>
 

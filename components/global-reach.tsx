@@ -15,6 +15,7 @@ const GlobalReachMap = dynamic(
   },
 );
 import { Rule } from "@/components/rule";
+import type { PortfolioPin } from "@/lib/locations";
 
 /**
  * Global reach section — dark mode, full-bleed.
@@ -25,7 +26,7 @@ import { Rule } from "@/components/rule";
  * Scroll-reveal: header eyebrow + headline + supporting copy + map
  * panel cascade in with staggered timing.
  */
-export function GlobalReach() {
+export function GlobalReach({ pins }: { pins: PortfolioPin[] }) {
   const reduce = useReducedMotion();
 
   const child = reduce
@@ -84,7 +85,7 @@ export function GlobalReach() {
           variants={child}
           className="bg-canvas/[0.03] p-6 lg:p-12 border border-canvas/10"
         >
-          <GlobalReachMap />
+          <GlobalReachMap pins={pins} />
         </motion.div>
       </motion.div>
     </section>

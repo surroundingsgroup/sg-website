@@ -9,6 +9,7 @@ import { WhatSetsUsApart } from "@/components/what-sets-us-apart";
 import { GlobalReach } from "@/components/global-reach";
 import { CtaBanner } from "@/components/cta-banner";
 import { Footer } from "@/components/footer";
+import { portfolioPins } from "@/lib/work";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
  * unwired; the component files stay on disk in case we want them back.
  */
 export default function Home() {
+  const pins = portfolioPins();
   return (
     <>
       <Nav />
@@ -43,7 +45,7 @@ export default function Home() {
       <ServicesGrid />
       <FeaturedWork />
       <WhatSetsUsApart />
-      <GlobalReach />
+      <GlobalReach pins={pins} />
       <CtaBanner />
       <Footer />
     </>

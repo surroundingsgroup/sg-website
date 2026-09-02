@@ -54,28 +54,81 @@ export const audienceHubs: MapLocation[] = [
 ];
 
 /**
- * Places the studio has actually produced work — project & shoot pins.
- * `region` doubles as the project credit shown in the hover tooltip.
+ * A few key reach pins — notable on-location shoots that don't have a
+ * dedicated portfolio page. These stay non-clickable; the clickable
+ * portfolio pins are derived from the work data (see workPinCoords /
+ * portfolioPins in lib/work.ts). `region` shows in the hover tooltip.
  */
-export const projectLocations: MapLocation[] = [
-  { city: "Nassau, Bahamas", region: "M/Y Aquanova · M/Y Skyfall", coordinates: [-77.3963, 25.0443], weight: 2, type: "project" },
-  { city: "Exumas, Bahamas", region: "M/Y Moca · M/Y Moonraker", coordinates: [-76.1, 23.7], weight: 2, type: "project" },
-  { city: "Miami, Florida", region: "M/Y Lumiere · M/Y Offline · G&G Timepieces", coordinates: [-80.13, 25.79], weight: 2, type: "project" },
-  { city: "The Hamptons, New York", region: "M/Y No Time To Die", coordinates: [-72.3851, 40.9634], weight: 1, type: "project" },
-  { city: "Orlando, Florida", region: "Carmel Estate", coordinates: [-81.3792, 28.5383], weight: 1, type: "project" },
-  { city: "Turks and Caicos", region: "Emerald Bay", coordinates: [-72.2654, 21.7738], weight: 1, type: "project" },
-  { city: "Herradura, Costa Rica", region: "Los Sueños Resort & Marina", coordinates: [-84.6589, 9.6489], weight: 2, type: "project" },
-  { city: "Pebble Beach, California", region: "Concours coverage", coordinates: [-121.9508, 36.5725], weight: 1, type: "project" },
-  { city: "Santa Marta, Colombia", region: "Private jet & yacht shoots", coordinates: [-74.199, 11.2408], weight: 1, type: "project" },
-  { city: "Cartagena, Colombia", region: "Private jet & yacht shoots", coordinates: [-75.4794, 10.391], weight: 1, type: "project" },
-  { city: "Dubai, UAE", region: "Dubai yacht show + brand shoot", coordinates: [55.2708, 25.2048], weight: 2, type: "project" },
-  { city: "Cannes, France", region: "On-location production", coordinates: [7.0179, 43.5528], weight: 1, type: "project" },
-  { city: "Saint-Tropez, France", region: "On-location production", coordinates: [6.6407, 43.2727], weight: 1, type: "project" },
-  { city: "Lake Como, Italy", region: "On-location production", coordinates: [9.2572, 45.9876], weight: 1, type: "project" },
-  { city: "Prague, Czech Republic", region: "Private jet shoot", coordinates: [14.4378, 50.0755], weight: 1, type: "project" },
-  { city: "Bangkok, Thailand", region: "Private jet shoots", coordinates: [100.5018, 13.7563], weight: 1, type: "project" },
-  { city: "Seattle, Washington", region: "On-location production", coordinates: [-122.3321, 47.6062], weight: 1, type: "project" },
-  { city: "Newport Beach, California", region: "On-location production", coordinates: [-117.9289, 33.6189], weight: 1, type: "project" },
-  { city: "San Diego, California", region: "On-location production", coordinates: [-117.1611, 32.7157], weight: 1, type: "project" },
-  { city: "Antigua", region: "On-location production", coordinates: [-61.8456, 17.0747], weight: 1, type: "project" },
+export const reachLocations: MapLocation[] = [
+  { city: "Cannes", region: "France — on-location production", coordinates: [7.0179, 43.5528], weight: 1, type: "project" },
+  { city: "Saint-Tropez", region: "France — on-location production", coordinates: [6.6407, 43.2727], weight: 1, type: "project" },
+  { city: "Lake Como", region: "Italy — on-location production", coordinates: [9.2572, 45.9876], weight: 1, type: "project" },
+  { city: "Pebble Beach", region: "California — Concours coverage", coordinates: [-121.9508, 36.5725], weight: 1, type: "project" },
 ];
+
+/** One project on the map — a title + link, grouped under a city pin. */
+export interface PortfolioPin {
+  city: string;
+  coordinates: [number, number];
+  projects: { title: string; href: string; vertical: string }[];
+}
+
+// Shared city anchors so projects in the same city cluster onto one pin.
+// Tampa is nudged off the studio marker so both stay clickable when zoomed.
+const TAMPA: [number, number] = [-82.41, 27.9];
+const MIAMI: [number, number] = [-80.1918, 25.7617];
+const NASSAU: [number, number] = [-77.3554, 25.0601];
+const EXUMAS: [number, number] = [-76.1, 23.7];
+
+/**
+ * Where each portfolio piece was shot, keyed by work slug. A project may
+ * map to several cities (it then gets a pin in each). City strings are the
+ * cluster key — identical strings merge onto one pin.
+ */
+export const workPinCoords: Record<
+  string,
+  { coordinates: [number, number]; city: string }[]
+> = {
+  // Private Aviation
+  "gulfstream-g650er": [{ coordinates: [-74.0721, 4.711], city: "Bogotá, Colombia" }],
+  "gulfstream-g450": [{ coordinates: [-96.797, 32.7767], city: "Dallas, Texas" }],
+  "gulfstream-g650": [{ coordinates: [100.5018, 13.7563], city: "Bangkok, Thailand" }],
+  "boeing-bbj": [{ coordinates: [100.5018, 13.7563], city: "Bangkok, Thailand" }],
+  "jet-hq": [{ coordinates: [-82.3879, 28.5553], city: "Brooksville, Florida" }],
+  "hera-flight": [{ coordinates: TAMPA, city: "Tampa, Florida" }],
+  "falcon-2000ex": [{ coordinates: [-122.3321, 47.6062], city: "Seattle, Washington" }],
+  "challenger-300-prague": [{ coordinates: [14.4378, 50.0755], city: "Prague, Czech Republic" }],
+  "sikorsky-s76": [{ coordinates: [-79.2839, 25.7241], city: "Bimini, Bahamas" }],
+  "naples-jet-center": [{ coordinates: [-81.7948, 26.142], city: "Naples, Florida" }],
+  flexjet: [
+    { coordinates: [-81.6944, 41.4993], city: "Cleveland, Ohio" },
+    { coordinates: [-111.9261, 33.4942], city: "Scottsdale, Arizona" },
+    { coordinates: MIAMI, city: "Miami, Florida" },
+  ],
+  // Marine
+  aquanova: [{ coordinates: NASSAU, city: "Nassau, Bahamas" }],
+  lumiere: [{ coordinates: MIAMI, city: "Miami, Florida" }],
+  moca: [{ coordinates: EXUMAS, city: "Exumas, Bahamas" }],
+  moonraker: [{ coordinates: EXUMAS, city: "Exumas, Bahamas" }],
+  "no-time-to-die": [
+    { coordinates: [-72.3851, 40.9634], city: "The Hamptons, New York" },
+    { coordinates: MIAMI, city: "Miami, Florida" },
+  ],
+  skyfall: [{ coordinates: NASSAU, city: "Nassau, Bahamas" }],
+  offline: [{ coordinates: MIAMI, city: "Miami, Florida" }],
+  "scout-530-lxf": [{ coordinates: [-79.9311, 32.7765], city: "Charleston, South Carolina" }],
+  // Real Estate
+  "bali-estate": [{ coordinates: [-82.7637, 28.0808], city: "Palm Harbor, Florida" }],
+  "carmel-estate": [{ coordinates: [-81.3792, 28.5383], city: "Orlando, Florida" }],
+  "lakefront-estate": [{ coordinates: TAMPA, city: "Tampa, Florida" }],
+  "tranquility-estate": [{ coordinates: TAMPA, city: "Tampa, Florida" }],
+  // Resorts + Travel
+  "emerald-bay": [{ coordinates: [-72.2654, 21.7738], city: "Turks and Caicos" }],
+  "los-suenos": [{ coordinates: [-84.6589, 9.6489], city: "Herradura, Costa Rica" }],
+  // Multifamily
+  "cora-residences": [{ coordinates: TAMPA, city: "Tampa, Florida" }],
+  // Hospitality + Experiences
+  "sparkman-wharf": [{ coordinates: TAMPA, city: "Tampa, Florida" }],
+  // Luxury Goods
+  "gg-timepieces": [{ coordinates: MIAMI, city: "Miami, Florida" }],
+};

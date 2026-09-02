@@ -1388,11 +1388,11 @@ export const workCollections: WorkCollection[] = [
       "A lifestyle brand shoot for Hera Flight onboard a Bombardier Challenger 300: the aircraft at the hangar, the arrival, and a white-leather cabin, cut for brand and social.",
     href: "/work/hera-flight",
     video: {
-      vimeoId: "1223450036",
+      vimeoId: "1223450035",
       title: "Hera Flight — lifestyle film",
     },
     socialCuts: [
-      { vimeoId: "1223450035", title: "Hera Flight — social cut" },
+      { vimeoId: "1223450036", title: "Hera Flight — social cut" },
       { vimeoId: "1223450038", title: "Hera Flight — social cut" },
     ],
     images: [

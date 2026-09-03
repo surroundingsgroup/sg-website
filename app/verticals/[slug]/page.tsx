@@ -126,11 +126,9 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           aria-hidden
         />
         <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pt-40 lg:pt-56 pb-20 lg:pb-32">
-          <p className="caption text-gold mb-6">
-            ◆ VERTICAL / {String(currentIndex + 1).padStart(2, "0")}
-          </p>
+          <p className="caption text-gold mb-6">◆ MARKETING + CONTENT</p>
           <h1 className="font-sans font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight max-w-4xl text-balance">
-            {vertical.heroHeadline ?? vertical.name}
+            {vertical.name}.
           </h1>
           <p className="text-lg lg:text-xl mt-6 max-w-2xl leading-relaxed text-canvas/85 font-light">
             {vertical.tagline}

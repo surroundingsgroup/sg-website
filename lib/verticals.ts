@@ -342,7 +342,7 @@ export const verticals: Vertical[] = [
       capabilities: "The services behind it.",
     },
     tier: 1,
-    image: "/images/verticals/private-aviation.jpg",
+    image: "/images/verticals/private-aviation-card.jpg",
     imageAlt: "Private jet on tarmac with airstairs down and red carpet",
     intro:
       "We make the content and run the campaigns that move private aviation, from the jet on the market to the terminal that receives it. Listing packages that sell aircraft, brand films for charter and FBOs, launch work for OEMs, demand programs for service companies, all captured in-house. Then we put it in front of real buyers through the largest owned audience in premium lifestyle.",

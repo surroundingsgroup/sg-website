@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "8mb",
     },
   },
+  // Portfolio images are served from Sanity's image CDN.
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "cdn.sanity.io" },
+    ],
+  },
   async redirects() {
     return [
       // -------------------------------------------------------------

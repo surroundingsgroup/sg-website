@@ -3,14 +3,15 @@ import { site } from "@/lib/site";
 import { verticals } from "@/lib/verticals";
 import { services } from "@/lib/services";
 import { featuredProjects } from "@/lib/featured-work";
-import { workCollections } from "@/lib/work";
+import { getAllProjects } from "@/lib/sanity/queries";
 import { jobs } from "@/lib/jobs";
 
 /**
  * Auto-generated sitemap at /sitemap.xml.
  * Combines static routes with all dynamic detail pages.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const workCollections = await getAllProjects();
   const baseUrl = site.url.replace(/\/$/, "");
   const now = new Date();
 

@@ -7,7 +7,8 @@ import { Footer } from "@/components/footer";
 import { CtaBanner } from "@/components/cta-banner";
 import { services } from "@/lib/services";
 import { verticals } from "@/lib/verticals";
-import { getCollectionsBySlugs, collectionCover } from "@/lib/work";
+import { collectionCover } from "@/lib/work";
+import { getCollectionsBySlugs } from "@/lib/sanity/queries";
 import { site } from "@/lib/site";
 import {
   JsonLd,
@@ -52,7 +53,7 @@ export default async function ServiceDetailPage({ params }: RouteParams) {
 
   // Curated portfolio collections for the "Recent work" gallery
   const featuredWork = service.featuredWorkSlugs
-    ? getCollectionsBySlugs(service.featuredWorkSlugs)
+    ? await getCollectionsBySlugs(service.featuredWorkSlugs)
     : [];
 
   const fullUrl = `${site.url.replace(/\/$/, "")}${service.href}`;

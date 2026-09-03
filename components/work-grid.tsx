@@ -3,11 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  workCollections,
-  collectionCover,
-  type WorkCollection,
-} from "@/lib/work";
+import { collectionCover, type WorkCollection } from "@/lib/work";
 
 /**
  * Filterable portfolio grid for /work.
@@ -44,22 +40,26 @@ function interleaveByVertical(collections: WorkCollection[]): WorkCollection[] {
   return out;
 }
 
-export function WorkGrid() {
+export function WorkGrid({
+  collections,
+}: {
+  collections: WorkCollection[];
+}) {
   const [active, setActive] = useState<string>("all");
 
   const interleaved = useMemo(
-    () => interleaveByVertical(workCollections),
-    [],
+    () => interleaveByVertical(collections),
+    [collections],
   );
 
   /** Vertical chips in first-appearance order, with counts */
   const verticals = useMemo(() => {
     const seen = new Map<string, number>();
-    for (const c of workCollections) {
+    for (const c of collections) {
       seen.set(c.vertical, (seen.get(c.vertical) ?? 0) + 1);
     }
     return [...seen.entries()].map(([name, count]) => ({ name, count }));
-  }, []);
+  }, [collections]);
 
   const visible =
     active === "all"
@@ -81,7 +81,7 @@ export function WorkGrid() {
                   : "text-neutral-500 hover:text-ink"
               }`}
             >
-              ALL ({workCollections.length})
+              ALL ({collections.length})
             </button>
           </li>
           {verticals.map((v) => (

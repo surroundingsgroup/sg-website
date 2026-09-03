@@ -7,21 +7,27 @@ import { Footer } from "@/components/footer";
 import { PageHero } from "@/components/page-hero";
 import { CtaBanner } from "@/components/cta-banner";
 import { VimeoEmbed } from "@/components/vimeo-embed";
-import { workCollections, collectionCover } from "@/lib/work";
+import { collectionCover } from "@/lib/work";
+import {
+  getProjectBySlug,
+  getAllProjectSlugs,
+  getAllProjects,
+} from "@/lib/sanity/queries";
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return workCollections.map((c) => ({ slug: c.slug }));
+export async function generateStaticParams() {
+  const slugs = await getAllProjectSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: RouteParams): Promise<Metadata> {
   const { slug } = await params;
-  const collection = workCollections.find((c) => c.slug === slug);
+  const collection = await getProjectBySlug(slug);
   if (!collection) return {};
   const cover = collectionCover(collection);
   return {
@@ -38,11 +44,12 @@ export async function generateMetadata({
 
 export default async function WorkCollectionPage({ params }: RouteParams) {
   const { slug } = await params;
-  const collection = workCollections.find((c) => c.slug === slug);
+  const collection = await getProjectBySlug(slug);
   if (!collection) notFound();
 
-  const currentIndex = workCollections.findIndex((c) => c.slug === slug);
-  const next = workCollections[(currentIndex + 1) % workCollections.length];
+  const all = await getAllProjects();
+  const currentIndex = all.findIndex((c) => c.slug === slug);
+  const next = all[(currentIndex + 1) % all.length];
 
   return (
     <>

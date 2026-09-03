@@ -11,7 +11,8 @@
  *
  * Run:  npx tsx scripts/migrate-to-sanity.ts
  */
-import "dotenv/config";
+import { config as loadEnv } from "dotenv";
+loadEnv({ path: ".env.local" });
 import { readFileSync, existsSync } from "node:fs";
 import { join, basename } from "node:path";
 import { createClient } from "@sanity/client";

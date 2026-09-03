@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { PageHero } from "@/components/page-hero";
 import { CtaBanner } from "@/components/cta-banner";
 import { WorkGrid } from "@/components/work-grid";
+import { getAllProjects } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/work" },
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
     "Selected work from Surroundings Group — superyacht charter campaigns, estate and residential shoots, private aviation, resorts, hospitality, and luxury goods.",
 };
 
-export default function WorkIndexPage() {
+export default async function WorkIndexPage() {
+  const collections = await getAllProjects();
   return (
     <>
       <Nav />
@@ -111,7 +113,7 @@ export default function WorkIndexPage() {
               release.
             </p>
           </header>
-          <WorkGrid />
+          <WorkGrid collections={collections} />
         </div>
       </section>
 

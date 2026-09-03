@@ -9,7 +9,7 @@ import { WhatSetsUsApart } from "@/components/what-sets-us-apart";
 import { GlobalReach } from "@/components/global-reach";
 import { CtaBanner } from "@/components/cta-banner";
 import { Footer } from "@/components/footer";
-import { portfolioPins, portfolioRail } from "@/lib/work";
+import { portfolioPins, portfolioRail } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -34,9 +34,8 @@ export const metadata: Metadata = {
  * VerticalsJourneyScroll, and VerticalsCinemaScroll. Those are
  * unwired; the component files stay on disk in case we want them back.
  */
-export default function Home() {
-  const pins = portfolioPins();
-  const rail = portfolioRail();
+export default async function Home() {
+  const [pins, rail] = await Promise.all([portfolioPins(), portfolioRail()]);
   return (
     <>
       <Nav />

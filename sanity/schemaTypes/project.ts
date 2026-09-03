@@ -13,7 +13,7 @@ import { defineType, defineField, defineArrayMember } from "sanity";
 
 export const VERTICALS = [
   "Marine",
-  "Real Estate + Development",
+  "Real Estate",
   "Multifamily",
   "Private Aviation",
   "Resorts + Travel",

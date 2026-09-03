@@ -8,7 +8,7 @@ import { Rule } from "@/components/rule";
 import Image from "next/image";
 import { verticals } from "@/lib/verticals";
 import { services } from "@/lib/services";
-import { getWorkForVertical } from "@/lib/work";
+import { getProjectsByVertical } from "@/lib/sanity/queries";
 import { PortfolioGrid } from "@/components/portfolio-grid";
 import { site } from "@/lib/site";
 import {
@@ -75,7 +75,7 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
   const next = verticals[(currentIndex + 1) % verticals.length];
 
   // Portfolio collections shot for this vertical (uniform card grid)
-  const verticalWork = getWorkForVertical(vertical.slug);
+  const verticalWork = await getProjectsByVertical(vertical.slug);
   // Show up to 12; the grid itself renders 8 by default with an expand bar.
   const galleryCollections = verticalWork.slice(0, 12);
 

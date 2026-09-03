@@ -110,8 +110,10 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
         ]}
       />
 
-      {/* Hero — full-bleed category imagery under an ink gradient */}
-      <section className="relative bg-ink text-canvas overflow-hidden">
+      {/* Hero — full-bleed category imagery under an ink gradient. Tall,
+          viewport-scaled so wide subjects (a jet, a yacht) frame fully
+          instead of getting cropped by a short banner. */}
+      <section className="relative bg-ink text-canvas overflow-hidden flex items-center min-h-[85vh]">
         <Image
           src={`/images/verticals/${vertical.slug}.jpg`}
           alt=""
@@ -125,7 +127,7 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/55"
           aria-hidden
         />
-        <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pt-40 lg:pt-56 pb-20 lg:pb-32">
+        <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12 pt-28 pb-16 lg:pt-32 lg:pb-20">
           <Rule className="bg-gold mb-8" />
           <h1 className="font-sans font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight max-w-4xl text-balance">
             {vertical.name}.

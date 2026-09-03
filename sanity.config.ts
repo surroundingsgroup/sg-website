@@ -18,4 +18,6 @@ export default defineConfig({
   dataset,
   schema,
   plugins: [structureTool({ structure }), visionTool({ defaultApiVersion: apiVersion })],
+  // Hide Sanity's product/conference promo popovers for the team.
+  announcements: { enabled: false },
 });

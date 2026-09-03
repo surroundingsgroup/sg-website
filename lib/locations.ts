@@ -129,6 +129,7 @@ export const workPinCoords: Record<
   "challenger-300-prague": [{ coordinates: [14.4378, 50.0755], city: "Prague, Czech Republic" }],
   "sikorsky-s76": [{ coordinates: [-79.2839, 25.7241], city: "Bimini, Bahamas" }],
   "naples-jet-center": [{ coordinates: [-81.7948, 26.142], city: "Naples, Florida" }],
+  "pilatus-pc24": [{ coordinates: TAMPA, city: "Tampa, Florida" }],
   flexjet: [
     { coordinates: [-81.6944, 41.4993], city: "Cleveland, Ohio" },
     { coordinates: [-111.9261, 33.4942], city: "Scottsdale, Arizona" },

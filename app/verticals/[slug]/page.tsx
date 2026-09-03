@@ -126,7 +126,7 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           aria-hidden
         />
         <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pt-40 lg:pt-56 pb-20 lg:pb-32">
-          <p className="caption text-gold mb-6">◆ MARKETING + CONTENT</p>
+          <Rule className="bg-gold mb-8" />
           <h1 className="font-sans font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight max-w-4xl text-balance">
             {vertical.name}.
           </h1>

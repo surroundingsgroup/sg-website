@@ -375,9 +375,11 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
         </section>
       )}
 
-      {/* Next vertical — centered full-bleed banner over the next category image */}
+      {/* Next vertical — fixed 16:9 full-bleed banner over the next category
+          image. Locked aspect so a 2560×1440 source maps 1:1 (no surprise
+          crop). Content is absolutely centered inside the fixed frame. */}
       <section className="relative overflow-hidden border-t border-neutral-200">
-        <Link href={next.href} className="group block relative">
+        <Link href={next.href} className="group relative block aspect-[16/9]">
           <Image
             src={`/images/verticals/${next.slug}.jpg`}
             alt=""
@@ -387,15 +389,15 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
             aria-hidden
           />
           <div className="absolute inset-0 bg-ink/65" aria-hidden />
-          <div className="relative max-w-[900px] mx-auto px-6 lg:px-12 py-24 lg:py-32 text-center text-canvas">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 lg:px-12 text-canvas">
             <p className="caption text-gold mb-5">◆ NEXT VERTICAL</p>
-            <h3 className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-balance">
+            <h3 className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-balance max-w-[900px]">
               {next.name}
             </h3>
-            <p className="text-base lg:text-lg text-canvas/80 mt-4 max-w-xl mx-auto">
+            <p className="hidden sm:block text-base lg:text-lg text-canvas/80 mt-4 max-w-xl">
               {next.tagline}
             </p>
-            <span className="mt-9 inline-flex items-center gap-2 bg-gold text-ink px-7 py-3.5 text-sm font-medium tracking-wide group-hover:bg-canvas transition-colors duration-300">
+            <span className="mt-6 sm:mt-9 inline-flex items-center gap-2 bg-gold text-ink px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-medium tracking-wide group-hover:bg-canvas transition-colors duration-300">
               Explore {next.name}
               <Arrow />
             </span>

@@ -490,7 +490,7 @@ export const verticals: Vertical[] = [
       capabilities: "The services behind it.",
     },
     tier: 2,
-    image: "/images/verticals/resorts-travel.jpg",
+    image: "/images/verticals/resorts-travel-card.jpg",
     imageAlt: "Eye-level view of a Caribbean luxury villa — infinity pool, loungers, dramatic sky",
     intro:
       "The places that get booked are the places that look incredible online. We shoot properties at that standard, run campaigns timed to booking seasons, and put them in front of the people who actually book.",

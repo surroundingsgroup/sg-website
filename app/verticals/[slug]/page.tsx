@@ -113,14 +113,14 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
       {/* Hero — full-bleed category imagery under an ink gradient. Tall,
           viewport-scaled so wide subjects (a jet, a yacht) frame fully
           instead of getting cropped by a short banner. */}
-      <section className="relative bg-ink text-canvas overflow-hidden flex items-center min-h-[85vh]">
+      <section className="relative bg-ink text-canvas overflow-hidden flex items-center min-h-[68vh] sm:min-h-[85vh]">
         <Image
           src={`/images/verticals/${vertical.slug}.jpg`}
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-40"
+          className="object-contain object-center opacity-40 sm:object-cover"
           aria-hidden
         />
         <div

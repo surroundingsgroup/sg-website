@@ -30,7 +30,9 @@ export function Hero({
 }: HeroProps) {
   // Unlisted videos need their `h=` hash in the player URL; public ones don't.
   const hash = site.hero.vimeoHash ? `h=${site.hero.vimeoHash}&` : "";
-  const vimeoSrc = `https://player.vimeo.com/video/${vimeoId}?${hash}background=1&autoplay=1&loop=1&muted=1`;
+  // Optional start offset (seconds) via the #t fragment.
+  const start = site.hero.start ? `#t=${site.hero.start}s` : "";
+  const vimeoSrc = `https://player.vimeo.com/video/${vimeoId}?${hash}background=1&autoplay=1&loop=1&muted=1${start}`;
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-ink">

@@ -32,8 +32,9 @@ export const site = {
     // To swap the banner video, change vimeoId (and vimeoHash if the video
     // is unlisted — it's the `h=` value in Vimeo's embed code; leave "" for
     // public videos).
-    vimeoId: "1200194773", // "SG Web Banner"
+    vimeoId: "877942421", // "Surroundings Group Luxury Project Reel"
     vimeoHash: "",
+    start: 0,
   },
 
   nav: [

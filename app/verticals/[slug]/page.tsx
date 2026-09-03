@@ -375,11 +375,15 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
         </section>
       )}
 
-      {/* Next vertical — fixed 16:9 full-bleed banner over the next category
-          image. Locked aspect so a 2560×1440 source maps 1:1 (no surprise
-          crop). Content is absolutely centered inside the fixed frame. */}
+      {/* Next vertical — skinny fixed-ratio full-bleed banner over the next
+          category image. Locked to 3:1 on desktop so a 2560×853 source maps
+          1:1 (no surprise crop); a touch taller on mobile so the text fits.
+          Content is absolutely centered inside the fixed frame. */}
       <section className="relative overflow-hidden border-t border-neutral-200">
-        <Link href={next.href} className="group relative block aspect-[16/9]">
+        <Link
+          href={next.href}
+          className="group relative block aspect-[3/2] sm:aspect-[3/1]"
+        >
           <Image
             src={`/images/verticals/${next.slug}.jpg`}
             alt=""

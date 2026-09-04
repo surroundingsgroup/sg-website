@@ -67,8 +67,8 @@ export function ServicesGrid() {
           >
             Full-service. An extension of your team.{" "}
             <span className="text-canvas/55">
-              Production, Social Media, Websites, Paid Media + PR, Events, AI + Automation —
-              all under one roof.
+              Production, Social Media, Websites, Paid Media + PR, Events, AI + Automation.
+              All under one roof.
             </span>
           </motion.p>
         </motion.header>
@@ -206,7 +206,7 @@ function ServiceRow({
                       className="text-sm lg:text-base text-canvas/75 leading-snug flex gap-3"
                     >
                       <span aria-hidden className="text-gold">
-                        —
+                        ·
                       </span>
                       <span>{capability}</span>
                     </li>

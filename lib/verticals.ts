@@ -127,7 +127,7 @@ export const verticals: Vertical[] = [
     slug: "marine",
     name: "Marine",
     tagline:
-      "The category where we have the deepest reach — anchored by Nautical Network.",
+      "The category where we have the deepest reach, anchored by Nautical Network.",
     description:
       "From boat builders and brokerages to charter operators and marinas, we serve the entire marine industry with content, social, and distribution at a scale no other agency can match.",
     href: "/verticals/marine",
@@ -141,7 +141,7 @@ export const verticals: Vertical[] = [
     image: "/images/verticals/marine.jpg",
     imageAlt: "Sport-fish yacht running across calm coastal water",
     intro:
-      "Marine is our deepest category. We've worked in it for years, and we own Nautical Network — a marine media network reaching 180M+ viewers a year. Every marine client gets that distribution included.",
+      "Marine is our deepest category. We've worked in it for years, and we own Nautical Network, a marine media network reaching 180M+ viewers a year. Every marine client gets that distribution included.",
     introHighlight: "our deepest category",
     proof: {
       eyebrow: "◆ WHY SURROUNDINGS",
@@ -174,7 +174,7 @@ export const verticals: Vertical[] = [
     signaturePlays: [
       {
         title: "New-model launches",
-        copy: "Launch film, social campaign, paid ads, and Nautical Network coverage — all timed to the reveal.",
+        copy: "Launch film, social campaign, paid ads, and Nautical Network coverage, all timed to the reveal.",
       },
       {
         title: "Brokerage listing programs",
@@ -197,7 +197,7 @@ export const verticals: Vertical[] = [
     tagline:
       "Developers, brokerages, builders, and the home services that bring properties to life.",
     description:
-      "Cinematic project films, editorial storytelling, and integrated paid + PR — for developers building flagship properties, brokerages selling them, and the home services brands working around the luxury home.",
+      "Cinematic project films, editorial storytelling, and integrated paid + PR, for developers building flagship properties, brokerages selling them, and the home services brands working around the luxury home.",
     href: "/verticals/real-estate",
     headlines: {
       intro: "What we do in real estate.",
@@ -207,7 +207,7 @@ export const verticals: Vertical[] = [
     },
     tier: 1,
     image: "/images/verticals/real-estate.jpg",
-    imageAlt: "Luxury estate at night — illuminated pool, waterfall feature, dramatic landscape lighting",
+    imageAlt: "Luxury estate at night: illuminated pool, waterfall feature, dramatic landscape lighting",
     intro:
       "We work across everything around the luxury home: developers building flagship projects, the brokerages selling them, the builders shaping them, and the design and service brands around them.",
     introHighlight: "the luxury home",
@@ -265,7 +265,7 @@ export const verticals: Vertical[] = [
     tagline:
       "Lease-up campaigns and lifestyle content for amenitized properties.",
     description:
-      "Built for properties competing for discerning residents — content programs, social engines, and paid demand that fills units.",
+      "Built for properties competing for discerning residents: content programs, social engines, and paid demand that fills units.",
     href: "/verticals/multifamily",
     headlines: {
       intro: "What we do in multifamily.",
@@ -300,7 +300,7 @@ export const verticals: Vertical[] = [
       },
       {
         name: "Owner-operators + portfolios",
-        copy: "One brand system that covers the whole portfolio — no separate agency for every property.",
+        copy: "One brand system that covers the whole portfolio: no separate agency for every property.",
       },
       {
         name: "Branded residences",
@@ -333,7 +333,7 @@ export const verticals: Vertical[] = [
     tagline:
       "Content and campaigns for jet brokerages, charter, FBOs, and OEMs.",
     description:
-      "Production and distribution for the brands and terminals serving private flight — captured at the standard the category requires.",
+      "Production and distribution for the brands and terminals serving private flight, captured at the standard the category requires.",
     href: "/verticals/private-aviation",
     headlines: {
       intro: "What we do in aviation.",
@@ -396,7 +396,7 @@ export const verticals: Vertical[] = [
     // ---- Traffic + conversion (Private Aviation is the push vertical) ----
     seo: {
       title:
-        "Private Aviation Marketing Agency — Charter, OEMs + FBOs | Surroundings Group",
+        "Private Aviation Marketing Agency · Charter, OEMs + FBOs | Surroundings Group",
       description:
         "Marketing and cinematic content for private aviation: jet listings and brokerages, charter, FBOs, OEMs, and service companies. In-house production plus owned-media distribution from the team behind Nautical Network's 255M+ audience.",
       keywords: [
@@ -491,7 +491,7 @@ export const verticals: Vertical[] = [
     },
     tier: 2,
     image: "/images/verticals/resorts-travel-card.jpg",
-    imageAlt: "Eye-level view of a Caribbean luxury villa — infinity pool, loungers, dramatic sky",
+    imageAlt: "Eye-level view of a Caribbean luxury villa: infinity pool, loungers, dramatic sky",
     intro:
       "The places that get booked are the places that look incredible online. We shoot properties at that standard, run campaigns timed to booking seasons, and put them in front of the people who actually book.",
     introHighlight: "look incredible online",
@@ -541,7 +541,7 @@ export const verticals: Vertical[] = [
     tagline:
       "Hotels, restaurants, member clubs, and the curated experiences that define them.",
     description:
-      "Content and distribution for hospitality brands — boutique hotels, restaurants, private clubs, spas — and the experiential brands building the next generation of premium service.",
+      "Content and distribution for hospitality brands (boutique hotels, restaurants, private clubs, spas) and the experiential brands building the next generation of premium service.",
     href: "/verticals/hospitality-experiences",
     headlines: {
       intro: "What we do in hospitality.",
@@ -551,9 +551,9 @@ export const verticals: Vertical[] = [
     },
     tier: 2,
     image: "/images/verticals/hospitality-experiences.jpg",
-    imageAlt: "Premium event hospitality activation — branded bar setup at a luxury concours",
+    imageAlt: "Premium event hospitality activation, branded bar setup at a luxury concours",
     intro:
-      "We work with hotels, restaurants, member clubs, and spas — daily content, opening and seasonal campaigns, and on-site event coverage.",
+      "We work with hotels, restaurants, member clubs, and spas. Daily content, opening and seasonal campaigns, and on-site event coverage.",
     introHighlight: "member clubs",
     proof: {
       eyebrow: "◆ WHY SURROUNDINGS",
@@ -589,11 +589,11 @@ export const verticals: Vertical[] = [
       },
       {
         title: "Hospitality content systems",
-        copy: "Daily publishing for the property, run by us — no weekly creative briefings needed.",
+        copy: "Daily publishing for the property, run by us. No weekly creative briefings needed.",
       },
       {
         title: "Event activations",
-        copy: "Strategy, production, and on-site capture — then the event footage becomes months of content.",
+        copy: "Strategy, production, and on-site capture. Then the event footage becomes months of content.",
       },
     ],
     relatedServiceSlugs: ["studio", "experiences", "social", "growth"],
@@ -604,7 +604,7 @@ export const verticals: Vertical[] = [
     tagline:
       "Launch campaigns and ongoing social for dealers, collectors, and performance brands.",
     description:
-      "From new-model launches to ongoing brand presence — cinematic content and audience reach for premium automotive.",
+      "From new-model launches to ongoing brand presence: cinematic content and audience reach for premium automotive.",
     href: "/verticals/exotic-automotive",
     headlines: {
       intro: "What we do in automotive.",
@@ -649,7 +649,7 @@ export const verticals: Vertical[] = [
     signaturePlays: [
       {
         title: "New-model reveals",
-        copy: "Pre-reveal tease, launch film, social campaign, and press coverage — planned to run for months, not one news cycle.",
+        copy: "Pre-reveal tease, launch film, social campaign, and press coverage, planned to run for months, not one news cycle.",
       },
       {
         title: "Hero film programs",
@@ -680,7 +680,7 @@ export const verticals: Vertical[] = [
     image: "/images/verticals/luxury-goods.jpg",
     imageAlt: "Silver Rolex Day-Date watch on cream backdrop",
     intro:
-      "Campaigns for timepieces, fashion, fine spirits, and craftsmanship-led brands — shot and written at the standard of the magazines your customers already read.",
+      "Campaigns for timepieces, fashion, fine spirits, and craftsmanship-led brands, shot and written at the standard of the magazines your customers already read.",
     introHighlight: "craftsmanship-led brands",
     proof: {
       eyebrow: "◆ WHY SURROUNDINGS",
@@ -707,7 +707,7 @@ export const verticals: Vertical[] = [
       },
       {
         name: "Craftsmanship-led brands",
-        copy: "Furniture, leather goods, audio — categories where the product is the brand and the story is the craft.",
+        copy: "Furniture, leather goods, audio: categories where the product is the brand and the story is the craft.",
       },
     ],
     signaturePlays: [

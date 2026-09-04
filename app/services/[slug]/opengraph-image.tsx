@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { services } from "@/lib/services";
 
-export const alt = "Surroundings Group — Service";
+export const alt = "Surroundings Group · Service";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -10,7 +10,7 @@ export function generateImageMetadata({ params }: { params: { slug: string } }) 
   return [
     {
       id: "default",
-      alt: s ? `Surroundings Group — ${s.name}` : "Surroundings Group",
+      alt: s ? `Surroundings Group · ${s.name}` : "Surroundings Group",
       size,
       contentType,
     },

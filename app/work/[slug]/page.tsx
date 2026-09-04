@@ -31,7 +31,7 @@ export async function generateMetadata({
   if (!collection) return {};
   const cover = collectionCover(collection);
   return {
-    title: `${collection.title} — Work`,
+    title: `${collection.title} · Work`,
     description: collection.description,
     alternates: { canonical: collection.href },
     openGraph: {

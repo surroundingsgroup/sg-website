@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/work" },
   title: "Work",
   description:
-    "Selected work from Surroundings Group — superyacht charter campaigns, estate and residential shoots, private aviation, resorts, hospitality, and luxury goods.",
+    "Selected work from Surroundings Group: superyacht charter campaigns, estate and residential shoots, private aviation, resorts, hospitality, and luxury goods.",
 };
 
 export default async function WorkIndexPage() {
@@ -56,7 +56,7 @@ export default async function WorkIndexPage() {
       <section className="relative h-[55vh] min-h-[400px] max-h-[700px] overflow-hidden">
         <Image
           src="/images/work/skyfall/skyfall-01.jpg"
-          alt="Superyacht Skyfall underway at dusk beneath pastel pink clouds — Surroundings Group studio production"
+          alt="Superyacht Skyfall underway at dusk beneath pastel pink clouds, Surroundings Group studio production"
           fill
           sizes="100vw"
           quality={80}
@@ -136,12 +136,12 @@ export default async function WorkIndexPage() {
             <Phase
               num="01"
               title="Strategy"
-              body="Brief, category audit, audience and distribution map. Built around real conversion paths a premium buyer takes — not the agency-pitch decks they ignore."
+              body="Brief, category audit, audience and distribution map. Built around real conversion paths a premium buyer takes, not the agency-pitch decks they ignore."
             />
             <Phase
               num="02"
               title="Production"
-              body="Our team on set. Director, cinematography, photo, drone, art direction. We don't sub-contract the shoot and stand back — the people who planned it are the people who run it."
+              body="Our team on set. Director, cinematography, photo, drone, art direction. We don't sub-contract the shoot and stand back. The people who planned it are the people who run it."
             />
             <Phase
               num="03"

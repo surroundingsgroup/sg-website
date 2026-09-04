@@ -88,7 +88,7 @@ export const project = defineType({
       of: [
         defineArrayMember({
           type: "image",
-          options: { hotspot: true, accept: "image/*" },
+          options: { hotspot: true },
           fields: [
             {
               name: "alt",
@@ -110,7 +110,7 @@ export const project = defineType({
       of: [
         defineArrayMember({
           type: "image",
-          options: { hotspot: true, accept: "image/*" },
+          options: { hotspot: true },
           fields: [{ name: "alt", type: "string", title: "Alt text" }],
         }),
       ],

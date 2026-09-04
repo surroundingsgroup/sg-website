@@ -65,11 +65,11 @@ export const services: Service[] = [
     name: "Production",
     tagline: "Premium production for brands that demand it.",
     description:
-      "In-house creative production built for premium markets — from cinematic brand films to listing videos, aerial coverage, and editorial photography. Every frame matches the standard of the brands we serve.",
+      "In-house creative production built for premium markets: from cinematic brand films to listing videos, aerial coverage, and editorial photography. Every frame matches the standard of the brands we serve.",
     capabilities: [
       "Brand story films + lifestyle video",
       "Reels + short-form social video",
-      "Listing + walkthrough videos — property, aircraft, yacht",
+      "Listing + walkthrough videos: property, aircraft, yacht",
       "Location highlight films",
       "Aerial + drone production",
       "Editorial, product + headshot photography",
@@ -89,7 +89,7 @@ export const services: Service[] = [
       "Cinematic brand story films",
       "Monthly reel and short-form video program for social",
       "Listing and walkthrough video for a property, aircraft, or yacht",
-      "Location highlight film — a charter destination, a private terminal, a flagship address",
+      "Location highlight film: a charter destination, a private terminal, a flagship address",
       "Lifestyle photo set that puts your clients center stage",
       "Editorial-grade product shoot or professional headshot day",
     ],
@@ -124,7 +124,7 @@ export const services: Service[] = [
     name: "Social Media",
     tagline: "Where premium brands live online.",
     description:
-      "Full-service social presence management — strategy, content, community, and growth — executed by a team that understands how premium audiences engage, share, and buy.",
+      "Full-service social presence management (strategy, content, community, and growth) executed by a team that understands how premium audiences engage, share, and buy.",
     capabilities: [
       "Multi-platform management + platform expertise",
       "Content calendar + consistent publishing",
@@ -181,7 +181,7 @@ export const services: Service[] = [
   {
     slug: "digital",
     name: "Websites",
-    tagline: "Designed, built, and managed — worthy of the brands behind them.",
+    tagline: "Designed, built, and managed. Worthy of the brands behind them.",
     description:
       "Strategy, design, build, and ongoing care for digital properties that convert as well as they look. Mobile-first, performance-obsessed, and tailored to the conventions of your category.",
     capabilities: [
@@ -211,7 +211,7 @@ export const services: Service[] = [
       "Hosting environment management with proactive monitoring",
     ],
     bestForCopy:
-      "For brands whose current site is the weak point — buyers landing and bouncing, a design that hasn't been touched in years, or a brand that's evolved past its website.",
+      "For brands whose current site is the weak point: buyers landing and bouncing, a design that hasn't been touched in years, or a brand that's evolved past its website.",
     processSteps: [
       {
         title: "Strategy + sitemap",
@@ -243,7 +243,7 @@ export const services: Service[] = [
     description:
       "Paid advertising, public relations, email, influencers, and owned-media distribution working together as one acquisition engine. Built to reach the audiences that matter, and convert them.",
     capabilities: [
-      "Paid media — Google Search + Display, YouTube, Meta",
+      "Paid media: Google Search + Display, YouTube, Meta",
       "Website retargeting",
       "Keyword + competitor research",
       "Landing page creation + ad creative",
@@ -266,7 +266,7 @@ export const services: Service[] = [
       "Paid program across Google Search + Display, Meta, and YouTube for a launch",
       "Retargeting campaigns that re-engage site visitors and social audiences",
       "PR campaign tied to a new-model release or grand opening",
-      "Email and lifecycle programs connected to your CRM and marketing stack — HubSpot, Klaviyo, Salesforce, and more",
+      "Email and lifecycle programs connected to your CRM and marketing stack: HubSpot, Klaviyo, Salesforce, and more",
       "Influencer and creator program matched to the brand's category",
       "Owned-media and branded-outlet distribution across our editorial network",
     ],
@@ -301,7 +301,7 @@ export const services: Service[] = [
     name: "Events",
     tagline: "Moments that become marketing.",
     description:
-      "Strategy, production, and on-site activation for premium brand experiences — from boat shows to property launches to private client gatherings. We plan it, market it, capture it, and amplify it.",
+      "Strategy, production, and on-site activation for premium brand experiences: from boat shows to property launches to private client gatherings. We plan it, market it, capture it, and amplify it.",
     capabilities: [
       "Event strategy + production",
       "Pre-event marketing",
@@ -329,7 +329,7 @@ export const services: Service[] = [
       "Post-event content programs that extend the brand moment",
     ],
     bestForCopy:
-      "For openings, launches, and client gatherings that matter enough to do properly — and worth capturing on camera.",
+      "For openings, launches, and client gatherings that matter enough to do properly, and worth capturing on camera.",
     processSteps: [
       {
         title: "Concept + brief",
@@ -359,7 +359,7 @@ export const services: Service[] = [
     name: "AI + Automation",
     tagline: "Custom AI agents, automations, and dashboards for your operation.",
     description:
-      "Custom AI and workflow automation engineered for marketing operations, sales pipelines, and client deliverables. Built by an agency that builds its own software — not one that just talks about AI.",
+      "Custom AI and workflow automation engineered for marketing operations, sales pipelines, and client deliverables. Built by an agency that builds its own software, not one that just talks about AI.",
     capabilities: [
       "Marketing + sales automation",
       "Custom AI agents + workflows",
@@ -387,7 +387,7 @@ export const services: Service[] = [
       "Data pipeline and reporting infrastructure for ongoing program work",
     ],
     bestForCopy:
-      "For teams that have outgrown spreadsheets — data copy-pasted between tools, leads slipping through cracks, briefs lost in Slack. We build the system that fixes it.",
+      "For teams that have outgrown spreadsheets: data copy-pasted between tools, leads slipping through cracks, briefs lost in Slack. We build the system that fixes it.",
     processSteps: [
       {
         title: "Map + audit",

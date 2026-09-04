@@ -88,7 +88,7 @@ export function ApplicationForm({
         setResult({
           state: "error",
           message:
-            "We couldn't send that. If your file is large, compress it under 4MB — then refresh this page and try again.",
+            "We couldn't send that. If your file is large, compress it under 4MB, then refresh this page and try again.",
         });
       }
     });
@@ -103,7 +103,7 @@ export function ApplicationForm({
         </h3>
         <p className="text-neutral-600 leading-relaxed max-w-md mx-auto">
           We read every note and keep it on file. When a seat opens for
-          this role, you&apos;re first in line — we&apos;ll reach out.
+          this role, you&apos;re first in line. We&apos;ll reach out.
         </p>
       </div>
     );
@@ -196,7 +196,7 @@ export function ApplicationForm({
           name="portfolio"
           type="text"
           inputMode="url"
-          placeholder="A link to your work — e.g. yoursite.com"
+          placeholder="A link to your work, e.g. yoursite.com"
           className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
         />
       </div>
@@ -204,7 +204,7 @@ export function ApplicationForm({
       {/* Social accounts — all optional, fill in whichever apply */}
       <div>
         <p className="caption text-neutral-600 mb-2">
-          Social accounts <span className="text-neutral-500">(optional — whichever apply)</span>
+          Social accounts <span className="text-neutral-500">(optional, whichever apply)</span>
         </p>
         <div className="space-y-4">
           <input
@@ -213,7 +213,7 @@ export function ApplicationForm({
             type="text"
             inputMode="url"
             aria-label="LinkedIn profile"
-            placeholder="LinkedIn — linkedin.com/in/you"
+            placeholder="LinkedIn: linkedin.com/in/you"
             className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -222,7 +222,7 @@ export function ApplicationForm({
               name="instagram"
               type="text"
               aria-label="Instagram handle"
-              placeholder="Instagram — @handle"
+              placeholder="Instagram: @handle"
               className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
             />
             <input
@@ -230,7 +230,7 @@ export function ApplicationForm({
               name="tiktok"
               type="text"
               aria-label="TikTok handle"
-              placeholder="TikTok — @handle"
+              placeholder="TikTok: @handle"
               className="w-full bg-canvas border border-neutral-300 px-4 py-3 text-base text-ink focus:outline-none focus:border-ink transition-colors"
             />
           </div>
@@ -327,7 +327,7 @@ export function ApplicationForm({
         disabled={isPending}
         className="w-full sm:w-auto bg-ink text-canvas px-8 py-4 text-sm font-medium tracking-wide hover:bg-neutral-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isPending ? "Sending…" : `Join the pool — ${roleTitle}`}
+        {isPending ? "Sending…" : `Join the pool: ${roleTitle}`}
       </button>
     </form>
   );

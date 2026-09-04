@@ -312,7 +312,7 @@ export const jobs: Job[] = [
   },
   {
     slug: "intern-business-development",
-    title: "Intern — Business Development",
+    title: "Intern, Business Development",
     type: "Internship",
     location: "Tampa, FL (in-office or flexible)",
     summary:
@@ -347,7 +347,7 @@ export const jobs: Job[] = [
   },
   {
     slug: "intern-social-media",
-    title: "Intern — Social Media",
+    title: "Intern, Social Media",
     type: "Internship",
     location: "Tampa, FL (in-office or flexible)",
     summary:

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/careers" },
   title: "Careers",
   description:
-    "We're not always hiring, but we're always meeting people. Join the Surroundings Group talent pool — when a seat opens in your discipline, you're the first call.",
+    "We're not always hiring, but we're always meeting people. Join the Surroundings Group talent pool. When a seat opens in your discipline, you're the first call.",
 };
 
 /** Disciplines strip — the signature marquee device as a transition. */

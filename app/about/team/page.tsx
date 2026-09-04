@@ -34,7 +34,7 @@ export default function TeamPage() {
                   {m.photo ? (
                     <Image
                       src={m.photo}
-                      alt={`${m.name} — ${m.role}`}
+                      alt={`${m.name} · ${m.role}`}
                       fill
                       sizes="(min-width: 1024px) 384px, (min-width: 768px) 50vw, 100vw"
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"

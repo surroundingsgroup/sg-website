@@ -139,7 +139,7 @@ function ProjectCard({
           {project.image ? (
             <Image
               src={project.image}
-              alt={project.imageAlt ?? `${project.client} — ${project.vertical}`}
+              alt={project.imageAlt ?? `${project.client} · ${project.vertical}`}
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"

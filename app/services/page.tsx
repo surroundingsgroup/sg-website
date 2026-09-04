@@ -99,7 +99,7 @@ export default function ServicesIndexPage() {
               What we ship.
             </h2>
             <p className="text-base lg:text-lg text-neutral-700 mt-6 max-w-2xl leading-relaxed">
-              Each discipline runs as a real practice — senior team, defined
+              Each discipline runs as a real practice: senior team, defined
               deliverables, repeatable process. Pick one or combine them.
             </p>
           </header>

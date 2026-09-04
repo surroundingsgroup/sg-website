@@ -36,8 +36,8 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: {
     default:
-      "Surroundings Group — The creative partner behind the world's premium brands",
-    template: "%s — Surroundings Group",
+      "Surroundings Group: The creative partner behind the world's premium brands",
+    template: "%s · Surroundings Group",
   },
   description:
     "Surroundings Group is the creative partner behind the world's premium brands. Marine, real estate, hospitality, aviation, and more. Fully in-house. Backed by an owned-media network reaching 255M+ affluent viewers a year.",

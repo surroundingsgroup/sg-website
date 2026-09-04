@@ -34,8 +34,8 @@ export default function TermsPage() {
 
           <h2>Use of the site</h2>
           <p>
-            The content on this site — copy, design, photography, video, and
-            code — is the property of Surroundings Group unless otherwise
+            The content on this site (copy, design, photography, video, and
+            code) is the property of Surroundings Group unless otherwise
             credited. You may browse and share links freely; you may not
             republish, reproduce, or repurpose the content for commercial use
             without written permission.

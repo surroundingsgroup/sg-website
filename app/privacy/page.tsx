@@ -34,9 +34,9 @@ export default function PrivacyPage() {
             share about your project.
           </p>
           <p>
-            We also automatically collect standard web analytics data —
-            including IP address, browser type, pages visited, and referring
-            URLs — via Google Tag Manager. This data is aggregated and not
+            We also automatically collect standard web analytics data
+            (including IP address, browser type, pages visited, and referring
+            URLs) via Google Tag Manager. This data is aggregated and not
             tied to individual visitors.
           </p>
 

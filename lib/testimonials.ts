@@ -23,7 +23,7 @@ export const testimonials: Testimonial[] = [
   {
     slug: "novel-beach-park",
     quote:
-      "Surroundings Group took our occupancy from 12% to 52% in two months. Organic social became our fourth-largest traffic source — they understood our community in a way no other partner had.",
+      "Surroundings Group took our occupancy from 12% to 52% in two months. Organic social became our fourth-largest traffic source. They understood our community in a way no other partner had.",
     name: "Leasing Director",
     title: "NOVEL Beach Park",
     vertical: "Multifamily",
@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
   {
     slug: "bertram-yachts",
     quote:
-      "Big goals, limited resources — that&apos;s our world. Surroundings has been a trusted partner in helping us hit our content and social goals consistently, at the standard a Bertram client expects.",
+      "Big goals, limited resources. That&apos;s our world. Surroundings has been a trusted partner in helping us hit our content and social goals consistently, at the standard a Bertram client expects.",
     name: "Alex",
     title: "Marketing, Bertram Yachts",
     vertical: "Marine & Yachting",

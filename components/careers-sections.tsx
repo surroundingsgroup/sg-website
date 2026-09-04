@@ -93,7 +93,7 @@ export function CareersHero() {
           >
             We&apos;re not always hiring, but we&apos;re always meeting people.{" "}
             <span className="text-ink/55">
-              Get in our talent pool now — when a seat opens in your
+              Get in our talent pool now. When a seat opens in your
               discipline, you&apos;re the first call.
             </span>
           </motion.p>
@@ -188,12 +188,12 @@ export function OpenRolesList() {
             >
               Don&apos;t see your discipline?{" "}
               <Link
-                href={mailtoLink("Talent Pool — Introduction")}
+                href={mailtoLink("Talent Pool · Introduction")}
                 className="underline text-ink hover:text-neutral-500 transition-colors"
               >
                 Introduce yourself anyway
-              </Link>{" "}
-              — we keep every strong introduction on file.
+              </Link>
+              . We keep every strong introduction on file.
             </motion.p>
           </>
         ) : (
@@ -202,7 +202,7 @@ export function OpenRolesList() {
             className="border-t border-neutral-200 pt-10"
           >
             <p className="font-sans font-extrabold text-2xl lg:text-3xl text-ink mb-4 text-balance max-w-2xl">
-              We&apos;re between formal openings — but the pool never closes.
+              We&apos;re between formal openings, but the pool never closes.
             </p>
             <p className="text-sm text-neutral-700 max-w-md mb-6 leading-relaxed">
               If you&apos;re a vertical-fluent practitioner in creative,
@@ -210,7 +210,7 @@ export function OpenRolesList() {
               We keep every strong introduction on file for when a seat opens.
             </p>
             <Link
-              href={mailtoLink("Talent Pool — Introduction")}
+              href={mailtoLink("Talent Pool · Introduction")}
               className="caption inline-flex items-center gap-2 text-ink hover:text-neutral-500 transition-colors"
             >
               Introduce yourself
@@ -242,7 +242,7 @@ const culture = [
   },
   {
     title: "Collaborative by default.",
-    copy: "One in-house team — no silos, no handoffs to a freelance network. The people in the room are the people making the work.",
+    copy: "One in-house team: no silos, no handoffs to a freelance network. The people in the room are the people making the work.",
   },
   {
     title: "Culture is the point.",

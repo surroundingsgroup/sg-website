@@ -8,7 +8,7 @@ export const site = {
   wordmark: "SURROUNDINGS GROUP",
   tagline: "The creative partner behind the world's premium brands.",
   description:
-    "Full-service creative, content, and distribution for luxury brands — built by the team behind Nautical Network's 180M+ annual viewers.",
+    "Full-service creative, content, and distribution for luxury brands, built by the team behind Nautical Network's 180M+ annual viewers.",
   url: "https://surroundingsgroup.com",
 
   contact: {

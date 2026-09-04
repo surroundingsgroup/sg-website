@@ -22,7 +22,7 @@ export interface MapLocation {
 
 export const studioLocation: MapLocation = {
   city: "Tampa",
-  region: "Florida — Studio",
+  region: "Florida · Studio",
   coordinates: [-82.4572, 27.9506],
   weight: 3,
   type: "studio",

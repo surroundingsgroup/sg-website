@@ -36,7 +36,7 @@ export default function AboutPage() {
                 <span className="text-ink/55">
                   Most agencies pitch the same playbook to a watchmaker, a
                   $50M real estate development, and a private aviation
-                  operator — then wonder why none of the campaigns land.
+                  operator, then wonder why none of the campaigns land.
                 </span>
               </p>
               <p>
@@ -86,7 +86,7 @@ export default function AboutPage() {
             />
             <Principle
               title="In-house from concept to delivery"
-              body="Strategy, production, post, paid, PR — all under one roof, run by senior people on the pitch. No agency-of-record handoffs, no freelance networks pretending to be a team."
+              body="Strategy, production, post, paid, PR. All under one roof, run by senior people on the pitch. No agency-of-record handoffs, no freelance networks pretending to be a team."
             />
             <Principle
               title="Distribution included, not handed off"
@@ -94,7 +94,7 @@ export default function AboutPage() {
             />
             <Principle
               title="Long engagements, compounding outcomes"
-              body="Premium growth is a quarter-over-quarter game. We build audience, owned media, and retention systems that compound — not single campaigns chasing one quarter's number."
+              body="Premium growth is a quarter-over-quarter game. We build audience, owned media, and retention systems that compound, not single campaigns chasing one quarter's number."
             />
           </ol>
         </div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   {m.photo && (
                     <Image
                       src={m.photo}
-                      alt={`${m.name} — ${m.role}`}
+                      alt={`${m.name} · ${m.role}`}
                       fill
                       sizes="(min-width: 1024px) 380px, (min-width: 768px) 50vw, 100vw"
                       className="object-cover object-top"

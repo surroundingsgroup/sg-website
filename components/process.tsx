@@ -30,7 +30,7 @@ const steps: Step[] = [
     num: "03",
     name: "Launch",
     copy:
-      "We distribute across paid, owned, and earned channels — including our owned media network — to reach the audiences that actually buy.",
+      "We distribute across paid, owned, and earned channels (including our owned media network) to reach the audiences that actually buy.",
   },
   {
     num: "04",
@@ -51,7 +51,7 @@ export function Process() {
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-canvas/70 leading-relaxed max-w-3xl mx-auto">
             One in-house team, one accountable process. The same four phases
-            every time — calibrated to the category, never compromised.
+            every time, calibrated to the category, never compromised.
           </p>
         </header>
 

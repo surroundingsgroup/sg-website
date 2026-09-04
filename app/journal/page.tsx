@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/journal" },
   title: "The Studio Journal",
   description:
-    "Case studies, behind-the-scenes, client updates, and studio news from Surroundings Group — a premium creative agency for luxury brands.",
+    "Case studies, behind-the-scenes, client updates, and studio news from Surroundings Group, a premium creative agency for luxury brands.",
 };
 
 /** Editorial categories shown on the journal hub. */
@@ -23,7 +23,7 @@ const categories: {
   {
     label: "Case Studies",
     description:
-      "Long-form looks at finished engagements — what we set out to do, what we made, what it produced.",
+      "Long-form looks at finished engagements: what we set out to do, what we made, what it produced.",
     href: "/journal",
   },
   {
@@ -35,7 +35,7 @@ const categories: {
   {
     label: "Client Updates",
     description:
-      "Wins from active engagements — listings closed, occupancy hit, campaigns launched, audiences grown.",
+      "Wins from active engagements: listings closed, occupancy hit, campaigns launched, audiences grown.",
     href: "/journal",
   },
   {
@@ -74,7 +74,7 @@ export default function JournalPage() {
           <div className="lg:col-span-7 space-y-6">
             <p className="text-lg lg:text-xl text-ink leading-snug font-medium text-balance">
               The studio journal is where the work, the people, and the
-              point of view all live in one place — at the editorial
+              point of view all live in one place, at the editorial
               standard the categories we serve actually expect.
             </p>
             <p className="text-base lg:text-lg text-neutral-700 leading-relaxed">
@@ -104,7 +104,7 @@ export default function JournalPage() {
                       src={featured.image}
                       alt={
                         featured.imageAlt ??
-                        `${featured.client} — ${featured.vertical}`
+                        `${featured.client} · ${featured.vertical}`
                       }
                       fill
                       sizes="(min-width: 1024px) 60vw, 100vw"

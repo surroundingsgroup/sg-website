@@ -24,7 +24,7 @@ interface EditorialBillboardProps {
 
 export function EditorialBillboard({
   image = "/images/editorial/signature-banner.png",
-  imageAlt = "Surroundings Group — a creative agency for premium markets",
+  imageAlt = "Surroundings Group, a creative agency for premium markets",
   eyebrow,
   caption,
   showOverlay = false,
@@ -44,7 +44,7 @@ export function EditorialBillboard({
         ) : (
           <div className="absolute inset-0 flex items-center justify-center px-6">
             <span className="caption text-canvas/25 text-center">
-              SIGNATURE BANNER — DROP A FILE AT
+              SIGNATURE BANNER: DROP A FILE AT
               <br />
               /public/images/editorial/signature-banner.png
             </span>

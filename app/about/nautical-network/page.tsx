@@ -73,7 +73,7 @@ export default function NauticalNetworkPage() {
             <p className="text-base lg:text-lg text-neutral-700 mt-6 max-w-2xl leading-relaxed">
               Each account publishes into a distinct sub-audience inside
               premium marine. The channels don&apos;t compete with each
-              other — they extend the reach of every piece of content we
+              other. They extend the reach of every piece of content we
               publish.
             </p>
           </header>
@@ -144,7 +144,7 @@ export default function NauticalNetworkPage() {
       <section className="relative h-[50vh] min-h-[360px] max-h-[600px] overflow-hidden">
         <Image
           src="/images/work/moonraker/moonraker-01.jpg"
-          alt="Superyacht Moonraker underway — Nautical Network editorial coverage"
+          alt="Superyacht Moonraker underway, Nautical Network editorial coverage"
           fill
           sizes="100vw"
           quality={80}
@@ -217,7 +217,7 @@ export default function NauticalNetworkPage() {
             <Flow
               num="02"
               title="Cut for every channel"
-              body="Post produces hero film, brand-account cutdowns, paid variants, and editorial-network packages — each formatted for the audience and platform it lands in."
+              body="Post produces hero film, brand-account cutdowns, paid variants, and editorial-network packages, each formatted for the audience and platform it lands in."
             />
             <Flow
               num="03"
@@ -248,7 +248,7 @@ export default function NauticalNetworkPage() {
                 automotive, and luxury goods all have audiences hungry for
                 editorial coverage at a standard the existing outlets
                 don&apos;t serve. We&apos;re building owned-media properties
-                in each one — so every Surroundings Group client eventually
+                in each one, so every Surroundings Group client eventually
                 gets the same distribution leverage marine clients get
                 today.
               </p>

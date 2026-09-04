@@ -305,7 +305,7 @@ export function GlobalReachMap({
           <span className="inline-block w-2.5 h-2.5 rounded-full border border-taupe" aria-hidden />
           Areas served
         </span>
-        <span className="caption text-canvas/40">Hover a pin or a card — they’re linked</span>
+        <span className="caption text-canvas/40">Hover a pin or a card. They’re linked</span>
       </div>
 
       {/* Synced project rail */}

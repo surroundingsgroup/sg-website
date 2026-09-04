@@ -24,7 +24,7 @@ export function LogoWall() {
             <li
               key={client.name}
               className="w-full text-center opacity-50 hover:opacity-100 transition-opacity duration-500"
-              title={`${client.name} — ${client.vertical}`}
+              title={`${client.name} · ${client.vertical}`}
             >
               {client.logo ? (
                 // Real logo would render here once uploaded:

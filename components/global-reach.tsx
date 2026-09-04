@@ -80,7 +80,7 @@ export function GlobalReach({
               className="text-lg lg:text-xl text-canvas/70 leading-relaxed"
             >
               An owned-media audience on four continents, and a production
-              team that goes where the work is — from the Bahamas and the
+              team that goes where the work is, from the Bahamas and the
               Riviera to Dubai and Bangkok. When our clients launch, the
               world is already watching.
             </motion.p>

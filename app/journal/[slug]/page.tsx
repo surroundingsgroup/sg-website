@@ -27,7 +27,7 @@ export async function generateMetadata({
   const entry = featuredProjects.find((e) => e.slug === slug);
   if (!entry) return {};
   return {
-    title: `${entry.client} — ${journalTypeLabel(entry.type)}`,
+    title: `${entry.client} · ${journalTypeLabel(entry.type)}`,
     description: entry.headline,
     alternates: { canonical: entry.href },
   };

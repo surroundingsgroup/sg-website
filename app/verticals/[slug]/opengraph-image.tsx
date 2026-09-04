@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { verticals } from "@/lib/verticals";
 
-export const alt = "Surroundings Group — Industry";
+export const alt = "Surroundings Group · Industry";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -10,7 +10,7 @@ export function generateImageMetadata({ params }: { params: { slug: string } }) 
   return [
     {
       id: "default",
-      alt: v ? `Surroundings Group — ${v.name}` : "Surroundings Group",
+      alt: v ? `Surroundings Group · ${v.name}` : "Surroundings Group",
       size,
       contentType,
     },

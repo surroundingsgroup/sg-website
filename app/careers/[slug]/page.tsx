@@ -24,7 +24,7 @@ export async function generateMetadata({
   const job = getJob(slug);
   if (!job) return { title: "Careers" };
   return {
-    title: `${job.title} — Careers`,
+    title: `${job.title} · Careers`,
     description: job.summary,
     alternates: { canonical: `/careers/${slug}` },
   };
@@ -130,7 +130,7 @@ export default async function JobPage({
                       className="text-base lg:text-lg text-neutral-700 leading-relaxed flex gap-3"
                     >
                       <span aria-hidden className="text-neutral-500 shrink-0">
-                        —
+                        ·
                       </span>
                       <span>{item}</span>
                     </li>
@@ -182,8 +182,8 @@ export default async function JobPage({
               Sound like you?
             </h2>
             <p className="text-base lg:text-lg text-neutral-700 mt-5 max-w-2xl leading-relaxed">
-              Fill in as much as you can — email, phone, city, portfolio, and
-              your socials — attach your resume, and tell us what you&apos;d
+              Fill in as much as you can (email, phone, city, portfolio, and
+              your socials), attach your resume, and tell us what you&apos;d
               bring to the room. The more complete your profile, the faster we
               can reach out when a seat opens for this role.
             </p>

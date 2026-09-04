@@ -28,7 +28,7 @@ export function NauticalNetworkProof() {
           <div className="lg:col-span-5 lg:pt-10">
             <p className="text-lg lg:text-xl text-neutral-700 leading-relaxed">
               <span className="font-medium text-ink">Nautical Network</span> is
-              Surroundings Group&apos;s owned-media ecosystem — built from a
+              Surroundings Group&apos;s owned-media ecosystem, built from a
               single Instagram into the largest multi-platform boating outlet
               in the world.
             </p>
@@ -54,22 +54,22 @@ export function NauticalNetworkProof() {
             <Pillar
               num="01"
               title="Massive, qualified reach"
-              copy="20M+ monthly impressions across Nautical Network, Boats Gone Wild, Yachting Network, and partner channels. Not just views — buyers, brokers, and builders inside the engaged luxury marine community."
+              copy="20M+ monthly impressions across Nautical Network, Boats Gone Wild, Yachting Network, and partner channels. Not just views: buyers, brokers, and builders inside the engaged luxury marine community."
             />
             <Pillar
               num="02"
               title="Top-tier presence everywhere"
-              copy="Instagram, TikTok, YouTube Shorts, Facebook — high-performing on every platform that matters. Our audience consumes daily, across formats and devices."
+              copy="Instagram, TikTok, YouTube Shorts, Facebook. High-performing on every platform that matters. Our audience consumes daily, across formats and devices."
             />
             <Pillar
               num="03"
               title="Premium, high-intent community"
-              copy="Our subscribers are 46% Americas, 22% Europe, 16% Middle East — affluent, global, and motivated. The audience that buys what our clients sell."
+              copy="Our subscribers are 46% Americas, 22% Europe, 16% Middle East: affluent, global, and motivated. The audience that buys what our clients sell."
             />
             <Pillar
               num="04"
               title="Vertical authority, not generalism"
-              copy="100% focused on marine and luxury — insider knowledge, industry access, and authenticity that generalist media networks cannot replicate at this scale."
+              copy="100% focused on marine and luxury: insider knowledge, industry access, and authenticity that generalist media networks cannot replicate at this scale."
             />
           </ul>
         </div>
@@ -83,7 +83,7 @@ export function NauticalNetworkProof() {
                 Ten brands. One publishing system.
               </h3>
               <p className="text-base lg:text-lg text-canvas/70 leading-relaxed">
-                Each channel reaches a specific slice of the marine audience —
+                Each channel reaches a specific slice of the marine audience:
                 builders, brokers, lifestyle, sportfishing, performance, wake.
                 One distribution engine, every corner of the category.
               </p>
@@ -115,7 +115,7 @@ export function NauticalNetworkProof() {
             <p className="text-base lg:text-lg text-neutral-700 leading-relaxed">
               When the distribution channel is owned, every dollar of creative
               investment compounds. The film commissioned for your boat launch
-              isn&apos;t a one-time asset — it runs across an editorial
+              isn&apos;t a one-time asset; it runs across an editorial
               ecosystem reaching the exact audience that buys what you sell.
             </p>
           </div>

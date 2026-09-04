@@ -85,7 +85,7 @@ export function DiscoveryQualifier() {
             Pick a time.
           </h2>
           <p className="text-base lg:text-lg text-neutral-700 mt-4 max-w-2xl leading-relaxed">
-            Thanks — your details are on their way to the team. Grab whatever
+            Thanks, your details are on their way to the team. Grab whatever
             slot works below and you&apos;re set.
           </p>
         </header>

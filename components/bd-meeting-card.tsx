@@ -61,7 +61,7 @@ export function BdMeetingCard({
               {image ? (
                 <Image
                   src={image}
-                  alt={imageAlt ?? `${name} — ${title}`}
+                  alt={imageAlt ?? `${name} · ${title}`}
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover"

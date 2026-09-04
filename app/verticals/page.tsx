@@ -39,7 +39,7 @@ export default function VerticalsIndexPage() {
           </div>
           <div className="lg:col-span-7 space-y-6">
             <p className="text-lg lg:text-xl text-ink leading-snug font-medium text-balance">
-              When a brand engages us, they don&apos;t just get our team —
+              When a brand engages us, they don&apos;t just get our team:
               they get access to the brands, the locations, and the talent
               across every category we serve.
             </p>
@@ -47,7 +47,7 @@ export default function VerticalsIndexPage() {
               A yacht from our marine roster might anchor a real estate
               launch film. A private terminal stages a watchmaker&apos;s
               campaign. A car reveal lands at a member club. The work
-              compounds because the network compounds — and clients borrow
+              compounds because the network compounds, and clients borrow
               audience and access from each other in ways a single-vertical
               agency couldn&apos;t pull off.
             </p>
@@ -65,7 +65,7 @@ export default function VerticalsIndexPage() {
             </h2>
             <p className="text-base lg:text-lg text-neutral-700 mt-6 max-w-2xl leading-relaxed">
               These four categories carry the most active engagements at any
-              given time — and the deepest editorial and distribution muscle
+              given time, and the deepest editorial and distribution muscle
               we&apos;ve built.
             </p>
           </header>
@@ -113,23 +113,23 @@ export default function VerticalsIndexPage() {
             </h2>
             <p className="text-base lg:text-lg text-canvas/70 mt-6 leading-relaxed max-w-2xl">
               The audience overlap across our verticals is the reason this
-              works. We don&apos;t build distribution to one audience —
-              we build it to the audience that buys at the top end of every
+              works. We don&apos;t build distribution to one audience. We
+              build it to the audience that buys at the top end of every
               category we serve.
             </p>
           </header>
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             <CrossoverExample
               title="Aviation × Hospitality"
-              body="A charter operator&apos;s new aircraft entering service debuts at a member club gathering — covered across both our aviation channels and the hospitality property's social presence."
+              body="A charter operator&apos;s new aircraft entering service debuts at a member club gathering, covered across both our aviation channels and the hospitality property's social presence."
             />
             <CrossoverExample
               title="Marine × Luxury Goods"
-              body="A watchmaker stages a new collection on a superyacht we already film — pulling editorial coverage from Nautical Network's marine audience and the brand's own channels."
+              body="A watchmaker stages a new collection on a superyacht we already film, pulling editorial coverage from Nautical Network's marine audience and the brand's own channels."
             />
             <CrossoverExample
               title="Real Estate × Automotive"
-              body="A flagship development&apos;s grand opening features a curated exotic car activation — both engagements compound traffic and dwell time at the property's sales center."
+              body="A flagship development&apos;s grand opening features a curated exotic car activation. Both engagements compound traffic and dwell time at the property's sales center."
             />
           </ul>
         </div>

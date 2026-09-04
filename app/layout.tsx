@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Archivo, Castoro, DM_Sans } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { AnalyticsEvents } from "@/components/analytics-events";
-import { SmoothScroll } from "@/components/smooth-scroll";
-import { ClarkyTweaks } from "@/components/clarky-tweaks";
+import { SiteWidgets } from "@/components/site-widgets";
 import {
   JsonLd,
   organizationSchema,
@@ -72,17 +70,11 @@ export default function RootLayout({
       <GoogleTagManager gtmId={site.gtm} />
       <body className="min-h-screen flex flex-col bg-canvas text-ink">
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
-        <SmoothScroll />
         <AnalyticsEvents />
         {children}
-        {/* Clarky AI chat — loads after hydration so it doesn't block
-            initial paint. Renders its own floating widget; replaces
-            the earlier placeholder FloatingContact bubble. */}
-        <Script
-          src="https://clarky.ai/embed/54eff0a3-e16d-4ebd-a26d-c12fe344e043/chat.js"
-          strategy="afterInteractive"
-        />
-        <ClarkyTweaks />
+        {/* Smooth-scroll + Clarky AI chat — marketing pages only; disabled
+            inside /studio so they don't break the embedded Sanity editor. */}
+        <SiteWidgets />
       </body>
     </html>
   );

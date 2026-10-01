@@ -109,6 +109,9 @@ export interface Vertical {
   seo?: VerticalSeo;
   /** Search-intent H1 for the hero (defaults to `name`). */
   heroHeadline?: string;
+  /** CSS object-position for the hero image, e.g. "72% 50%". Matters most on
+   *  mobile, where the image is cropped tight; defaults to center. */
+  heroFocus?: string;
   /** A phrase within `intro` to accent with the amber underline. */
   introHighlight?: string;
   /** Per-service note on how that capability applies to this vertical.
@@ -344,6 +347,8 @@ export const verticals: Vertical[] = [
     tier: 1,
     image: "/images/verticals/private-aviation-card.jpg",
     imageAlt: "Private jet on tarmac with airstairs down and red carpet",
+    // Bias the hero crop toward the nose/cockpit (right side of the frame).
+    heroFocus: "72% 48%",
     intro:
       "We make the content and run the campaigns that move private aviation, from the jet on the market to the terminal that receives it. Listing packages that sell aircraft, brand films for charter and FBOs, launch work for OEMs, demand programs for service companies, all captured in-house. Then we put it in front of real buyers through the largest owned audience in premium lifestyle.",
     introHighlight: "the jet on the market",

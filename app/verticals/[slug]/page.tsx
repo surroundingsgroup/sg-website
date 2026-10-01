@@ -120,7 +120,8 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-40"
+          className="object-cover opacity-40"
+          style={{ objectPosition: vertical.heroFocus ?? "center" }}
           aria-hidden
         />
         <div

@@ -120,7 +120,7 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           fill
           priority
           sizes="100vw"
-          className="object-contain object-center opacity-40 sm:object-cover"
+          className="object-cover object-center opacity-40"
           aria-hidden
         />
         <div

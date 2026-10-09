@@ -68,6 +68,14 @@ export const project = defineType({
       rows: 4,
       description: "2–3 sentences shown under the title on the project page.",
     }),
+    defineField({
+      name: "heroImage",
+      title: "Hero image (optional)",
+      type: "image",
+      options: { hotspot: true },
+      description:
+        "Full-bleed banner at the top of the project page. Defaults to the first gallery image if left blank. Use a wide, strong shot.",
+    }),
 
     // ---- About the property (optional storytelling block) ----------------
     defineField({

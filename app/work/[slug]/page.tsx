@@ -51,15 +51,52 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
   const currentIndex = all.findIndex((c) => c.slug === slug);
   const next = all[(currentIndex + 1) % all.length];
 
+  // Full-bleed hero: explicit heroImage, else the gallery cover.
+  const hero = collection.heroImage ?? collection.images[0] ?? null;
+  // When the cover doubles as the hero, drop it from the gallery grid.
+  const galleryImages = collection.heroImage
+    ? collection.images
+    : collection.images.slice(1);
+
   return (
     <>
       <Nav />
 
-      <PageHero
-        eyebrow={collection.vertical.toUpperCase()}
-        title={collection.title}
-        subhead={collection.description}
-      />
+      {hero ? (
+        <section className="relative bg-ink text-canvas overflow-hidden flex items-end min-h-[60vh] sm:min-h-[76vh]">
+          <Image
+            src={hero.src}
+            alt={hero.alt || collection.title}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-55"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/25"
+            aria-hidden
+          />
+          <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12 pt-32 pb-14 lg:pb-20">
+            <p className="caption text-gold mb-5">
+              ◆ {collection.vertical.toUpperCase()}
+            </p>
+            <h1 className="font-sans font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-balance">
+              {collection.title}
+            </h1>
+            {collection.description && (
+              <p className="mt-6 max-w-2xl text-lg lg:text-xl text-canvas/80 leading-relaxed">
+                {collection.description}
+              </p>
+            )}
+          </div>
+        </section>
+      ) : (
+        <PageHero
+          eyebrow={collection.vertical.toUpperCase()}
+          title={collection.title}
+          subhead={collection.description}
+        />
+      )}
 
       {/* Walkthrough / brand film — cinematic 16:9, on-demand playback */}
       {collection.video && (
@@ -147,7 +184,7 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
           )}
 
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
-            {collection.images.map((image) => (
+            {galleryImages.map((image) => (
               <div key={image.src} className="mb-6 break-inside-avoid">
                 <Image
                   src={image.src}

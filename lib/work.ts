@@ -49,6 +49,8 @@ export interface WorkCollection {
   location?: string;
   href: string;
   images: WorkImage[];
+  /** Optional full-bleed hero image; falls back to the first gallery image. */
+  heroImage?: WorkImage;
   /** Optional walkthrough / brand film (16:9), shown above the gallery. */
   video?: VimeoRef;
   /** Vertical (9:16) social cuts, shown as a horizontal reel shelf. */

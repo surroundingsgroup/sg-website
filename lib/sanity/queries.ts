@@ -60,6 +60,7 @@ interface SanityProject {
   mainVideoUrl?: string;
   socialCutUrls?: string[];
   videoReels?: { url?: string; title?: string }[];
+  heroImage?: SanityImg;
   gallery?: SanityImg[];
   feedStills?: SanityImg[];
   coordinates?: { lat: number; lng: number };
@@ -83,6 +84,7 @@ const projectProjection = groq`{
   socialCutUrls,
   "videoReels": videoReels[]{ "url": asset->url, title },
   coordinates,
+  heroImage{ ..., "dims": asset->metadata.dimensions },
   gallery[]{ ..., "dims": asset->metadata.dimensions },
   feedStills[]{ ..., "dims": asset->metadata.dimensions }
 }`;
@@ -138,6 +140,7 @@ function toCollection(p: SanityProject): WorkCollection {
     location: p.location,
     href: `/work/${p.slug}`,
     images,
+    heroImage: p.heroImage ? (toWorkImage(p.heroImage, 2560) ?? undefined) : undefined,
     video: parseVimeo(p.mainVideoUrl),
     socialCuts: socialCuts.length ? socialCuts : undefined,
     verticalImages: verticalImages.length ? verticalImages : undefined,

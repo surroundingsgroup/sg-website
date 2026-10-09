@@ -287,9 +287,9 @@ export const verticals: Vertical[] = [
       headline: "We know multifamily because we're surrounded by it.",
       body: "Lease-ups, stabilized assets, owner-operators, and the residents deciding where to sign: we know what moves this market. The content, the social, and the paid that take a property from announcement to full occupancy, all in-house. We speak multifamily because we work in it every day.",
       stats: [
-        { value: "8", label: "premium markets we work inside" },
+        { value: "12+", label: "communities marketed across Florida" },
         { value: "255M+", label: "reached a year across our network" },
-        { value: "25+", label: "apartment communities served" },
+        { value: "7", label: "metro markets, Tampa to the Gulf Coast" },
       ],
     },
     audienceSegments: [
@@ -329,6 +329,71 @@ export const verticals: Vertical[] = [
       },
     ],
     relatedServiceSlugs: ["social", "growth", "studio", "digital"],
+
+    // ---- Traffic + conversion (Multifamily is a push vertical) ----
+    seo: {
+      title:
+        "Multifamily Marketing Agency · Lease-Up Content + Social | Surroundings Group",
+      description:
+        "Lease-up and lifestyle marketing for multifamily: content programs, resident-lifestyle social, and paid lead engines that drive occupancy. In-house production plus owned-media distribution from the team behind Nautical Network's 255M+ audience.",
+      keywords: [
+        "multifamily marketing",
+        "apartment marketing agency",
+        "lease-up marketing",
+        "apartment lease-up campaign",
+        "multifamily social media",
+        "resident lifestyle content",
+        "apartment leasing ads",
+        "build-to-rent marketing",
+        "property marketing agency",
+        "multifamily content agency",
+      ],
+    },
+    heroHeadline: "Marketing + content for multifamily.",
+    heroFocus: "50% 45%",
+    serviceNotes: {
+      studio:
+        "Property films, amenity and model-unit shoots, drone work, and resident-event coverage at a standard that makes the building feel lived-in before the first tour.",
+      social:
+        "Property-specific Instagram and TikTok we run end to end: lifestyle content, amenity reveals, and resident moments that keep a community in feed between tours.",
+      growth:
+        "Targeted Meta and Google campaigns routed into the leasing CRM, with reporting tied to tours and signed leases, not vanity reach.",
+      digital:
+        "Lease-up landing pages and property sites built to turn ad and social traffic into booked tours.",
+    },
+    faqs: [
+      {
+        q: "Who do you work with in multifamily?",
+        a: "Lease-up and pre-opening communities, stabilized properties competing on amenity and lifestyle, owner-operators with multiple assets, and branded and build-to-rent residences, from a single community to a full portfolio.",
+      },
+      {
+        q: "Can you run a lease-up from pre-opening to stabilization?",
+        a: "Yes. We build a continuous program that turns construction milestones, amenity reveals, and resident events into a steady social presence and a paid lead engine, timed to hit occupancy targets as doors open.",
+      },
+      {
+        q: "What kind of content do you produce for a community?",
+        a: "Property and amenity films, model-unit and lifestyle photography, drone work, resident-event coverage, and always-on vertical social content, all captured in-house at the standard prospective residents expect.",
+      },
+      {
+        q: "Do you handle the paid leasing campaigns too, or just content?",
+        a: "Both. We run the Meta and Google campaigns, route leads into your leasing CRM, and report on tours and signed leases. Content, social, and paid come from one in-house team, so the creative and the media work together.",
+      },
+      {
+        q: "We own several communities. Can you cover the whole portfolio?",
+        a: "Yes. We build one brand framework with repeatable templates and a content pipeline that scales across properties, so you get consistency and velocity without a separate agency for every community.",
+      },
+      {
+        q: "Where are you based and which markets do you cover?",
+        a: "We're based in Tampa, Florida and work with communities across the state, from Tampa and St. Petersburg to Sarasota, Delray Beach, and the Gulf Coast. Book a discovery call and we'll scope the work to your property.",
+      },
+    ],
+    cta: {
+      eyebrow: "◆ MULTIFAMILY",
+      headline: "Lease up faster with content residents can already picture.",
+      body: "Book a discovery call and we'll map the content, social, and paid that take your property to full occupancy.",
+      buttonLabel: "Book a multifamily discovery call",
+      buttonHref: "/contact#book",
+    },
   },
   {
     slug: "private-aviation",

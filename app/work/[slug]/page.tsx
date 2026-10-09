@@ -70,10 +70,10 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-55"
+            className="object-cover opacity-95"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/25"
+            className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/5"
             aria-hidden
           />
           <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12 pt-32 pb-14 lg:pb-20">

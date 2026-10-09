@@ -33,6 +33,8 @@ export interface VideoReel {
   /** Playable file URL from the Sanity CDN. */
   url: string;
   title?: string;
+  /** Poster still shown before playback (Sanity CDN image URL). */
+  poster?: string;
 }
 
 export interface WorkCollection {

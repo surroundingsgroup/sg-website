@@ -59,7 +59,7 @@ interface SanityProject {
   featured?: boolean;
   mainVideoUrl?: string;
   socialCutUrls?: string[];
-  videoReels?: { url?: string; title?: string }[];
+  videoReels?: { url?: string; title?: string; poster?: string }[];
   heroImage?: SanityImg;
   gallery?: SanityImg[];
   feedStills?: SanityImg[];
@@ -82,7 +82,7 @@ const projectProjection = groq`{
   featured,
   mainVideoUrl,
   socialCutUrls,
-  "videoReels": videoReels[]{ "url": asset->url, title },
+  "videoReels": videoReels[]{ "url": asset->url, title, "poster": poster.asset->url },
   coordinates,
   heroImage{ ..., "dims": asset->metadata.dimensions },
   gallery[]{ ..., "dims": asset->metadata.dimensions },
@@ -128,8 +128,10 @@ function toCollection(p: SanityProject): WorkCollection {
     .map((u) => parseVimeo(u))
     .filter((x): x is VimeoRef => Boolean(x));
   const reels = (p.videoReels ?? [])
-    .filter((r): r is { url: string; title?: string } => Boolean(r?.url))
-    .map((r) => ({ url: r.url, title: r.title }));
+    .filter((r): r is { url: string; title?: string; poster?: string } =>
+      Boolean(r?.url),
+    )
+    .map((r) => ({ url: r.url, title: r.title, poster: r.poster }));
 
   return {
     slug: p.slug,

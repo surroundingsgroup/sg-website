@@ -143,6 +143,14 @@ export const project = defineType({
               type: "string",
               title: "Caption (optional)",
             },
+            {
+              name: "poster",
+              type: "image",
+              title: "Thumbnail (optional)",
+              options: { hotspot: true },
+              description:
+                "Still shown before the reel plays. Defaults to the opening frame if left blank.",
+            },
           ],
         }),
       ],

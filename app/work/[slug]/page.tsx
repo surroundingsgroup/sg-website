@@ -285,7 +285,8 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
                 >
                   <div className="relative aspect-[9/16] rounded-2xl overflow-hidden border border-canvas/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85)] ring-1 ring-transparent transition duration-500 group-hover:-translate-y-1.5 group-hover:ring-gold/40">
                     <video
-                      src={reel.url + "#t=0.1"}
+                      src={reel.poster ? reel.url : reel.url + "#t=0.1"}
+                      poster={reel.poster || undefined}
                       controls
                       muted
                       playsInline

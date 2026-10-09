@@ -7,16 +7,33 @@ import Image from "next/image";
  * Background hero video with an instant poster.
  *
  * The Vimeo background iframe renders black while it loads and buffers, which
- * left the homepage hero blank for a beat. We now paint a sharp poster still
+ * left the homepage hero blank for a beat. We paint a sharp poster still
  * immediately (priority image) and keep the iframe invisible until the player
- * reports it's actually playing, then crossfade it in. A timeout fallback
- * guarantees the video reveals even if the player events never arrive.
+ * is actually rendering frames (`timeupdate` / `bufferend`), then crossfade it
+ * in over the poster. We subscribe a few times early to beat the player's
+ * `ready` handshake race, and a long timeout guarantees the reveal even if the
+ * events never arrive.
  */
 export function HeroVideo({ src, poster }: { src: string; poster: string }) {
   const ref = useRef<HTMLIFrameElement>(null);
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
+    function post(method: string, value?: string) {
+      try {
+        ref.current?.contentWindow?.postMessage(
+          JSON.stringify(value ? { method, value } : { method }),
+          "*",
+        );
+      } catch {
+        /* cross-origin before load — ignore */
+      }
+    }
+    function subscribe() {
+      post("addEventListener", "timeupdate");
+      post("addEventListener", "bufferend");
+      post("addEventListener", "playing");
+    }
     function onMessage(e: MessageEvent) {
       if (typeof e.origin === "string" && !e.origin.includes("vimeo.com")) return;
       let data: unknown = e.data;
@@ -28,25 +45,19 @@ export function HeroVideo({ src, poster }: { src: string; poster: string }) {
         }
       }
       const event = (data as { event?: string } | null)?.event;
-      if (event === "ready") {
-        // Subscribe to playback so we know when the first frame is live.
-        try {
-          ref.current?.contentWindow?.postMessage(
-            JSON.stringify({ method: "addEventListener", value: "playing" }),
-            "*",
-          );
-        } catch {
-          /* cross-origin — ignore */
-        }
-      }
-      if (event === "playing" || event === "timeupdate") setPlaying(true);
+      if (event === "ready") subscribe();
+      // Reveal only once the video is truly producing frames.
+      if (event === "timeupdate" || event === "bufferend") setPlaying(true);
     }
     window.addEventListener("message", onMessage);
-    // Fallback: never keep the video hidden longer than this.
-    const t = setTimeout(() => setPlaying(true), 2500);
+    // Beat the ready-race: fire the subscription a few times after mount.
+    const subs = [300, 900, 1800].map((d) => setTimeout(subscribe, d));
+    // Last-resort reveal so the hero is never stuck on the poster.
+    const fallback = setTimeout(() => setPlaying(true), 6000);
     return () => {
       window.removeEventListener("message", onMessage);
-      clearTimeout(t);
+      subs.forEach(clearTimeout);
+      clearTimeout(fallback);
     };
   }, []);
 

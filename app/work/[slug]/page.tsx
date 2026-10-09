@@ -72,9 +72,10 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
             sizes="100vw"
             className="object-cover opacity-90"
           />
-          {/* Legibility scrim — brighter at top, firmly dark behind the copy */}
+          {/* Legibility scrim — dark concentrated low behind the copy, image
+              stays bright up top */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/15"
+            className="absolute inset-0 bg-gradient-to-t from-ink from-0% via-ink/55 via-40% to-ink/5 to-90%"
             aria-hidden
           />
           <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12 pt-32 pb-16 lg:pb-24">

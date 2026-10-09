@@ -53,6 +53,7 @@ interface SanityProject {
   featured?: boolean;
   mainVideoUrl?: string;
   socialCutUrls?: string[];
+  videoReels?: { url?: string; title?: string }[];
   gallery?: SanityImg[];
   feedStills?: SanityImg[];
   coordinates?: { lat: number; lng: number };
@@ -68,6 +69,7 @@ const projectProjection = groq`{
   featured,
   mainVideoUrl,
   socialCutUrls,
+  "videoReels": videoReels[]{ "url": asset->url, title },
   coordinates,
   gallery[]{ ..., "dims": asset->metadata.dimensions },
   feedStills[]{ ..., "dims": asset->metadata.dimensions }
@@ -111,6 +113,9 @@ function toCollection(p: SanityProject): WorkCollection {
   const socialCuts = (p.socialCutUrls ?? [])
     .map((u) => parseVimeo(u))
     .filter((x): x is VimeoRef => Boolean(x));
+  const reels = (p.videoReels ?? [])
+    .filter((r): r is { url: string; title?: string } => Boolean(r?.url))
+    .map((r) => ({ url: r.url, title: r.title }));
 
   return {
     slug: p.slug,
@@ -124,6 +129,7 @@ function toCollection(p: SanityProject): WorkCollection {
     video: parseVimeo(p.mainVideoUrl),
     socialCuts: socialCuts.length ? socialCuts : undefined,
     verticalImages: verticalImages.length ? verticalImages : undefined,
+    reels: reels.length ? reels : undefined,
   };
 }
 

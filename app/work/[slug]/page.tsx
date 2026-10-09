@@ -160,7 +160,8 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
       </section>
 
       {/* Social cuts — vertical films + stills as a social-feed wall */}
-      {((collection.socialCuts?.length ?? 0) > 0 ||
+      {((collection.reels?.length ?? 0) > 0 ||
+        (collection.socialCuts?.length ?? 0) > 0 ||
         (collection.verticalImages?.length ?? 0) > 0) && (
         <section className="relative overflow-hidden bg-ink text-canvas py-20 lg:py-28 px-6 lg:px-12">
           {/* ambient glow — warm amber + taupe, low opacity */}
@@ -184,6 +185,28 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
               </p>
             </header>
             <ul className="flex gap-5 lg:gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory [justify-content:safe_center] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {collection.reels?.map((reel, i) => (
+                <li
+                  key={"reel-" + i}
+                  className="group shrink-0 w-[250px] sm:w-[270px] lg:w-[290px] snap-start"
+                >
+                  <div className="relative aspect-[9/16] rounded-2xl overflow-hidden border border-canvas/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85)] ring-1 ring-transparent transition duration-500 group-hover:-translate-y-1.5 group-hover:ring-gold/40">
+                    <video
+                      src={reel.url + "#t=0.1"}
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 h-full w-full bg-ink object-cover"
+                      aria-label={reel.title ?? `${collection.title} reel ${i + 1}`}
+                    />
+                    <div
+                      className="pointer-events-none absolute top-0 right-0 h-px w-12 bg-gold/60"
+                      aria-hidden
+                    />
+                  </div>
+                </li>
+              ))}
               {collection.socialCuts?.map((cut, i) => (
                 <li
                   key={"cut-" + cut.vimeoId + i}

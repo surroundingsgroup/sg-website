@@ -82,6 +82,26 @@ export const project = defineType({
       description: "Vertical 9:16 cuts shown in the 'Built for the feed' reel.",
     }),
     defineField({
+      name: "videoReels",
+      title: "Video reels — upload files (optional)",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "file",
+          options: { accept: "video/mp4" },
+          fields: [
+            {
+              name: "title",
+              type: "string",
+              title: "Caption (optional)",
+            },
+          ],
+        }),
+      ],
+      description:
+        "Upload vertical 9:16 reels directly (MP4) — they play natively in the 'Built for the feed' section. No Vimeo needed.",
+    }),
+    defineField({
       name: "gallery",
       title: "Gallery — drag to reorder",
       type: "array",

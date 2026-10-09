@@ -28,6 +28,13 @@ export interface VimeoRef {
   title?: string;
 }
 
+/** A natively-hosted video reel (file uploaded to Sanity, no Vimeo). */
+export interface VideoReel {
+  /** Playable file URL from the Sanity CDN. */
+  url: string;
+  title?: string;
+}
+
 export interface WorkCollection {
   slug: string;
   /** Display title, e.g. "M/Y Skyfall" */
@@ -48,6 +55,8 @@ export interface WorkCollection {
   socialCuts?: VimeoRef[];
   /** Vertical (portrait) stills, shown in the feed shelf beside the cuts. */
   verticalImages?: WorkImage[];
+  /** Natively-hosted vertical (9:16) reels (Sanity file assets, no Vimeo). */
+  reels?: VideoReel[];
 }
 
 export const workCollections: WorkCollection[] = [

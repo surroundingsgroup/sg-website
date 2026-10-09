@@ -8,8 +8,9 @@ import { Rule } from "@/components/rule";
 import Image from "next/image";
 import { verticals } from "@/lib/verticals";
 import { services } from "@/lib/services";
-import { getProjectsByVertical } from "@/lib/sanity/queries";
+import { getProjectsByVertical, getVerticalPins } from "@/lib/sanity/queries";
 import { PortfolioGrid } from "@/components/portfolio-grid";
+import { VerticalMap } from "@/components/vertical-map";
 import { site } from "@/lib/site";
 import {
   JsonLd,
@@ -78,6 +79,9 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
   const verticalWork = await getProjectsByVertical(vertical.slug);
   // Show up to 12; the grid itself renders 8 by default with an expand bar.
   const galleryCollections = verticalWork.slice(0, 12);
+  // Florida-focused location map — multifamily only (that roster is FL-wide).
+  const verticalPins =
+    vertical.slug === "multifamily" ? await getVerticalPins(vertical.slug) : [];
 
   const fullUrl = `${site.url.replace(/\/$/, "")}${vertical.href}`;
 
@@ -255,6 +259,9 @@ export default async function VerticalDetailPage({ params }: RouteParams) {
           )}
         </div>
       </section>
+
+      {/* Where we work — Florida location map (multifamily) */}
+      {verticalPins.length > 0 && <VerticalMap pins={verticalPins} />}
 
       {/* Why Surroundings — market-fluency statement (renders when set) */}
       {vertical.proof && (

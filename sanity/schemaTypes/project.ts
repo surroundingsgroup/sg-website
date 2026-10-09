@@ -68,6 +68,46 @@ export const project = defineType({
       rows: 4,
       description: "2–3 sentences shown under the title on the project page.",
     }),
+
+    // ---- About the property (optional storytelling block) ----------------
+    defineField({
+      name: "developer",
+      title: "Developer / owner (optional)",
+      type: "string",
+      description: 'e.g. "Strategic Property Partners"',
+    }),
+    defineField({
+      name: "architect",
+      title: "Architecture + design (optional)",
+      type: "string",
+      description: 'Architect or design firm, e.g. "Morris Adjmi Architects"',
+    }),
+    defineField({
+      name: "completed",
+      title: "Year / status (optional)",
+      type: "string",
+      description: 'e.g. "2024" or "Completed 2024"',
+    }),
+    defineField({
+      name: "residences",
+      title: "Residences / scale (optional)",
+      type: "string",
+      description: 'e.g. "395 residences · 36 stories"',
+    }),
+    defineField({
+      name: "neighborhood",
+      title: "Neighborhood / district (optional)",
+      type: "string",
+      description: 'e.g. "Water Street"',
+    }),
+    defineField({
+      name: "story",
+      title: "The story (optional)",
+      type: "text",
+      rows: 6,
+      description:
+        "A short narrative on the property's history, design, and place. Shown as the 'About the property' block on the project page.",
+    }),
     defineField({
       name: "mainVideoUrl",
       title: "Main film — Vimeo URL (optional)",

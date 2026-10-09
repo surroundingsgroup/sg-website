@@ -50,6 +50,12 @@ interface SanityProject {
   client?: string;
   location?: string;
   description?: string;
+  developer?: string;
+  architect?: string;
+  completed?: string;
+  residences?: string;
+  neighborhood?: string;
+  story?: string;
   featured?: boolean;
   mainVideoUrl?: string;
   socialCutUrls?: string[];
@@ -66,6 +72,12 @@ const projectProjection = groq`{
   client,
   location,
   description,
+  developer,
+  architect,
+  completed,
+  residences,
+  neighborhood,
+  story,
   featured,
   mainVideoUrl,
   socialCutUrls,
@@ -130,6 +142,12 @@ function toCollection(p: SanityProject): WorkCollection {
     socialCuts: socialCuts.length ? socialCuts : undefined,
     verticalImages: verticalImages.length ? verticalImages : undefined,
     reels: reels.length ? reels : undefined,
+    developer: p.developer,
+    architect: p.architect,
+    completed: p.completed,
+    residences: p.residences,
+    neighborhood: p.neighborhood,
+    story: p.story,
   };
 }
 
@@ -202,6 +220,34 @@ export async function portfolioPins(): Promise<PortfolioPin[]> {
       href: `/work/${p.slug}`,
       vertical: p.vertical,
     };
+    const existing = byCity.get(key);
+    if (existing) existing.projects.push(proj);
+    else
+      byCity.set(key, {
+        city: p.location || p.title,
+        coordinates: [p.coordinates.lng, p.coordinates.lat],
+        projects: [proj],
+      });
+  }
+  return Array.from(byCity.values());
+}
+
+/** Clustered pins for ONE vertical (by page slug) — drives the vertical map. */
+export async function getVerticalPins(
+  verticalSlug: string,
+): Promise<PortfolioPin[]> {
+  const labels = VERTICAL_TO_WORK_LABELS[verticalSlug] ?? [];
+  if (!labels.length) return [];
+  const raw: SanityProject[] = await sanityClient.fetch(
+    groq`*[_type == "project" && vertical in $labels && defined(coordinates)] | order(orderRank asc) ${projectProjection}`,
+    { labels },
+    { next: { revalidate: 60 } },
+  );
+  const byCity = new Map<string, PortfolioPin>();
+  for (const p of raw) {
+    if (!p.coordinates) continue;
+    const key = (p.location || p.slug).trim();
+    const proj = { title: p.title, href: `/work/${p.slug}`, vertical: p.vertical };
     const existing = byCity.get(key);
     if (existing) existing.projects.push(proj);
     else

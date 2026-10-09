@@ -57,6 +57,13 @@ export interface WorkCollection {
   verticalImages?: WorkImage[];
   /** Natively-hosted vertical (9:16) reels (Sanity file assets, no Vimeo). */
   reels?: VideoReel[];
+  /** Optional "About the property" storytelling block. */
+  developer?: string;
+  architect?: string;
+  completed?: string;
+  residences?: string;
+  neighborhood?: string;
+  story?: string;
 }
 
 export const workCollections: WorkCollection[] = [

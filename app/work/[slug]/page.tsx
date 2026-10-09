@@ -98,6 +98,54 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
               )}
             </dl>
           )}
+
+          {/* About the property — narrative + factsheet */}
+          {(collection.story ||
+            collection.developer ||
+            collection.architect ||
+            collection.completed ||
+            collection.residences ||
+            collection.neighborhood) && (
+            <div className="mb-12 lg:mb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <div className="lg:col-span-7">
+                <p className="caption text-gold mb-4">◆ ABOUT THE PROPERTY</p>
+                {collection.story &&
+                  collection.story
+                    .split("\n")
+                    .map((p) => p.trim())
+                    .filter(Boolean)
+                    .map((para, i) => (
+                      <p
+                        key={i}
+                        className="text-lg lg:text-xl leading-relaxed text-ink/80 [&:not(:first-child)]:mt-5"
+                      >
+                        {para}
+                      </p>
+                    ))}
+              </div>
+              <div className="lg:col-span-5 lg:pt-11">
+                <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-10 gap-y-5">
+                  {[
+                    { label: "Developer", value: collection.developer },
+                    { label: "Architecture + design", value: collection.architect },
+                    { label: "Completed", value: collection.completed },
+                    { label: "Residences", value: collection.residences },
+                    { label: "Neighborhood", value: collection.neighborhood },
+                  ]
+                    .filter((f) => f.value)
+                    .map((f) => (
+                      <div key={f.label} className="border-t border-neutral-200 pt-3">
+                        <dt className="caption text-neutral-500 mb-1">{f.label}</dt>
+                        <dd className="font-sans font-semibold text-base lg:text-lg text-ink">
+                          {f.value}
+                        </dd>
+                      </div>
+                    ))}
+                </dl>
+              </div>
+            </div>
+          )}
+
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
             {collection.images.map((image) => (
               <div key={image.src} className="mb-6 break-inside-avoid">

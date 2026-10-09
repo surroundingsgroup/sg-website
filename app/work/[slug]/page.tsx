@@ -70,21 +70,28 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-95"
+            className="object-cover opacity-90"
           />
+          {/* Legibility scrim — brighter at top, firmly dark behind the copy */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/5"
+            className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/15"
             aria-hidden
           />
-          <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12 pt-32 pb-14 lg:pb-20">
+          <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12 pt-32 pb-16 lg:pb-24">
             <p className="caption text-gold mb-5">
               ◆ {collection.vertical.toUpperCase()}
             </p>
-            <h1 className="font-sans font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-balance">
+            <h1
+              className="font-sans font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-balance"
+              style={{ textShadow: "0 2px 40px rgba(15,15,15,0.45)" }}
+            >
               {collection.title}
             </h1>
             {collection.description && (
-              <p className="mt-6 max-w-2xl text-lg lg:text-xl text-canvas/80 leading-relaxed">
+              <p
+                className="mt-6 max-w-2xl text-lg lg:text-xl text-canvas/90 leading-relaxed"
+                style={{ textShadow: "0 1px 24px rgba(15,15,15,0.6)" }}
+              >
                 {collection.description}
               </p>
             )}
@@ -112,7 +119,7 @@ export default async function WorkCollectionPage({ params }: RouteParams) {
       )}
 
       {/* Masonry gallery — CSS columns preserve each image's aspect ratio */}
-      <section className="bg-canvas pb-16 lg:pb-24 px-6 lg:px-12">
+      <section className="bg-canvas pt-14 lg:pt-20 pb-16 lg:pb-24 px-6 lg:px-12">
         <div className="max-w-[1200px] mx-auto">
           {/* Credit line — client + shoot location */}
           {(collection.client || collection.location) && (

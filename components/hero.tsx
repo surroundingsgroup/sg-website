@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { HeroVideo } from "@/components/hero-video";
 
 interface HeroProps {
   /** Vimeo video ID. Defaults to site config. */
@@ -36,28 +37,8 @@ export function Hero({
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-ink">
-      {/* Background video — sized to always cover the section */}
-      <div className="absolute inset-0 overflow-hidden">
-        <iframe
-          src={vimeoSrc}
-          title="Surroundings Group reel"
-          allow="autoplay; fullscreen; picture-in-picture"
-          aria-hidden="true"
-          tabIndex={-1}
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            width: "max(100%, calc(100vh * 16 / 9))",
-            height: "max(100%, calc(100vw * 9 / 16))",
-            minWidth: "100%",
-            minHeight: "100%",
-            transform: "translate(-50%, -50%)",
-            pointerEvents: "none",
-            border: 0,
-          }}
-        />
-      </div>
+      {/* Background video — instant poster, iframe fades in once playing */}
+      <HeroVideo src={vimeoSrc} poster="/hero-poster.jpg" />
 
       {/* Overlay — light wash up top so the video stays vivid, plus a
           bottom scrim so the text cluster reads on bright footage */}

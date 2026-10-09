@@ -69,6 +69,10 @@ export default function RootLayout({
     >
       <GoogleTagManager gtmId={site.gtm} />
       <body className="min-h-screen flex flex-col bg-canvas text-ink">
+        {/* Warm up the Vimeo connections so the hero reel starts sooner */}
+        <link rel="preconnect" href="https://player.vimeo.com" />
+        <link rel="preconnect" href="https://i.vimeocdn.com" />
+        <link rel="preconnect" href="https://f.vimeocdn.com" />
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <AnalyticsEvents />
         {children}

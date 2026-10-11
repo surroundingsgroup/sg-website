@@ -2324,7 +2324,9 @@ export const workCollections: WorkCollection[] = [
 
 /** Cover image for a collection (first image flagged cover, else first image) */
 export function collectionCover(c: WorkCollection): WorkImage {
-  return c.images.find((i) => i.cover) ?? c.images[0];
+  // Prefer the designated hero image (used on cards + OG); fall back to the
+  // gallery cover for projects without one.
+  return c.heroImage ?? c.images.find((i) => i.cover) ?? c.images[0];
 }
 
 /**
